@@ -1,0 +1,13 @@
+{
+  "name": "words-in-bloom-read-along",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "词间日和复刻与英文点读",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}
