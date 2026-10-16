@@ -10,7 +10,7 @@ page.on('pageerror',error=>errors.push(error.message));
 await mkdir('qa',{recursive:true});
 try{
  await page.goto('http://localhost:5173/',{waitUntil:'networkidle'});
- await page.getByRole('heading',{name:'把每一次阅读，'}).waitFor();
+ await page.getByRole('heading',{name:/从看懂/}).waitFor();
  await page.screenshot({path:'qa/desktop-home.png',fullPage:true});
  await page.getByRole('button',{name:/开始学习/}).click();
  await page.locator('.sentence-card').first().waitFor();
