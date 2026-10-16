@@ -1,8 +1,12 @@
 /** Worker handler shared by the production bundle and the local development server. */
-export function createSiteHandler(assets, speechChunks) {
+export function createSiteHandler(assets, speechChunks, readingAPI = null) {
   return {
-    async fetch(request) {
+    async fetch(request, env = {}) {
       const url = new URL(request.url);
+      if (readingAPI) {
+        const result = await readingAPI.fetch(request, env);
+        if (result) return result;
+      }
       if (!['GET', 'HEAD'].includes(request.method)) return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
       if (url.pathname === '/api/tts') {
         // Only integer identifiers into the bundled public reference catalog are
@@ -28,7 +32,7 @@ export function createSiteHandler(assets, speechChunks) {
       }
       let pathname;
       try { pathname = decodeURIComponent(url.pathname); } catch { return new Response('Invalid path', { status: 400 }); }
-      const asset = assets[pathname === '/' ? '/index.html' : pathname];
+      const asset = assets[pathname === '/' ? '/reading.html' : pathname];
       if (!asset) return new Response('Not found', { status: 404 });
       const bytes = Uint8Array.from(atob(asset.body), char => char.charCodeAt(0));
       return new Response(request.method === 'HEAD' ? null : bytes, { headers: { 'Content-Type': asset.type, 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' } });

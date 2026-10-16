@@ -1,5 +1,9 @@
 node_modules/
 dist/
 .qa/
+qa/
+.env
+.env.*
+!.env.example
 *.tar.gz
 *.log

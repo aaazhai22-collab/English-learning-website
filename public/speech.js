@@ -2,6 +2,7 @@
  * Browser speech synthesis with safe interruption and English voice selection.
  * The optional online fallback is restricted to exact public vocabulary entries
  * in the bundled data/catalog.json, copied from the user's public reference site.
+ * Reading Lab may explicitly opt into its separate, bounded text TTS endpoint.
  * The same-origin audio endpoint receives only public entry IDs, never caller text.
  *
  * const speech = createSpeechController({
@@ -47,7 +48,7 @@ function loadPublicOnlineAllowlist(browser) {
     .finally(() => { publicCatalogLoading = false; });
 }
 
-export function createSpeechController({ onStateChange, onError } = {}) {
+export function createSpeechController({ onStateChange, onError, allowReadingOnline = false } = {}) {
   const browser = typeof window === 'undefined' ? globalThis : window;
   const synth = browser.speechSynthesis;
   const Utterance = browser.SpeechSynthesisUtterance;
@@ -205,14 +206,15 @@ export function createSpeechController({ onStateChange, onError } = {}) {
       // Authorization is an exact match against public catalog text, before any
       // segmentation. A caller cannot opt in an arbitrary string or extend this set.
       const entryId = publicOnlineTexts?.get(cleanText);
-      const canUseOnline = onlineSupported && Number.isInteger(entryId);
+      const readingOnline = allowReadingOnline === true && /[A-Za-z]/.test(cleanText) && cleanText.length <= 12000;
+      const canUseOnline = onlineSupported && (Number.isInteger(entryId) || readingOnline);
       const finish = () => {
         emit({ speaking: false, status: 'idle', error: null });
         if (typeof onEnd === 'function') onEnd({ text: cleanText, lang: selectedLang });
       };
       const playOnline = () => {
         // Check again at the request boundary: unmatched text never leaves the page.
-        if (!canUseOnline || publicOnlineTexts?.get(cleanText) !== entryId || destroyed || token !== generation) return false;
+        if (!canUseOnline || (!readingOnline && publicOnlineTexts?.get(cleanText) !== entryId) || destroyed || token !== generation) return false;
         const chunks = splitOnlineText(cleanText);
         let chunkIndex = 0;
         let audio;
@@ -238,7 +240,9 @@ export function createSpeechController({ onStateChange, onError } = {}) {
           const playChunk = () => {
             if (!isCurrentAudio()) return false;
             // The server independently resolves this public ID; no text is submitted.
-            audio.src = `/api/tts?entry=${entryId}&lang=${encodeURIComponent(selectedLang)}&chunk=${chunkIndex}`;
+            audio.src = readingOnline
+              ? `/api/reading/tts?text=${encodeURIComponent(chunks[chunkIndex])}&lang=${encodeURIComponent(selectedLang)}`
+              : `/api/tts?entry=${entryId}&lang=${encodeURIComponent(selectedLang)}&chunk=${chunkIndex}`;
             audio.playbackRate = selectedRate;
             clearTimeout(audioLoadTimer);
             audioLoadTimer = setTimeout(() => onlineFailure('online-timeout'), 15000);

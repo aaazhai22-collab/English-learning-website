@@ -1,13 +1,13 @@
 {
   "name": "words-in-bloom-read-along",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "词间日和复刻与英文点读",
+  "description": "阅读工坊：双语精读、点词讲解、分类学习库与间隔复习，融合词间日和",
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
     "build": "node scripts/build.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check-all.mjs"
   }
 }

@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createSiteHandler } from './worker/index.js';
+import { createReadingAPI } from './worker/reading-api.js';
 import { buildPublicSpeechEntries, splitSpeechText } from './scripts/catalog-utils.mjs';
 
 // Node 24 can use the desktop's existing proxy for the optional online voice.
@@ -19,19 +20,26 @@ if (typeof http.setGlobalProxyFromEnv === 'function') {
 
 const root = fileURLToPath(new URL('./public/', import.meta.url));
 const catalog = JSON.parse(await readFile(path.join(root, 'data/catalog.json'), 'utf8'));
-const speechHandler = createSiteHandler({}, buildPublicSpeechEntries(catalog).map(splitSpeechText));
+const speechHandler = createSiteHandler({}, buildPublicSpeechEntries(catalog).map(splitSpeechText), createReadingAPI());
 const port = Number(process.env.PORT || 5173);
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.md': 'text/plain; charset=utf-8', '.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
 const server = http.createServer(async (request, response) => {
   try {
-    if (new URL(request.url, 'http://localhost').pathname === '/api/tts') {
-      const result = await speechHandler.fetch(new Request(`http://localhost:${port}${request.url}`, { method: request.method }));
+    if (new URL(request.url, 'http://localhost').pathname.startsWith('/api/')) {
+      const chunks = []; let length = 0;
+      for await (const chunk of request) {
+        length += chunk.length;
+        if (length > 100000) { response.writeHead(413, { 'Content-Type': 'application/json' }).end(JSON.stringify({error:'请求过大，请分篇导入。'})); return; }
+        chunks.push(chunk);
+      }
+      const body = ['GET','HEAD'].includes(request.method) ? undefined : Buffer.concat(chunks);
+      const result = await speechHandler.fetch(new Request(`http://${request.headers.host || `localhost:${port}`}${request.url}`, { method: request.method, headers: request.headers, body }), process.env);
       response.writeHead(result.status, Object.fromEntries(result.headers));
       response.end(Buffer.from(await result.arrayBuffer()));
       return;
     }
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-    const target = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
+    const target = path.resolve(root, `.${pathname === '/' ? '/reading.html' : pathname}`);
     const relative = path.relative(root, target);
     if (relative.startsWith('..') || path.isAbsolute(relative)) {
       response.writeHead(403).end('Forbidden');
