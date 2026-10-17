@@ -2,7 +2,9 @@
 
 现已融合「阅读工坊」作为网站首页：文章导入、零基础双语精读、点击查词、单词/短语/语法分类收藏、难题复习和间隔调度。原词间日和完整保留在 `/index.html`，原有浏览器词汇进度继续可用。新增功能、模型配置、联网范围与测试说明见 [READING-LAB.md](./READING-LAB.md)。
 
-按参考网站 https://wordsinbloom-43-128-57-209.sslip.io/ 复刻，保留原有视觉、花影动画、首页、词集库、沉浸学习、记忆卡片、测试、收藏与番茄钟。词库快照包含 40 个词集、2,557 个单词，资源均保存在项目内，无需连接原站后台。
+按参考网站 https://wordsinbloom-43-128-57-209.sslip.io/ 的词汇内容构建，保留词集库、沉浸学习、记忆卡片、测试、收藏与番茄钟。词库快照包含 40 个词集、2,557 个单词，资源均保存在项目内，无需连接原站后台。
+
+2026-10-18 改版：阅读工坊与词汇站统一为国际主义网格及 Apple 网页风格的白灰蓝主题，使用系统无衬线字体、清晰的文字层级和响应式留白。首页增加可直接点读的单词卡；手机端优先展示学习操作，精读和词汇页保留全部原有功能。系统语音启动超过四秒无反馈时自动尝试在线备用发音。
 
 ## 本地运行
 
@@ -25,7 +27,7 @@ npm run dev
 
 ## 文件
 
-`public/index.html` 为主页面，`public/read-aloud.js` 接入点读 UI，`public/speech.js` 管理发音，`public/read-aloud.css` 为新增样式。`public/data/catalog.json` 为参考站点公开词库快照。
+`public/reading.html` 与 `public/reading/app.js` 为阅读工坊，`public/reading/polished.css` 为阅读主题。`public/index.html` 为词汇页面，`public/international.css` 为词汇主题。`public/read-aloud.js` 接入词汇点读 UI，`public/speech.js` 管理发音。`public/data/catalog.json` 为参考站点公开词库快照。
 
 ```sh
 npm run check
