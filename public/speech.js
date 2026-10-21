@@ -59,6 +59,7 @@ export function createSpeechController({ onStateChange, onError, allowReadingOnl
   let destroyed = false;
   let generation = 0;
   let currentUtterance = null;
+  let nativeStartTimer = null;
   let currentAudio = null;
   let audioLoadTimer = null;
   let voices = [];
@@ -162,6 +163,8 @@ export function createSpeechController({ onStateChange, onError, allowReadingOnl
 
   const cancelCurrent = () => {
     generation += 1;
+    clearTimeout(nativeStartTimer);
+    nativeStartTimer = null;
     if (currentUtterance) {
       currentUtterance.onstart = null;
       currentUtterance.onend = null;
@@ -301,16 +304,24 @@ export function createSpeechController({ onStateChange, onError, allowReadingOnl
       if (selectedVoice) utterance.voice = selectedVoice;
 
       const isCurrent = () => !destroyed && generation === token && currentUtterance === utterance;
+      const clearNativeStartTimer = () => {
+        clearTimeout(nativeStartTimer);
+        nativeStartTimer = null;
+      };
       utterance.onstart = () => {
-        if (isCurrent()) emit({ speaking: true, status: 'speaking' });
+        if (!isCurrent()) return;
+        clearNativeStartTimer();
+        emit({ speaking: true, status: 'speaking' });
       };
       utterance.onend = () => {
         if (!isCurrent()) return;
+        clearNativeStartTimer();
         currentUtterance = null;
         finish();
       };
       utterance.onerror = (event) => {
         if (!isCurrent()) return;
+        clearNativeStartTimer();
         currentUtterance = null;
         const code = event.error || 'synthesis-failed';
         if (code === 'canceled' || code === 'interrupted') {
@@ -331,12 +342,26 @@ export function createSpeechController({ onStateChange, onError, allowReadingOnl
       };
 
       try {
+        // Some engines expose a voice but never start or emit an error. Bound
+        // that wait so the page can recover instead of staying busy forever.
+        nativeStartTimer = setTimeout(() => {
+          if (!isCurrent()) return;
+          nativeStartTimer = null;
+          utterance.onstart = null;
+          utterance.onend = null;
+          utterance.onerror = null;
+          currentUtterance = null;
+          try { synth.cancel(); } catch { /* Continue with the available fallback. */ }
+          if (canUseOnline) { playOnline(); return; }
+          fail('synthesis-timeout', '系统语音未能启动，请安装英语语音包或稍后重试。');
+        }, 4000);
         // Keep this synchronous with the click to preserve mobile user activation.
         if (synth.paused) synth.resume();
         synth.speak(utterance);
         return true;
       } catch (error) {
         if (isCurrent()) {
+          clearNativeStartTimer();
           currentUtterance = null;
           if (canUseOnline) return playOnline();
           return fail('synthesis-failed', '无法开始朗读，请检查浏览器的声音权限后重试。');

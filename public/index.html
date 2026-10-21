@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="international">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
-    <title>词间日和 · Words in Bloom · 点读版</title>
-    <meta name="description" content="在花影间记住每一个单词。40 个词集、2557 个单词，支持英文单词、例句和搭配点读。" />
+    <title>词间日和 · Words in Bloom</title>
+    <meta name="description" content="让英语成为日常。通过词集、英文点读、语境例句与记忆测试，建立自己的长期学习节奏。" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="read-aloud.css" />
     <style>
@@ -4128,6 +4128,7 @@
         .quiz-target-cursor { display: none !important; }
       }
     </style>
+    <link rel="stylesheet" href="international.css" />
   </head>
   <body class="motion-enabled">
     <img
@@ -4147,9 +4148,10 @@
       <div class="petal-field petal-field--front" id="petalFieldFront" aria-hidden="true"></div>
       <!-- 桌面端主导航；手机端使用页面底部导航。 -->
       <header class="topbar glass">
-        <div class="brand">词间日和<small>WORDS IN BLOOM</small></div>
-        <nav class="nav" id="topNav"></nav>
+        <a class="brand" href="/index.html" aria-label="词间日和，词汇学习首页">词间日和<small>WORDS IN BLOOM</small></a>
+        <nav class="nav" id="topNav" aria-label="词汇学习导航"></nav>
         <div class="tools">
+          <a class="reading-link" href="/">阅读工坊 <span aria-hidden="true">↗</span></a>
           <button
             class="icon-btn motion-toggle"
             id="motionBtn"
@@ -6315,19 +6317,18 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         $("#home").innerHTML = `
           <div class="hero">
             <div class="eyebrow">WORDS IN BLOOM</div>
-            <h1>词间日和</h1>
-            <div class="jp">ことばの記憶</div>
-            <p class="subtitle">Let the words you learn today settle, slowly, into memory.</p>
+            <h1>让英语，<br><span>成为日常。</span></h1>
+            <p class="subtitle">听见发音，读懂语境。<br class="mobile-break">从一个单词开始，积累真正属于你的英语。</p>
             <span class="date"><span>${dateText}</span><time class="beijing-time" id="beijingClock">--:--:--</time></span>
-          </div>
-          <div class="dashboard glass home-boot-surface" aria-busy="true" aria-label="正在载入学习数据">
-            <div class="home-boot-ring" aria-hidden="true"></div>
-            <div class="stats">${statSkeletons}</div>
           </div>
           <div class="home-boot-actions" aria-hidden="true">
             <i class="home-boot-action"></i><i class="home-boot-action"></i><i class="home-boot-action"></i>
           </div>
           <p class="home-boot-copy">正在整理今天的学习书桌…</p>
+          <div class="dashboard glass home-boot-surface" aria-busy="true" aria-label="正在载入学习数据">
+            <div class="home-boot-ring" aria-hidden="true"></div>
+            <div class="stats">${statSkeletons}</div>
+          </div>
           <div class="home-showcase" aria-hidden="true">
             <div class="glass home-boot-panel home-boot-surface"></div>
             <div class="home-grid">
@@ -6375,11 +6376,16 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         $("#home").innerHTML = `
           <div class="hero">
             <div class="eyebrow">WORDS IN BLOOM</div>
-            <h1>词间日和</h1>
-            <div class="jp">ことばの記憶</div>
-            <p class="subtitle">Let the words you learn today settle, slowly, into memory.</p>
+            <h1>让英语，<br><span>成为日常。</span></h1>
+            <p class="subtitle">听见发音，读懂语境。<br class="mobile-break">从一个单词开始，积累真正属于你的英语。</p>
             <span class="date"><span>${dateText}</span><time class="beijing-time" id="beijingClock">--:--:--</time></span>
           </div>
+          <div class="actions">
+            <button class="pill home-action primary" data-latest-study>学习最新词集 <span aria-hidden="true">→</span></button>
+            <button class="pill home-action" data-random>跨词集随机学习</button>
+            <button class="pill home-action" data-continue>继续上次进度</button>
+          </div>
+          <p class="home-read-hint"><span aria-hidden="true">◖))</span> 点击英文单词、例句或搭配，即可收听发音。</p>
           <div class="dashboard glass home-animated-card" data-home-reveal="dashboard">
             <div class="ring" style="--progress:${progress}%"><span>${countUpHtml(progress, "全部词集进度", "home-progress", "%")}<small>全部词集进度</small></span></div>
             <div class="stats">
@@ -6390,11 +6396,6 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
               <div class="stat"><b>${countUpHtml(count("review"), "待复习", "home-review")}</b><small>待复习</small></div>
               <div class="stat"><b>${countUpHtml(streak(), "连续学习", "home-streak", " 天")}</b><small>连续学习</small></div>
             </div>
-          </div>
-          <div class="actions">
-            <button class="pill home-action" data-latest-study>学习最新词集</button>
-            <button class="pill home-action" data-random>跨词集随机学习</button>
-            <button class="pill home-action" data-continue>继续上次进度</button>
           </div>
           <div class="recent">累计进度 ${progress}% · 收藏 ${ws.filter((word) => word.favorite).length} 个单词${last ? ` · 最近测试 ${last.rate}%` : ""}</div>
           <div class="home-showcase">
@@ -7254,7 +7255,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         state.flashIndex = (state.flashIndex + pool.length) % pool.length;
         const w = pool[state.flashIndex];
         $("#flash").innerHTML =
-          `${heading}<div class="flip-scene"><div class="flip-card ${state.flashFlipped ? "flipped" : ""}" data-flip role="button" tabindex="0" aria-label="${state.flashFlipped ? "返回单词" : "查看释义与例句"}" aria-pressed="${state.flashFlipped}"><div class="face front glass" aria-hidden="${state.flashFlipped}"><div class="study-meta">${w.collectionTitle} · ${state.flashIndex + 1}/${pool.length} · ${statusNames[w.status]} ${w.favorite ? "· 已收藏" : ""}</div><div class="word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="word-pos">${w.pos}</div><div style="color:#dfabb7;font-size:28px">❀</div></div><div class="face back glass" aria-hidden="${!state.flashFlipped}"><h3>${w.meaning}</h3>${examplesHtml(w, { forceAll: true })}</div></div></div><div class="flash-manual"><button class="pill" data-flash-step="-1" aria-label="上一个单词">← 上一个单词</button><span class="flash-position">${state.flashIndex + 1} / ${pool.length}</span><button class="pill" data-flash-step="1" aria-label="下一个单词">下一个单词 →</button></div><div class="actions"><button class="pill ${w.status === "review" ? "primary" : ""}" data-grade="review:${w.id}" aria-pressed="${w.status === "review"}">不认识</button><button class="pill ${w.status === "learning" ? "primary" : ""}" data-grade="learning:${w.id}" aria-pressed="${w.status === "learning"}">有印象</button><button class="pill ${w.status === "mastered" ? "primary" : ""}" data-grade="mastered:${w.id}" aria-pressed="${w.status === "mastered"}">已掌握</button></div><p class="shortcut">点击卡片或按空格切换内容 · ← 上一个单词 · → 下一个单词</p>`;
+          `${heading}<div class="flip-scene"><div class="flip-card ${state.flashFlipped ? "flipped" : ""}" data-flip role="button" tabindex="0" aria-label="${state.flashFlipped ? "返回单词" : "查看释义与例句"}" aria-pressed="${state.flashFlipped}"><div class="face front glass" aria-hidden="${state.flashFlipped}"><div class="study-meta">${w.collectionTitle} · ${state.flashIndex + 1}/${pool.length} · ${statusNames[w.status]} ${w.favorite ? "· 已收藏" : ""}</div><div class="word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="word-pos">${w.pos}</div><div class="flash-reveal-hint">点击空白处，揭晓释义 <span aria-hidden="true">↗</span></div></div><div class="face back glass" aria-hidden="${!state.flashFlipped}"><h3>${w.meaning}</h3>${examplesHtml(w, { forceAll: true })}</div></div></div><div class="flash-manual"><button class="pill" data-flash-step="-1" aria-label="上一个单词">← 上一个单词</button><span class="flash-position">${state.flashIndex + 1} / ${pool.length}</span><button class="pill" data-flash-step="1" aria-label="下一个单词">下一个单词 →</button></div><div class="actions"><button class="pill ${w.status === "review" ? "primary" : ""}" data-grade="review:${w.id}" aria-pressed="${w.status === "review"}">不认识</button><button class="pill ${w.status === "learning" ? "primary" : ""}" data-grade="learning:${w.id}" aria-pressed="${w.status === "learning"}">有印象</button><button class="pill ${w.status === "mastered" ? "primary" : ""}" data-grade="mastered:${w.id}" aria-pressed="${w.status === "mastered"}">已掌握</button></div><p class="shortcut">点击卡片空白处或按空格切换内容 · ← 上一个单词 · → 下一个单词</p>`;
       }
       function quizFilteredPool() {
         const allWords = vocabularyData.map(getWord);
