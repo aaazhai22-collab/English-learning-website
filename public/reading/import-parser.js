@@ -28,7 +28,12 @@ function halfWidthMarkers(line) {
 }
 
 function questionMarker(line) {
+  // An OCR scan can lose the period in a compact cloze row such as
+  // “18 [A] relaxing [B] surprising …”. Only accept a bare numeral when
+  // its following content visibly starts with option A, never normal prose.
+  const compact = line.match(/^\s*(\d{1,3})\s+(?=(?:\[\s*A\s*\]|[（(]\s*A\s*[)）]|A\s*[.)、．:：）]))(.*)$/);
   const match = line.match(/^\s*(?:(?:Question|Q)\s*)?(?:(\d{1,3})\s*[.)、．:：）]|[（(]\s*(\d{1,3})\s*[)）]|\[\s*(\d{1,3})\s*\])\s*(.*)$/i);
+  if (!match && compact) { const number=Number(compact[1]); return number>0&&number<=300?{number,text:compact[2]}:null; }
   if (!match) return null;
   const number = Number(match[1] || match[2] || match[3]);
   return number > 0 && number <= 300 ? { number, text: match[4] } : null;
@@ -102,8 +107,12 @@ function splitUnits(text) {
     if (/^(?:\d{4}\s*年.*(?:研究生.*考试|考研英语.*(?:真题|试卷))|全国硕士研究生.*考试|英语\s*[（(]\s*[一二12ⅠⅡ]+\s*[)）]\s*(?:真题|试卷)?|Part\s+[A-Z])\s*$/i.test(line)) { warnings.push('已排除页眉或试卷分区标题；原始文本仍保留供校对'); continue; }
     if (/^(?:第\s*\d+\s*页(?:\s*[\/共]\s*\d+\s*页?)?|Page\s+\d+(?:\s*(?:of|\/)\s*\d+)?)$/i.test(line)) { warnings.push('已排除独立页码；请在原始文本中核对分页处是否接续'); continue; }
     if (/^\d{1,3}$/.test(line)) {
-      const next = lines.slice(index + 1).find(value => value.trim()) || '';
-      if (optionTokens(halfWidthMarkers(next.trim())).length) line += '.';
+      const next = halfWidthMarkers((lines.slice(index + 1).find(value => value.trim()) || '').trim());
+      const tokens = optionTokens(next);
+      // Page numbers sit between a numbered row and the next row, or between
+      // option B and its continuation C on another page. Do not promote those
+      // numbers into new questions. A genuinely wrapped number starts with A.
+      if (!questionMarker(next) && tokens[0]?.index === 0 && tokens[0].letter === 'A') line += '.';
       else { warnings.push('已排除独立页码；请在原始文本中核对分页处是否接续'); continue; }
     }
     current.rawLines.push(original);
@@ -160,13 +169,15 @@ function parseQuestion(block, kind, answers, warnings) {
 
 function normalizeClozeBlanks(body, numbers, warnings) {
   let result = body.replace(/_+\s*(\d{1,3})\s*_+/g, '__$1__');
+  result = result.replace(/(?<![\d_])\b(\d{1,3})\s*_+/g, (match, number) => numbers.includes(Number(number)) ? `__${number}__` : match);
   result = result.replace(/\[\s*(\d{1,3})\s*\]|[（(]\s*(\d{1,3})\s*[)）]/g, (match, a, b) => numbers.includes(Number(a || b)) ? `__${Number(a || b)}__` : match);
   // OCR sometimes sees only the numeral on an underline. Infer it only when
   // each requested numeral occurs exactly once and they occur in source order.
-  if (numbers.length > 1 && !/__\d+__/.test(result)) {
-    const candidates = [...result.matchAll(/\b\d{1,3}\b/g)].filter(match => numbers.includes(Number(match[0])));
-    if (candidates.length === numbers.length && candidates.every((match, index) => Number(match[0]) === numbers[index])) {
-      result = result.replace(/\b\d{1,3}\b/g, match => numbers.includes(Number(match)) ? `__${Number(match)}__` : match);
+  if (numbers.length > 1) {
+    const pattern = /__\d{1,3}__|\b\d{1,3}\b/g;
+    const candidates = [...result.matchAll(pattern)].filter(match => numbers.includes(Number(match[0].replaceAll('_',''))));
+    if (candidates.length === numbers.length && candidates.every((match, index) => Number(match[0].replaceAll('_','')) === numbers[index])) {
+      result = result.replace(pattern, match => numbers.includes(Number(match.replaceAll('_',''))) ? `__${Number(match.replaceAll('_',''))}__` : match);
       warnings.push('已将完形正文中连续对应的题号数字整理为填空标记，请对照原图核实');
     }
   }
@@ -175,9 +186,19 @@ function normalizeClozeBlanks(body, numbers, warnings) {
 
 function parseUnit(unit, fallbackTitle, allowShort) {
   const bodyLines = [], blocks = [], warnings = [];
+  const clozeContext = unit.kind === 'cloze' || /_+\s*\d+\s*_+/.test(unit.lines.join('\n'));
   let current = null;
-  for (const line of unit.lines) {
-    const marker = questionMarker(line);
+  for (let lineIndex=0;lineIndex<unit.lines.length;lineIndex++) {
+    const line = unit.lines[lineIndex];
+    let marker = questionMarker(line);
+    if (marker && clozeContext) {
+      const ownOptions = optionTokens(marker.text);
+      const nextLine = unit.lines.slice(lineIndex+1).find(value=>value.trim()) || '';
+      const nextOptions = optionTokens(nextLine);
+      // A numbered blank that OCR turns into “5. You might …” remains body
+      // text. Actual cloze choices must visibly start with an A option here.
+      if (!(ownOptions[0]?.letter === 'A' && ownOptions[0].index === 0) && !(nextOptions[0]?.letter === 'A' && nextOptions[0].index === 0 && !questionMarker(nextLine))) marker = null;
+    }
     if (marker) {
       if (current) blocks.push(current);
       current = { number: marker.number, lines: [marker.text], rawLines: [line] };
@@ -186,6 +207,9 @@ function parseUnit(unit, fallbackTitle, allowShort) {
   }
   if (current) blocks.push(current);
   let body = bodyLines.join('\n').trim();
+  // An image boundary can introduce a blank line in the middle of one sentence.
+  // Join only a lower-case continuation after an unfinished preceding line.
+  body = body.replace(/([A-Za-z,;])\s*\n\s*\n(?=[a-z])/g, '$1 ');
   const count = (body.match(/[A-Za-z]+/g) || []).length;
   if (!count || (!allowShort && count < 15)) throw new Error(`${unit.title || fallbackTitle || '这篇材料'}没有足够英文正文；请把文章及接续图片一起导入，不要只上传选项页`);
   const kind = unit.kind === 'cloze' || /_+\s*\d+\s*_+/.test(body) || (blocks.length > 1 && blocks.slice(0, 2).every(block => optionTokens(block.lines[0]).length)) ? 'cloze' : 'reading';

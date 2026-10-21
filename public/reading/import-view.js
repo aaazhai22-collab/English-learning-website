@@ -3,7 +3,7 @@ import { normalizePassage, parseReadingCollection, flatten, wordsCount, escapeHT
 const IMAGE_ACCEPT = '.jpg,.jpeg,.png,.webp,.bmp,image/jpeg,image/png,image/webp,image/bmp';
 const btn = (text, action, attrs = '', kind = 'ghost') => `<button type="button" class="btn ${kind}" data-action="${action}" ${attrs}>${text}</button>`;
 const fingerprint = p => JSON.stringify([flatten(p).map(s=>s.en.replace(/\s+/g,' ').trim()),p.questions.map(q=>[q.stem,q.options])]);
-const message = err => err?.name === 'AbortError' ? '已取消识别，已完成的文字仍可校对。' : err?.message || '这一步没有完成，请重试。';
+const message = err => err?.name === 'AbortError' ? '已取消识别，已完成的文字仍可校对。' : err?.name === 'TimeoutError' ? '处理超时，当前材料已保留，请稍后重试。' : err?.message || '这一步没有完成，请重试。';
 
 export function createImportController({ shell, footer, toast, api, getProfile, getAI, savePassages, startReading, template, downloadJSON }) {
   const draftKey='reading-lab-import-draft-v1';
@@ -43,6 +43,7 @@ export function createImportController({ shell, footer, toast, api, getProfile, 
     try{
       const parsed=parseReadingCollection(d.text,d.title);d.previews=parsed.passages;d.warnings=[...new Set([...(parsed.warnings||[]),...d.ocrWarnings])];
       for(const p of d.previews){
+        p.answerStatus='unverified';
         if(d.source)Object.assign(p,{source:d.source.source,sourceUrl:d.source.sourceUrl,sourceType:'web'});
         if(d.ocrWarnings.length){p.warnings=[...new Set([...(p.warnings||[]),...d.ocrWarnings])];p.incomplete=true;p.answerStatus='unverified';}
       }
@@ -114,7 +115,7 @@ export function createImportController({ shell, footer, toast, api, getProfile, 
       if(p._bodyDraft!==undefined){
         if(p._bodyDraft!==bodyText(p)){
           p.paragraphs=normalizePassage({...p,questions:[],paragraphs:p._bodyDraft.split(/\n\s*\n/).filter(x=>x.trim())}).paragraphs;
-          p.analysisMode='rules';p.answerStatus='unverified';
+          p.analysisMode='rules';p.answerStatus='unverified';p.summary='';p.structure=[];p.vocabulary=[];
           for(const q of p.questions){q.explanation='';q.evidence=[];q.distractors=[];q.paraphrase=[];}
         }
         delete p._bodyDraft;
@@ -162,13 +163,18 @@ export function createImportController({ shell, footer, toast, api, getProfile, 
     if(el.matches('[data-import-field]')){
       const p=d.previews[Number(el.dataset.passage)];if(!p)return;const q=p.questions[Number(el.dataset.question)];
       if(el.dataset.importField==='title')p.title=el.value;
-      else if(el.dataset.importField==='body')p._bodyDraft=el.value;
-      else if(el.dataset.importField==='stem'){if(q.stem!==el.value)p.answerStatus='unverified';q.stem=el.value;}
-      else if(el.dataset.importField==='option'){const i=Number(el.dataset.option);if(q.options[i]!==el.value)p.answerStatus='unverified';q.options[i]=el.value;}
+      else if(el.dataset.importField==='body'){if(el.value!==bodyText(p))markEdited(p,Number(el.dataset.passage));p._bodyDraft=el.value;}
+      else if(el.dataset.importField==='stem'){if(q.stem!==el.value){markEdited(p,Number(el.dataset.passage),q);q.stemZh='';}q.stem=el.value;}
+      else if(el.dataset.importField==='option'){const i=Number(el.dataset.option);if(q.options[i]!==el.value){markEdited(p,Number(el.dataset.passage),q);q.optionsZh=[];}q.options[i]=el.value;}
     }else if(el.matches('.preview-answer')){const p=d.previews[Number(el.dataset.passage)];if(p)p.questions[Number(el.dataset.index)].answer=el.value||null;}
     else if(el.matches('.confirm-answers')){const p=d.previews[Number(el.dataset.index)];if(p)p.answerStatus=el.checked&&p.questions.some(q=>q.answer)?'verified':'unverified';}
     else return;
     if(persist){d.revision++;remember();}
+  }
+  function markEdited(p,index,q=null){
+    p.answerStatus='unverified';
+    const checkbox=document.querySelector(`.confirm-answers[data-index="${index}"]`);if(checkbox)checkbox.checked=false;
+    if(q){q.explanation='';q.evidence=[];q.distractors=[];q.paraphrase=[];p.analysisMode='rules';}
   }
   function handleInput(el){
     if(d.busy)return;

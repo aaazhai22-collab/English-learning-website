@@ -132,6 +132,22 @@ const duplicateChoice = parseReadingText(`${english}\n\n21.Question?\n[A]First\n
 assert.equal(duplicateChoice.questions[0].incomplete, true);
 assert.equal(duplicateChoice.questions[0].answer, null);
 
+// Actual scan artifacts must not become invented questions: a numbered blank
+// at the start of a body line, a footer before the next option-table row, a
+// footer before option C, and a cloze row whose period was lost by OCR.
+const scannedCloze = parseReadingCollection(`Section I Use of English\n\nPeople ask for help when they need it because working together can make difficult tasks easier for everyone. Asking takes 1 _.\n2. They can learn useful ideas and solve problems together.\n\n1. [A] first [B] second [C] third [D] fourth\n1\n\n2 [A] fifth [B] sixth [C] seventh [D] eighth`);
+assert.deepEqual(scannedCloze.passages[0].questions.map(q=>q.number),[1,2]);
+assert.deepEqual(scannedCloze.passages[0].questions[1].options,['fifth','sixth','seventh','eighth']);
+assert.equal(scannedCloze.passages[0].questions.every(q=>!q.incomplete),true);
+assert.match(flatten(scannedCloze.passages[0]).map(s=>s.en).join(' '),/__2__\. They can learn/);
+const scannedContinuation = parseReadingText(`${english}\n\n24. What is important?\n[A] Evidence\n[B] Context\n5\n\n[C] Guessing\n[D] Colors`);
+assert.deepEqual(scannedContinuation.questions.map(q=>q.number),[24]);
+assert.deepEqual(scannedContinuation.questions[0].options,['Evidence','Context','Guessing','Colors']);
+assert.equal(scannedContinuation.questions[0].incomplete,false);
+const scannedBody = parseReadingText('Text 2\n\nPeople working together can understand the needs of local\n\n4\n\nleaders, who support their communities and help everyone to learn.');
+assert.equal(scannedBody.paragraphs.length,1);
+assert.match(flatten(scannedBody).map(s=>s.en).join(' '),/local leaders/);
+
 // Empty/oversized inputs fail visibly, and saved import metadata survives a
 // backup validation round trip rather than disappearing after a reload.
 assert.throws(() => parseReadingText('Passage: Hello\nNot enough words.'));

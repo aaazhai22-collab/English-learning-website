@@ -51,7 +51,9 @@ async function withPage(name,callback){
   await page.route('**/api/reading/status',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(apiStatus)}));
   try{
     await page.goto(base+'/#/import',{waitUntil:'networkidle'});
+    assert.doesNotMatch(await page.locator('body').innerText(),/<<<<<<<|=======|>>>>>>>/,'Rendered page must not expose unresolved merge conflict markers');
     await callback(page,context);
+    assert.doesNotMatch(await page.locator('body').innerText(),/<<<<<<<|=======|>>>>>>>/,'Rendered result must not expose unresolved merge conflict markers');
     assert.deepEqual(pageErrors,[],`Unexpected browser exceptions: ${pageErrors.join('; ')}`);
   }catch(error){
     await page.screenshot({path:path.join(output,'failed-'+name.replace(/[^a-z0-9]+/gi,'-').slice(0,90)+'.png'),fullPage:true}).catch(()=>{});
@@ -178,6 +180,65 @@ try{
     assert.equal(material.questions[0].number,26);assert.equal(material.answerStatus,'unverified');
   });
 
+  await check('keyboard file button, Markdown, draft editing, and export round trips',async page=>{
+    await page.locator('#import-mode-text').click();
+    const chooserPromise=page.waitForEvent('filechooser');
+    await action(page,'choose-text').focus();await page.keyboard.press('Enter');
+    const chooser=await chooserPromise;
+    await chooser.setFiles({name:'lesson.md',mimeType:'text/markdown',buffer:Buffer.from(text('MARKDOWN MATERIAL',26))});
+    await preview(page).waitFor();
+    assert.equal(await page.locator('.preview-question').count(),1);
+    await page.locator('.preview-title').fill('EDITED MARKDOWN MATERIAL');
+    await page.locator('#import-mode-images').click();await page.locator('#import-mode-text').click();
+    assert.equal(await page.locator('.preview-title').inputValue(),'EDITED MARKDOWN MATERIAL','Switching import modes must retain reviewed titles');
+    const rawDownload=page.waitForEvent('download');await action(page,'export-import-text').click();
+    assert.match(await readFile(await(await rawDownload).path(),'utf8'),/MARKDOWN MATERIAL/);
+    const jsonDownload=page.waitForEvent('download');await action(page,'export-import-json').click();
+    const exported=JSON.parse(await readFile(await(await jsonDownload).path(),'utf8'));
+    assert.equal(exported.passages.length,1);assert.equal(exported.passages[0].title,'EDITED MARKDOWN MATERIAL');
+    assert.equal(exported.passages[0].questions[0].number,26);
+    await page.locator('#import-file').setInputFiles({name:'round-trip.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(exported))});
+    await preview(page).waitFor();
+    const saved=await savePreview(page);assert.equal(saved.imported[0].title,'EDITED MARKDOWN MATERIAL');
+    await page.goto(base+'/#/import');await enterText(page,JSON.stringify(exported));await savePreview(page);
+    assert.equal((await readStored(page)).imported.length,1,'Re-importing the same material must preserve the original learning record');
+  });
+
+  await check('incomplete questions stay visible without requiring an invented answer',async page=>{
+    const source=passage('INCOMPLETE MATERIAL',26);
+    source.questions.push({number:27,stem:'Which option is missing?',options:['First','Second','Third',''],incomplete:true,answer:null});
+    await enterText(page,JSON.stringify(source));
+    assert.match(await preview(page).innerText(),/缺|补全|不完整/);
+    await savePreview(page);await page.getByRole('tab',{name:'阅读练习',exact:true}).click();
+    assert.match(await page.locator('#question-q1 .question-number').innerText(),/26/,'Reader retains the printed source question number');
+    const incompleteInputs=page.locator('#question-q2 input[type="radio"]');
+    for(let i=0;i<await incompleteInputs.count();i++)assert.ok(await incompleteInputs.nth(i).isDisabled(),'A missing-option question must not require guessing');
+    assert.match(await page.locator('#question-q2').innerText(),/缺|补全|不完整/);
+    await page.locator('input[data-question="q1"][value="A"]').check({force:true});await action(page,'submit').click();
+    await page.locator('.result-strip').waitFor();assert.match(await page.locator('.result-strip').innerText(),/待核实|不计分|未核实/);
+    const saved=await readStored(page),attempt=Object.values(saved.attempts).flat().at(-1);
+    assert.deepEqual(Object.keys(attempt.answers),['q1']);assert.equal(attempt.answers.q1.correct,null);
+  });
+
+  await check('answer key requires manual confirmation before scoring',async page=>{
+    const unconfirmed=passage('UNCONFIRMED ANSWER',26);unconfirmed.questions[0].answer='A';unconfirmed.answerStatus='verified';
+    await enterText(page,JSON.stringify(unconfirmed));
+    assert.ok(!(await page.locator('.confirm-answers').isChecked()),'An answer supplied in a file is not automatically treated as reviewed');
+    await savePreview(page);await page.getByRole('tab',{name:'阅读练习',exact:true}).click();
+    await page.locator('input[data-question="q1"][value="A"]').check({force:true});await action(page,'submit').click();await page.locator('.result-strip').waitFor();
+    let stored=await readStored(page);assert.equal(stored.imported[0].answerStatus,'unverified');
+    assert.equal(Object.values(stored.attempts).flat().at(-1).answers.q1.correct,null,'An unreviewed answer never contributes a correctness score');
+    await page.goto(base+'/#/import');
+    const confirmed=passage('CONFIRMED ANSWER',31);confirmed.questions[0].answer='A';confirmed.answerStatus='verified';
+    await enterText(page,JSON.stringify(confirmed));assert.ok(!(await page.locator('.confirm-answers').isChecked()));
+    await page.locator('.confirm-answers').check();await savePreview(page);
+    await page.getByRole('tab',{name:'阅读练习',exact:true}).click();
+    await page.locator('input[data-question="q1"][value="A"]').check({force:true});await action(page,'submit').click();await page.locator('.result-strip').waitFor();
+    stored=await readStored(page);assert.equal(stored.imported.at(-1).answerStatus,'verified');
+    assert.equal(Object.values(stored.attempts).flat().at(-1).answers.q1.correct,true,'A user-confirmed answer can be scored');
+    assert.match(await page.locator('.result-strip').innerText(),/100%/);
+  });
+
   await check('backup errors do not alter data; valid complete backup restores legacy progress',async page=>{
     await enterText(page,text('BACKUP MATERIAL',26));await savePreview(page);
     const legacy={catalogIdVersion:40,learningDataVersion:2,words:{100:{favorite:true,status:'learning'}},history:[],activity:[],dates:[]};
@@ -210,6 +271,10 @@ try{
 
   await check('image controls, invalid file, cancellation, and mobile layout',async page=>{
     for(const image of imagePaths)await access(image);
+    await page.locator('#import-mode-images').click();
+    const chooserPromise=page.waitForEvent('filechooser');await action(page,'choose-images').focus();await page.keyboard.press('Enter');
+    await(await chooserPromise).setFiles(imagePaths.slice(0,1));await page.waitForFunction(()=>document.querySelectorAll('#ocr-pages [data-image-id]').length===1);
+    await clearImages(page);
     await chooseImages(page,imagePaths.slice(0,2));
     assert.equal(await page.locator('#import-images').getAttribute('multiple')!==null,true);
     await page.waitForFunction(()=>document.querySelectorAll('#ocr-pages [data-image-id]').length===2);
@@ -253,6 +318,8 @@ try{
     const previewText=await preview(page).innerText();const titles=await page.locator('.preview-title').evaluateAll(inputs=>inputs.map(input=>input.value).join('\n'));assert.match(titles,/Text\s*1/i);assert.match(titles,/Text\s*2/i);assert.match(titles,/Text\s*3/i);assert.match(previewText,/截断|不完整|缺页|补充|未结束/);
     assert.deepEqual(imageAPICalls,[],'Local OCR must not send images to the reading API');
     await page.screenshot({path:path.join(output,'desktop-real-ocr-preview.png'),fullPage:true});
+    await page.setViewportSize({width:390,height:844});await assertNoHorizontalOverflow(page);
+    await page.screenshot({path:path.join(output,'mobile-real-ocr-preview.png'),fullPage:true});
     // Preserve the residual Text 3 for reading too; it has no answer key to score.
     const choices=page.locator('#import-preview input.preview-select, #import-preview input[data-preview-select], #import-preview input[data-import-select]');
     for(let index=0;index<await choices.count();index++)await choices.nth(index).check();

@@ -3,7 +3,13 @@
 The original release files below are bundled locally, without code changes.
 Images are recognized inside a browser Web Worker. The application supplies
 same-origin worker, core, and language paths; it does not send images to an
-OCR service or fetch these assets from a CDN at runtime.
+OCR service. Local development serves all assets from this directory. In the
+published Worker, the four large core/language files are delivered through
+fixed same-origin resource paths backed by the pinned official URLs below.
+The Worker checks the exact byte length and SHA-256 before caching them.
+Only public engine/data bytes are fetched upstream; image data and visitor
+request headers are never forwarded. First use therefore requires a network
+connection to load these public resources, which the browser can then cache.
 
 ## Engine
 
