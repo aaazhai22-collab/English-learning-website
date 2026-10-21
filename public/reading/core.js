@@ -1,3 +1,5 @@
+import { parseImportText, splitEnglishSentences } from './import-parser.js';
+
 export const STORAGE_KEY = 'readingLab.v1';
 export const defaults = { version: 1, profile: { level: 'beginner', exam: '英语一', target: 70, minutes: 30, focus: ['syntax', 'vocabulary'], depth: 'detailed', accent: 'en-US', rate: 0.85 }, imported: [], attempts: {}, drafts: {}, saved: {}, words: {}, notes: {}, days: {} };
 export function emptyState() { return JSON.parse(JSON.stringify(defaults)); }
@@ -27,51 +29,56 @@ export const clean = (v, max = 3000) => typeof v === 'string' ? v.slice(0, max).
 export const escapeHTML = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function safeURL(v) { try { const u = new URL(v); return ['https:','http:'].includes(u.protocol) && !u.username && !u.password ? u.href : ''; } catch { return ''; } }
 export function sentences(text) {
-  return String(text).replace(/\r/g,'').trim().split(/(?<=[.!?])\s+(?=[A-Z“"'(])/).map(x=>x.trim()).filter(Boolean);
+  return splitEnglishSentences(text);
 }
 export function normalizePassage(input) {
-  if (!input || typeof input !== 'object') throw new Error('文章数据格式不正确');
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error('文章数据格式不正确');
   const s = input;
-  let paragraphs = [];
-  if (Array.isArray(s.paragraphs)) paragraphs = s.paragraphs.slice(0,80).map(p => (Array.isArray(p) ? p : []).slice(0,80).map(x => typeof x === 'string' ? {en:x} : x).filter(x=>x && clean(x.en)).map(x=>({en:clean(x.en,6000),zh:clean(x.zh,6000),grammar:(Array.isArray(x.grammar)?x.grammar:[]).slice(0,12).map(g=>({label:clean(g.label,100),detail:clean(g.detail,2000)})),chunks:(Array.isArray(x.chunks)?x.chunks:[]).slice(0,20).map(c=>({en:clean(c.en,2000),zh:clean(c.zh,2000)}))}))).filter(p=>p.length);
+  const sourceParagraphs = Array.isArray(s.paragraphs) ? s.paragraphs : typeof s.text === 'string' ? s.text.split(/\n\s*\n/) : [];
+  if (sourceParagraphs.length > 80) throw new Error('单篇文章超过 80 段，请分篇导入，避免遗漏内容');
+  const paragraphs = sourceParagraphs.map((paragraph, index) => {
+    const items = Array.isArray(paragraph) ? paragraph : typeof paragraph === 'string' ? sentences(paragraph).map(en => ({en})) : paragraph && typeof paragraph === 'object' ? [paragraph] : null;
+    if (!items) throw new Error(`第 ${index + 1} 段格式不正确，请使用英文段落字符串或句子数组`);
+    if (items.length > 80) throw new Error(`第 ${index + 1} 段超过 80 句，请拆分段落，避免遗漏内容`);
+    return items.map(value => {
+      const sentence = typeof value === 'string' ? {en:value} : value;
+      if (!sentence || typeof sentence.en !== 'string') throw new Error(`第 ${index + 1} 段存在没有英文 en 字段的句子`);
+      if (sentence.en.length > 6000) throw new Error('单句超过 6000 字符，请检查是否未正确分句');
+      return {en:clean(sentence.en,6000),zh:clean(sentence.zh,6000),grammar:(Array.isArray(sentence.grammar)?sentence.grammar:[]).filter(g=>g&&typeof g==='object').slice(0,12).map(g=>({label:clean(g.label,100),detail:clean(g.detail,2000)})),chunks:(Array.isArray(sentence.chunks)?sentence.chunks:[]).filter(c=>c&&typeof c==='object').slice(0,20).map(c=>({en:clean(c.en,2000),zh:clean(c.zh,2000)}))};
+    }).filter(sentence => sentence.en);
+  }).filter(paragraph => paragraph.length);
   if (!paragraphs.length) throw new Error('没有识别到英文正文，请检查文章内容');
   const count = paragraphs.flat().length;
-  const questions = (Array.isArray(s.questions) ? s.questions : []).slice(0,50).map((q,i)=>{
-    if (!q || !clean(q.stem) || !Array.isArray(q.options) || q.options.length !== 4 || !q.options.every(o=>typeof o === 'string' && o.trim())) throw new Error(`第 ${i+1} 题需要题干与四个非空选项`);
-    return {id:`q${i+1}`,type:clean(q.type,40)||'阅读理解',stem:clean(q.stem),stemZh:clean(q.stemZh),options:q.options.map(o=>clean(o)),optionsZh:(Array.isArray(q.optionsZh)?q.optionsZh:[]).slice(0,4).map(o=>clean(o)),answer:/^[A-D]$/.test(q.answer)?q.answer:null,evidence:(Array.isArray(q.evidence)?q.evidence:[]).filter(n=>Number.isInteger(n)&&n>0&&n<=count),explanation:clean(q.explanation,6000),distractors:(Array.isArray(q.distractors)?q.distractors:[]).slice(0,4).map(o=>clean(o)),skill:['vocabulary','syntax','logic','evidence','options'].includes(q.skill)?q.skill:'evidence',paraphrase:(Array.isArray(q.paraphrase)?q.paraphrase:[]).slice(0,8).map(p=>({original:clean(p.original),option:clean(p.option)}))};
+  const rawQuestions = Array.isArray(s.questions) ? s.questions : [];
+  if (rawQuestions.length > 50) throw new Error('单篇超过 50 题，请按 Text 或文章分篇导入，避免丢题');
+  const isCloze = s.type === 'cloze' || paragraphs.some(paragraph=>paragraph.some(sentence=>/__\d+__/.test(sentence.en)));
+  const questions = rawQuestions.map((q,i)=>{
+    const number = Number.isInteger(Number(q?.number)) && Number(q.number) > 0 ? Number(q.number) : i+1;
+    const stem = clean(q?.stem) || (isCloze ? `Choose the best word(s) for blank ${number}.` : '');
+    if (!q || (!stem && !q.incomplete) || !Array.isArray(q.options) || q.options.length !== 4 || !q.options.every(o=>typeof o === 'string' && (o.trim() || q.incomplete))) throw new Error(`第 ${number} 题需要题干与四个非空选项；截断题须先标记 incomplete`);
+    if (q.stem?.length > 3000 || q.options.some(option=>option.length>3000)) throw new Error(`第 ${number} 题过长，请检查题干与选项是否正确分开`);
+    const incomplete = !!q.incomplete || !stem || q.options.some(option=>!option.trim());
+    const answer = typeof q.answer === 'string' ? q.answer.trim().toUpperCase() : '';
+    return {id:`q${i+1}`,number,type:clean(q.type,40)||(isCloze?'完形填空':'阅读理解'),stem,stemZh:clean(q.stemZh),options:q.options.map(o=>clean(o)),optionsZh:(Array.isArray(q.optionsZh)?q.optionsZh:[]).slice(0,4).map(o=>clean(o)),answer:!incomplete&&/^[A-D]$/.test(answer)?answer:null,evidence:(Array.isArray(q.evidence)?q.evidence:[]).filter(n=>Number.isInteger(n)&&n>0&&n<=count),explanation:clean(q.explanation,6000),distractors:(Array.isArray(q.distractors)?q.distractors:[]).slice(0,4).map(o=>clean(o)),skill:['vocabulary','syntax','logic','evidence','options'].includes(q.skill)?q.skill:'evidence',paraphrase:(Array.isArray(q.paraphrase)?q.paraphrase:[]).filter(p=>p&&typeof p==='object').slice(0,8).map(p=>({original:clean(p.original),option:clean(p.option)})),incomplete,rawText:clean(q.rawText,15000)};
   });
   const vocabulary=(Array.isArray(s.vocabulary)?s.vocabulary:[]).slice(0,200).filter(v=>v&&clean(v.word)).map(v=>({word:clean(v.word,120),pos:clean(v.pos,40),meaning:clean(v.meaning,1000),phrase:clean(v.phrase,1000)}));
-  return {id:clean(s.id,100)||`import-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,title:clean(s.title,250)||'我的阅读材料',titleZh:clean(s.titleZh,250),source:clean(s.source,300)||'个人导入',sourceUrl:safeURL(s.sourceUrl),sourceType:['user','original','import','web'].includes(s.sourceType)?s.sourceType:'import',level:clean(s.level,40)||'自选',exam:clean(s.exam,60)||'自选材料',topic:clean(s.topic,60)||'我的导入',summary:clean(s.summary,6000),structure:(Array.isArray(s.structure)?s.structure:[]).slice(0,50).map(t=>({label:clean(t.label,100),description:clean(t.description,2000)})),paragraphs,vocabulary,questions,answerStatus:s.answerStatus === 'unverified' ? 'unverified' : 'verified',analysisMode:clean(s.analysisMode,40)||'curated',createdAt:clean(s.createdAt,80)||new Date().toISOString()};
+  return {id:clean(s.id,100)||`import-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,title:clean(s.title,250)||'我的阅读材料',titleZh:clean(s.titleZh,250),source:clean(s.source,300)||'个人导入',sourceUrl:safeURL(s.sourceUrl),sourceType:['user','original','import','web'].includes(s.sourceType)?s.sourceType:'import',level:clean(s.level,40)||'自选',exam:clean(s.exam,60)||'自选材料',topic:clean(s.topic,60)||'我的导入',summary:clean(s.summary,6000),structure:(Array.isArray(s.structure)?s.structure:[]).filter(t=>t&&typeof t==='object').slice(0,50).map(t=>({label:clean(t.label,100),description:clean(t.description,2000)})),paragraphs,vocabulary,questions,type:isCloze?'cloze':'reading',answerStatus:s.answerStatus === 'unverified'||!questions.some(q=>q.answer) ? 'unverified' : 'verified',analysisMode:clean(s.analysisMode,40)||'curated',createdAt:clean(s.createdAt,80)||new Date().toISOString(),warnings:[...new Set((Array.isArray(s.warnings)?s.warnings:[]).filter(w=>typeof w==='string').map(w=>clean(w,2000)))],incomplete:!!s.incomplete||questions.some(q=>q.incomplete),rawText:clean(s.rawText,100000)};
+}
+export function parseReadingCollection(raw, title = '') {
+  const parsed = parseImportText(raw, title);
+  const passages = parsed.passages.map((passage,index) => {
+    let normalized;
+    try { normalized = normalizePassage(passage); }
+    catch (error) { throw new Error(`第 ${index+1} 篇材料未完成整理：${error.message}`); }
+    normalized.paragraphs = normalized.paragraphs.map(paragraph => paragraph.map(sentence => ({...sentence,grammar:sentence.grammar.length?sentence.grammar:syntaxHints(sentence.en)})));
+    return normalized;
+  });
+  return {passages,warnings:[...new Set([...parsed.warnings,...passages.flatMap(passage=>passage.warnings.map(warning=>`${passage.title}：${warning}`))])],rawText:parsed.rawText};
 }
 export function parseReadingText(raw, title = '') {
-  if (raw.length > 100000) throw new Error('一次导入请控制在 10 万字符以内');
-  let text=raw.replace(/\r\n?/g,'\n').trim();
-  if (!text) throw new Error('请先粘贴文章和题目');
-  if (/^[\[{]/.test(text)) { let j; try { j=JSON.parse(text); } catch { throw new Error('JSON格式不正确，请检查逗号、引号与括号'); } return normalizePassage(Array.isArray(j)?j[0]:j); }
-  const keyIndex=text.search(/^(?:参考答案|答案|Answers?|Answer\s*Key)\s*[:：]/im);
-  const keyText=keyIndex>=0?text.slice(keyIndex):'';
-  if(keyIndex>=0)text=text.slice(0,keyIndex).trim();
-  const questionStart=text.search(/^\s*(?:Question\s*)?\d+[.)、．]\s+\S/m);
-  let body=questionStart>=0?text.slice(0,questionStart).trim():text;
-  let questionText=questionStart>=0?text.slice(questionStart):'';
-  let lines=body.split('\n');
-  let inferred='';
-  if (/^(?:Passage|Title|标题|文章标题)\s*[:：]/i.test(lines[0])) inferred=lines.shift().replace(/^[^:：]+[:：]\s*/,'');
-  else if(lines.length>1&&lines[0].trim().length<130&&!/[.!?。]$/.test(lines[0].trim()))inferred=lines.shift().trim();
-  body=lines.join('\n').trim();
-  if ((body.match(/[a-zA-Z]+/g)||[]).length<15)throw new Error('正文太短，至少需要一段英文文章');
-  const paragraphs=body.split(/\n\s*\n/).filter(Boolean).map(p=>sentences(p.replace(/\n/g,' ')).map(en=>({en,zh:'',grammar:syntaxHints(en),chunks:[]})));
-  const questions=[];
-  const blocks=[...questionText.matchAll(/^\s*(?:Question\s*)?(\d+)[.)、．]\s+([\s\S]*?)(?=^\s*(?:Question\s*)?\d+[.)、．]\s+|$(?![\s\S]))/gm)];
-  for(const [_,number,rawBlock] of blocks){
-    const block=rawBlock.replace(/[ \t]+([A-D])[.)、．]\s+/g,'\n$1. ');
-    const options=[...block.matchAll(/^\s*([A-D])[.)、．]\s+([\s\S]*?)(?=^\s*[A-D][.)、．]\s+|$(?![\s\S]))/gm)];
-    if(options.length!==4||options.map(x=>x[1]).join('')!=='ABCD')throw new Error(`第${number}题未识别到完整A—D选项。请每个选项单独一行，题号使用“1. ”格式`);
-    const stem=block.slice(0,options[0].index).trim();
-    const key=keyText.match(new RegExp(`(?:^|[\\s,，;；:：])${number}\\s*[.、:：)\\-]?\\s*([A-D])\\b`,'im'));
-    questions.push({stem,options:options.map(o=>o[2].trim()),answer:key?key[1]:null});
-  }
-  return normalizePassage({title:title||inferred||'我的阅读材料',paragraphs,questions,sourceType:'import',source:'个人文本导入',analysisMode:'rules',answerStatus:'verified'});
+  const collection = parseReadingCollection(raw,title);
+  if (collection.passages.length !== 1) throw new Error(`识别到 ${collection.passages.length} 篇材料，请使用分篇导入并逐篇校对；没有只保留第一篇`);
+  return collection.passages[0];
 }
 export function syntaxHints(en) {
   const out=[];

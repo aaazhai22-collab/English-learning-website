@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {emptyState,STORAGE_KEY} from '../public/reading/core.js';
+import {parseBackup,restoreBackup,mergeBackupState} from '../public/reading/backup.js';
+const current=emptyState();current.profile.minutes=45;
+const incoming=emptyState();incoming.profile.minutes=20;
+const backup=parseBackup(JSON.stringify({format:'reading-lab-backup',version:1,reading:incoming,legacyVocabulary:{progress:5}}));
+assert.equal(mergeBackupState(current,backup).profile.minutes,45);
+assert.equal(mergeBackupState(current,backup,{restoreProfile:true}).profile.minutes,20);
+assert.throws(()=>parseBackup('{}'));assert.throws(()=>parseBackup('{'));
+assert.throws(()=>parseBackup(JSON.stringify({title:'Article',paragraphs:['Some text.']})));
+assert.throws(()=>parseBackup(JSON.stringify({format:'reading-lab-backup',version:2,reading:incoming})));
+const data=new Map([[STORAGE_KEY,JSON.stringify(current)],['wordsInBloomData','{"old":true}']]);
+let failLegacy=true;const storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>{if(k==='wordsInBloomData'&&failLegacy){failLegacy=false;throw new Error('quota');}data.set(k,v);},removeItem:k=>data.delete(k)};
+assert.throws(()=>restoreBackup(storage,current,backup,{restoreProfile:true,restoreLegacy:true}));
+assert.equal(JSON.parse(data.get(STORAGE_KEY)).profile.minutes,45);assert.deepEqual(JSON.parse(data.get('wordsInBloomData')),{old:true});
+assert.equal(restoreBackup(storage,current,backup,{restoreProfile:true,restoreLegacy:true}).profile.minutes,20);
+console.log('Backup checks passed: strict formats, explicit profile replacement, atomic storage rollback, legacy recovery.');
