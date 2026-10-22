@@ -40,6 +40,10 @@ try{
   await test('request validation rejects phrases and routes remain self contained in the built factory',async()=>{
     globalThis.fetch=async()=>{throw new Error('must not fetch');};assert.equal((await createReadingAPI().fetch(request('one/two'))).status,400);const restored=(0,eval)('('+createReadingAPI.toString()+')')();assert.equal((await restored.fetch(request('<script>'))).status,400);
   });
+  await test('lookup works when the hosted runtime has no AbortSignal.timeout',async()=>{
+    const nativeTimeout=AbortSignal.timeout;AbortSignal.timeout=undefined;
+    try{globalThis.fetch=async(url,options)=>{assert.ok(options.signal instanceof AbortSignal);return String(url).includes('dictionaryapi')?json(dictionary()):new Response(bing());};const response=await createReadingAPI().fetch(request('dignity'));assert.equal(response.status,200);assert.match((await response.json()).entry.core,/尊严/);}finally{AbortSignal.timeout=nativeTimeout;}
+  });
 }finally{globalThis.fetch=oldFetch;}
 console.log(`Lookup checks passed: ${passed} scenarios for Chinese fallback, real English definitions, inflections, model fallback, provider failures, cache and validation.`);
 

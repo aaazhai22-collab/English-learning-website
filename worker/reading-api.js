@@ -3,6 +3,9 @@ export function createReadingAPI() {
   const hosts = new Set(['learnenglish.britishcouncil.org','kaoyan.eol.cn','www.cambridgeenglish.org']);
   const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
   const fail=(message,code='request_failed',status=400)=>{const error=new Error(message);error.code=code;error.status=status;throw error;};
+  // Use the portable controller API; older Worker runtimes lack AbortSignal.timeout.
+  async function withDeadline(milliseconds,run){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),milliseconds);try{return await run(controller.signal);}finally{clearTimeout(timer);}}
+  function dictionaryFailure(provider,error){console.warn('dictionary_upstream_failed',provider,String(error?.name||'Error'),String(error?.message||'request failed').replace(/https?:\/\/\S+/g,'[upstream]').slice(0,180));}
   async function readLimited(stream,max){if(!stream)return '';const reader=stream.getReader(),parts=[];let size=0;try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>max){await reader.cancel();fail('内容太大，请分篇导入。','too_large',413);}parts.push(value);}}finally{reader.releaseLock();}const all=new Uint8Array(size);let offset=0;for(const p of parts){all.set(p,offset);offset+=p.byteLength;}return new TextDecoder().decode(all);}
   const strip=s=>decode(String(s||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ')).trim();
   function decode(s){return s.replace(/&(?:amp|quot|apos|lt|gt|nbsp|#\d+|#x[0-9a-f]+);/gi,m=>{const code=m.slice(1,-1);const map={amp:'&',quot:'"',apos:"'",lt:'<',gt:'>',nbsp:' '};if(map[code.toLowerCase()])return map[code.toLowerCase()];const n=code[1]?.toLowerCase()==='x'?parseInt(code.slice(2),16):parseInt(code.slice(1),10);return Number.isFinite(n)&&n>0&&n<0x110000?String.fromCodePoint(n):m;});}
@@ -39,10 +42,10 @@ export function createReadingAPI() {
     if(/s$/.test(word)&&word.length>3&&!/(?:ss|us|is|ous)$/.test(word))out.push(word.slice(0,-1));
     return [...new Set(out)].filter(candidate=>candidate!==word&&candidate.length>1).slice(0,3);
   }
-  async function englishDictionary(word){try{const r=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`,{redirect:'error',signal:AbortSignal.timeout(8000)});if(!r.ok)return null;const value=JSON.parse(await readLimited(r.body,200000));const item=Array.isArray(value)?value.find(entry=>entry&&Array.isArray(entry.meanings)&&entry.meanings.some(m=>Array.isArray(m.definitions)&&m.definitions.some(d=>typeof d.definition==='string'&&d.definition.trim()))):null;return item||null;}catch{return null;}}
+  async function englishDictionary(word){try{return await withDeadline(8000,async signal=>{const r=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`,{redirect:'error',signal});if(!r.ok)return null;const value=JSON.parse(await readLimited(r.body,200000));const item=Array.isArray(value)?value.find(entry=>entry&&Array.isArray(entry.meanings)&&entry.meanings.some(m=>Array.isArray(m.definitions)&&m.definitions.some(d=>typeof d.definition==='string'&&d.definition.trim()))):null;return item||null;});}catch(error){dictionaryFailure('DictionaryAPI',error);return null;}}
   async function chineseDictionary(word){
-    try{
-      const r=await fetch(`https://cn.bing.com/dict/search?q=${encodeURIComponent(word)}`,{redirect:'error',headers:{Accept:'text/html','User-Agent':'ReadingLab/1.0 (English dictionary lookup)'},signal:AbortSignal.timeout(8000)});if(!r.ok)return null;
+    try{return await withDeadline(8000,async signal=>{
+      const r=await fetch(`https://cn.bing.com/dict/search?q=${encodeURIComponent(word)}`,{redirect:'error',headers:{Accept:'text/html','User-Agent':'ReadingLab/1.0 (English dictionary lookup)'},signal});if(!r.ok)return null;
       const html=await readLimited(r.body,1000000),section=html.match(/<div\b[^>]*class=["'][^"']*\bqdef\b[^"']*["'][^>]*>([\s\S]*?)<\/ul>/i)?.[1];if(!section)return null;
       const headword=strip(section.match(/id=["']headword["'][^>]*>([\s\S]*?)<\/h1>/i)?.[1]||'').toLowerCase();
       if(headword!==word.toLowerCase()&&!wordForms(word).includes(headword))return null;
@@ -54,9 +57,9 @@ export function createReadingAPI() {
       }
       if(!meanings.length)return null;
       return {word:headword,meanings:meanings.slice(0,4),phonetic:strip(section.match(/class=["'][^"']*\bhd_prUS\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i)?.[1]||'').replace(/^美\s*/,''),sourceUrl:`https://cn.bing.com/dict/search?q=${encodeURIComponent(headword)}`};
-    }catch{return null;}
+    });}catch(error){dictionaryFailure('Bing',error);return null;}
   }
-  async function translateWord(word){try{const r=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en%7Czh-CN`,{redirect:'error',signal:AbortSignal.timeout(8000)});if(!r.ok)return '';const value=JSON.parse(await readLimited(r.body,150000)),text=strip(value.responseData?.translatedText||'');return Number(value.responseStatus)===200&&chinese(text)&&!/MYMEMORY WARNING|USAGE LIMIT|QUERY LENGTH|INVALID LANGUAGE/i.test(text)&&text.length<1500?text:'';}catch{return '';}}
+  async function translateWord(word){try{return await withDeadline(8000,async signal=>{const r=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en%7Czh-CN`,{redirect:'error',signal});if(!r.ok)return '';const value=JSON.parse(await readLimited(r.body,150000)),text=strip(value.responseData?.translatedText||'');return Number(value.responseStatus)===200&&chinese(text)&&!/MYMEMORY WARNING|USAGE LIMIT|QUERY LENGTH|INVALID LANGUAGE/i.test(text)&&text.length<1500?text:'';});}catch(error){dictionaryFailure('MyMemory',error);return '';}}
   async function publicLookup(word){
     const key=word.toLowerCase(),cached=dictionaryCache.get(key);
     if(cached&&cached.until>Date.now())return {...cached.value,entry:{...cached.value.entry,word},cached:true};
