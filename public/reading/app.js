@@ -6,6 +6,7 @@ import { basicDictionary } from './basics.js';
 import { createImportController } from './import-view.js';
 import { parseBackup, restoreBackup } from './backup.js';
 import { selectBeginnerExample } from '../data/beginner-examples.js';
+import { lookupBrowserDictionary } from './browser-dictionary.js';
 
 const app=document.querySelector('#app'), modal=document.querySelector('#modal');
 let state=readState(), catalog={words:[],collections:[]}, catalogMap=new Map(), catalogReady=false;
@@ -92,24 +93,33 @@ function renderWordModal(){
   if(!activeLookup)return;
   const a=activeLookup,v={...a.entry,kind:a.kind},focusAction=document.activeElement?.dataset?.action;
   const languageNotice=v.meaningLanguage==='en'?'中文释义暂不可用，当前展示英文词典释义。':'';
-  const status=a.lookupError?`<p id="lookup-status" class="lookup-status lookup-error" role="alert">${e(a.lookupError)}</p>`:a.pending?'<p id="lookup-status" class="lookup-status" role="status" aria-live="polite">正在联网查询词义，请稍候…</p>':a.lookupState==='success'?`<p id="lookup-status" class="lookup-status" role="status">${e([a.lookupNotice,languageNotice].filter(Boolean).join(' ')||'已获取在线参考义，请结合原句核对。')}</p>`:languageNotice?`<p id="lookup-status" class="lookup-status" role="status">${e(languageNotice)}</p>`:'';
+  const status=a.lookupError?`<p id="lookup-status" class="lookup-status lookup-error" role="alert">${e(a.lookupError)}</p>`:a.pending?`<p id="lookup-status" class="lookup-status" role="status" aria-live="polite">${e(a.loadingMessage||'正在联网查询词义，请稍候…')}</p>`:a.lookupState==='success'?`<p id="lookup-status" class="lookup-status" role="status">${e([a.lookupNotice,languageNotice].filter(Boolean).join(' ')||'已获取在线参考义，请结合原句核对。')}</p>`:languageNotice?`<p id="lookup-status" class="lookup-status" role="status">${e(languageNotice)}</p>`:'';
   const actions=a.review?'':`${button('收藏到学习库','save-lookup',usableMeaning(v)?'':'disabled aria-disabled="true"','primary')}${button('手动补充 / 修改','edit-entry','','ghost')}${canLookup(a)?button(a.pending?'正在查词…':a.lookupError?'重试联网查询':'联网查词','lookup-online',a.pending?'disabled aria-disabled="true"':'','ghost'):''}`;
   showModal(v.word,status+wordBody(v,a.context,a.reveal)+(a.reveal&&!a.review?`<div class="form-field" style="margin-top:20px"><label for="entry-kind">收藏分类</label><select id="entry-kind">${['word','phrase','grammar'].map(k=>`<option value="${k}" ${a.kind===k?'selected':''}>${kindLabel(k)}</option>`).join('')}</select></div>`:'')+(a.review&&a.reveal?`<p class="small muted" style="margin-top:20px">按真实回忆情况选择，系统会调整下次复习日期。</p><div class="review-ratings">${ratingsHTML('rate-word',`data-key="${attr(a.key)}"`)}</div>`:''),actions,/^[A-Za-z]/.test(v.word)&&v.word.length<45);
   modal.setAttribute('aria-busy',String(!!a.pending));
   if(focusAction==='lookup-online')modal.querySelector('[data-action="lookup-online"]')?.focus();
 }
+async function fetchWordReference(word,context,config,lookup){
+  let server;
+  try{server=await api('lookup',{word,context,...config});if(usableMeaning(server?.entry)&&server.entry.meaningLanguage!=='en')return server;}catch{}
+  lookup.loadingMessage='正在尝试备用在线词典，请稍候…';
+  if(activeLookup===lookup&&modal.open)renderWordModal();
+  try{const backup=await lookupBrowserDictionary(word);if(usableMeaning(backup?.entry))return backup;}catch{}
+  if(usableMeaning(server?.entry))return server;
+  throw new Error('在线词典和备用查询暂未返回可用释义。请检查拼写或网络后重试，也可以手动补充。');
+}
 async function requestWordLookup(lookup,{force=false}={}){
   if(!canLookup(lookup)||lookup.pending)return;
   const word=lookupWord(lookup.entry.word),context=lookup.context?.en||'',config={...sessionAI};
   const cacheKey=JSON.stringify([word.toLowerCase(),context,config.provider,!!config.apiKey]);
-  lookup.pending=true;lookup.lookupError='';lookup.lookupState='loading';
+  lookup.pending=true;lookup.lookupError='';lookup.lookupState='loading';lookup.loadingMessage='';
   if(activeLookup===lookup&&modal.open)renderWordModal();
   try{
     let entry,cache=onlineLookupCache.get(cacheKey);
     if(!force&&cache&&cache.until>Date.now()){entry=cache.entry;lookup.lookupNotice=['已使用本次会话查询过的参考义。',cache.notice].filter(Boolean).join(' ');}
     else{
       let request=onlineLookupRequests.get(cacheKey);
-      if(!request){request=api('lookup',{word,context,...config}).then(data=>{const value=data?.entry;if(!value||!usableMeaning(value))throw new Error('在线词典没有返回可用释义。可以重试或手动补充。');const result={entry:value,notice:String(data.notice||'')};onlineLookupCache.set(cacheKey,{...result,until:Date.now()+10*60*1000});return result;}).finally(()=>onlineLookupRequests.delete(cacheKey));onlineLookupRequests.set(cacheKey,request);}
+      if(!request){request=fetchWordReference(word,context,config,lookup).then(data=>{const value=data?.entry;if(!value||!usableMeaning(value))throw new Error('在线词典没有返回可用释义。可以重试或手动补充。');const result={entry:value,notice:String(data.notice||'')};onlineLookupCache.set(cacheKey,{...result,until:Date.now()+10*60*1000});return result;}).finally(()=>onlineLookupRequests.delete(cacheKey));onlineLookupRequests.set(cacheKey,request);}
       const result=await request;entry=result.entry;lookup.lookupNotice=result.notice||'已获取在线参考义，请结合原句核对。';
     }
     if(activeLookup!==lookup||!modal.open)return;

@@ -10,6 +10,7 @@ const entry=(word,meaning,extra={})=>({word,meaning,core:meaning,pos:'noun',usag
 async function scenario(name,fn,{viewport={width:1280,height:900},saved={}}={}){
   const ctx=await browser.newContext({viewport,reducedMotion:'reduce'}),page=await ctx.newPage(),errors=[];
   page.on('pageerror',err=>errors.push(err.message));
+  await page.route(/https:\/\/(?:api\.dictionaryapi\.dev|api\.mymemory\.translated\.net)\//,r=>r.abort('failed'));
   await page.addInitScript(data=>{localStorage.setItem('readingLab.v1',JSON.stringify(data));},{...fixture,words:saved});
   await page.route('**/api/reading/status',r=>r.fulfill({json:{configured:false,notice:'无需密钥也可查询公共词典。'}}));
   try{await page.goto(base+'/#/read/lookup-fixture',{waitUntil:'networkidle'});await page.getByRole('tab',{name:'逐句精读'}).click();await fn(page);assert.deepEqual(errors,[]);report.push({name,passed:true});console.log('PASS',name);}catch(err){report.push({name,passed:false,error:err.message});await page.screenshot({path:'qa/lookup-failed-'+report.length+'.png',fullPage:true});console.error('FAIL',name,err.message);}finally{await ctx.close();}
@@ -25,7 +26,7 @@ await scenario('automatic lookup exposes loading and retryable failures inside d
   assert.equal(await page.locator('dialog [data-action="save-lookup"]').isDisabled(),true);
   assert.equal(await page.locator('dialog [data-action="lookup-online"]').isDisabled(),true);
   release();await page.locator('dialog #lookup-status[role="alert"]').waitFor();
-  assert.match(await page.locator('dialog').innerText(),/稍后重试/);
+  assert.match(await page.locator('dialog').innerText(),/重试/);
   await page.getByRole('button',{name:'重试联网查询',exact:true}).click();
   await page.locator('dialog #lookup-status[role="status"]').filter({hasText:'已获取'}).waitFor();
   assert.match(await page.locator('dialog').innerText(),/短尾矮袋鼠/);assert.equal(count,2);
@@ -60,6 +61,15 @@ await scenario('manual fallback gives inline validation and stores an explicit e
   await word(page,'quokka');await page.locator('#lookup-status[role="alert"]').waitFor();await page.getByRole('button',{name:'手动补充 / 修改',exact:true}).click();
   await page.getByRole('button',{name:'保存词条',exact:true}).click();await page.locator('dialog #custom-entry-error').waitFor();assert.match(await page.locator('#custom-entry-error').innerText(),/核心解释/);
   await page.fill('#custom-meaning','短尾矮袋鼠');await page.fill('#custom-usage','一种体型较小的动物。');await page.getByRole('button',{name:'保存词条',exact:true}).click();assert.equal(await page.locator('dialog[open]').count(),0);
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('readingLab.v1')).words['word:quokka'].entry.meaning),'短尾矮袋鼠');
+});
+await scenario('browser dictionary recovers a server failure and its Chinese result can be saved',async page=>{
+  await page.route('**/api/reading/lookup',r=>r.fulfill({status:502,json:{error:'服务器词典不可用。'}}));
+  let externalCalls=0;
+  await page.route('https://api.mymemory.translated.net/**',r=>{externalCalls++;const url=new URL(r.request().url());assert.equal(url.searchParams.get('q'),'quokka');assert.ok(!r.request().headers().authorization);assert.ok(!r.request().headers().cookie);assert.ok(!url.href.includes('garden'));return r.fulfill({headers:{'access-control-allow-origin':'*'},json:{responseStatus:200,responseData:{translatedText:'短尾矮袋鼠'}}});});
+  await word(page,'quokka');await page.locator('#lookup-status').filter({hasText:/备用|机器翻译/}).waitFor();
+  assert.match(await page.locator('dialog').innerText(),/短尾矮袋鼠/);assert.ok(externalCalls>=1);
+  await page.getByRole('button',{name:'收藏到学习库',exact:true}).click();
   assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('readingLab.v1')).words['word:quokka'].entry.meaning),'短尾矮袋鼠');
 });
 await scenario('grammar tokens do not trigger word lookup and mobile actions stay reachable',async page=>{

@@ -6,3 +6,4 @@ await import('./check-ocr.mjs');
 await import('./check-speech.mjs');
 await import('./check-beginner-examples.mjs');
 await import('./check-lookup.mjs');
+await import('./check-browser-dictionary.mjs');
