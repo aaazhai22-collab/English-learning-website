@@ -1,3 +1,4 @@
+import { selectBeginnerExample } from './data/beginner-examples.js';
 /**
  * Browser speech synthesis with safe interruption and English voice selection.
  * The optional online fallback is restricted to exact public vocabulary entries
@@ -22,7 +23,7 @@ function loadPublicOnlineAllowlist(browser) {
   publicCatalogLoading = true;
   // Fixed, bundled, same-origin public source: never a URL supplied by the caller.
   const catalogUrl = new URL('./data/catalog.json', import.meta.url);
-  Promise.resolve(browser.fetch(catalogUrl, { credentials: 'omit', cache: 'force-cache' }))
+  Promise.resolve(browser.fetch(catalogUrl, { credentials: 'same-origin', cache: 'force-cache' }))
     .then(response => {
       if (!response.ok) throw new Error('Public vocabulary unavailable');
       return response.json();
@@ -41,6 +42,9 @@ function loadPublicOnlineAllowlist(browser) {
           for (const item of Array.isArray(example.collocations) ? example.collocations : []) add(item.phrase);
         }
         for (const item of Array.isArray(word.collocations) ? word.collocations : []) add(item.phrase);
+      }
+      for (const word of Array.isArray(catalog.words) ? catalog.words : []) {
+        try { add(selectBeginnerExample(word)?.sentence); } catch { /* Missing optional teaching data must not discard the original allowlist. */ }
       }
       publicOnlineTexts = allowed;
     })

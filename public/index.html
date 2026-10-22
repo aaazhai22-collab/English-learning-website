@@ -4129,6 +4129,7 @@
       }
     </style>
     <link rel="stylesheet" href="international.css" />
+    <link rel="stylesheet" href="beginner-examples.css">
   </head>
   <body class="motion-enabled">
     <img
@@ -4228,6 +4229,7 @@
     <script src="vendor/gsap.min.js"></script>
     <script src="data/word-id-migration.js"></script>
     <script>
+      let beginnerExampleFor = null;
       // ===== 词汇数据层：词集、词性、例句与搭配 =====
       // 全部词汇基础数据；学习状态与收藏会从本地记录动态合并。
       const raw = `privilege|/ˈprɪvəlɪdʒ/|特权，权势；特别优待|Clean water should be a basic right rather than a privilege.|干净的水应是基本权利，而不是特权。|其他
@@ -5507,7 +5509,9 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       }
       function getWord(w) {
         if (!w) return null;
-        return { ...w, ...(state.user.words[w.id] || {}) };
+        const word = { ...w, ...(state.user.words[w.id] || {}) };
+        const basic = beginnerExampleFor?.(word);
+        return basic ? {...word, beginnerExample:basic, sentence:basic.sentence, translation:basic.translation} : word;
       }
       function normalizeCollocations(value) {
         if (!Array.isArray(value)) return [];
@@ -5872,6 +5876,12 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         state.quiz = null;
       }
       async function initializeBackend() {
+        try {
+          const examples = await import('./data/beginner-examples.js');
+          beginnerExampleFor = examples.selectBeginnerExample;
+        } catch (error) {
+          console.info('基础例句暂不可用，保留原有词汇例句。');
+        }
         // 单文件构建会在主脚本前内嵌完整词库；检测到它时完全离线运行，
         // 学习状态仍由同一套 localStorage 逻辑保存，不发出任何 API 请求。
         const standaloneCatalogElement = document.getElementById(
@@ -6501,6 +6511,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         const searchableText = [
           word.word,
           word.meaning,
+          word.beginnerExample?.sentence,
+          word.beginnerExample?.translation,
           ...word.examples.flatMap((example) => [
             example.sense,
             example.sentence,
@@ -6690,7 +6702,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         word,
         { forceAll = false, individualControls = false } = {},
       ) {
-        return `<div class="example-list">${word.examples
+        const originalExamples = `<div class="example-list">${word.examples
           .map(
             (example, index) => {
               const translationVisible = isExampleTranslationVisible(
@@ -6704,6 +6716,10 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             },
           )
           .join("")}</div>`;
+        const basic = word.beginnerExample || beginnerExampleFor?.(word);
+        if (!basic) return originalExamples;
+        return `<div class="beginner-example" data-beginner-example="${word.id}"><div class="beginner-example-heading"><span>基础例句</span><span class="tag pos">${escapeHtml(basic.pos || word.pos || '')}</span></div><p class="beginner-sense">${escapeHtml(basic.sense || word.meaning || '')}</p><div class="sentence">${highlightFirstTarget(basic.sentence, word.word)}</div><p class="translation show">${escapeHtml(basic.translation)}</p></div><details class="original-examples"><summary>更多义项与原有例句 · ${word.examples.length} 条</summary>${originalExamples}</details>`;
+
       }
       function cardHtml(w) {
         const open = state.expanded.has(w.id);
@@ -6716,7 +6732,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           .map(([s, n]) => `<button data-status="${w.id}:${s}">${n}</button>`)
           .join("")}</div></div>`
           : "";
-        return `<article class="word-card glass ${open ? "open" : ""} ${w.favorite ? "favorite-card" : ""}" data-card="${w.id}" data-study-word="${w.id}" aria-label="进入 ${escapeHtml(w.word)} 的沉浸学习"><div class="card-top"><span>NO. ${String(w.id).padStart(2, "0")}</span><div class="card-favorite-actions">${w.favorite ? '<span class="favorite-label">已收藏</span>' : ""}<button class="fav ${w.favorite ? "on" : ""}" data-fav="${w.id}" aria-label="${w.favorite ? "取消收藏" : "收藏"} ${w.word}">${w.favorite ? favoriteIcon : "♡"}</button></div></div><div class="word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="meaning">${w.meaning}</div><div class="tags"><span class="tag pos">${w.pos}</span><span class="tag">${w.collectionTitle}</span><span class="tag">${w.category}</span><span class="tag status">${statusNames[w.status]}</span></div><button class="pill" data-expand="${w.id}">${open ? "收起全部词性例句" : `查看 ${w.examples.length} 条词性例句`}</button>${detailHtml}</article>`;
+        return `<article class="word-card glass ${open ? "open" : ""} ${w.favorite ? "favorite-card" : ""}" data-card="${w.id}" data-study-word="${w.id}" aria-label="进入 ${escapeHtml(w.word)} 的沉浸学习"><div class="card-top"><span>NO. ${String(w.id).padStart(2, "0")}</span><div class="card-favorite-actions">${w.favorite ? '<span class="favorite-label">已收藏</span>' : ""}<button class="fav ${w.favorite ? "on" : ""}" data-fav="${w.id}" aria-label="${w.favorite ? "取消收藏" : "收藏"} ${w.word}">${w.favorite ? favoriteIcon : "♡"}</button></div></div><div class="word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="meaning">${w.meaning}</div><div class="tags"><span class="tag pos">${w.pos}</span><span class="tag">${w.collectionTitle}</span><span class="tag">${w.category}</span><span class="tag status">${statusNames[w.status]}</span></div><button class="pill" data-expand="${w.id}">${open ? "收起例句与用法" : `查看基础例句与用法`}</button>${detailHtml}</article>`;
       }
       function allExamplesVisible(words) {
         return words.length > 0 && words.every((word) => state.expanded.has(word.id));

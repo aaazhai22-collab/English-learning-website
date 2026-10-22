@@ -4,3 +4,5 @@ await import('./check-import.mjs');
 await import('./check-backup.mjs');
 await import('./check-ocr.mjs');
 await import('./check-speech.mjs');
+await import('./check-beginner-examples.mjs');
+await import('./check-lookup.mjs');
