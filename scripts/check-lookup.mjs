@@ -44,6 +44,12 @@ try{
     const nativeTimeout=AbortSignal.timeout;AbortSignal.timeout=undefined;
     try{globalThis.fetch=async(url,options)=>{assert.ok(options.signal instanceof AbortSignal);return String(url).includes('dictionaryapi')?json(dictionary()):new Response(bing());};const response=await createReadingAPI().fetch(request('dignity'));assert.equal(response.status,200);assert.match((await response.json()).entry.core,/尊严/);}finally{AbortSignal.timeout=nativeTimeout;}
   });
+  await test('hosted fetch supports manual redirects and never follows dictionary redirects',async()=>{
+    globalThis.fetch=async(url,options)=>{assert.equal(options.redirect,'manual','The edge runtime rejects redirect:error before contacting the dictionary');return String(url).includes('dictionaryapi')?json(dictionary()):new Response(bing());};
+    assert.equal((await createReadingAPI().fetch(request('dignity'))).status,200);
+    let calls=0;globalThis.fetch=async(url,options)=>{calls++;assert.equal(options.redirect,'manual');assert.ok(!String(url).includes('untrusted.test'));return new Response(null,{status:302,headers:{Location:'https://untrusted.test/'}});};
+    assert.equal((await createReadingAPI().fetch(request('dignity'))).status,502);assert.equal(calls,3);
+  });
 }finally{globalThis.fetch=oldFetch;}
 console.log(`Lookup checks passed: ${passed} scenarios for Chinese fallback, real English definitions, inflections, model fallback, provider failures, cache and validation.`);
 

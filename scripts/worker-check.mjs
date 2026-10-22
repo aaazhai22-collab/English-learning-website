@@ -26,7 +26,7 @@ globalThis.fetch = async (input, options) => {
   networkCalls.push({ url, options });
   assert.ok(remoteBytes.has(url), `Unpinned upstream URL: ${url}`);
   assert.equal(options.method, 'GET');
-  assert.equal(options.redirect, 'error');
+  assert.equal(options.redirect, 'manual', 'The edge runtime supports manual redirect rejection');
   assert.equal(options.headers, undefined, 'Visitor cookies or Authorization must not reach the public resource host');
   return new Response(remoteBytes.get(url), { headers: { 'Content-Type': 'application/octet-stream' } });
 };

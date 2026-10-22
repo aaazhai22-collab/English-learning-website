@@ -50,7 +50,7 @@ export function createSiteHandler(assets, speechChunks, readingAPI = null, remot
           if (cached && cached.headers.get('ETag') === `"${remote.sha256}"`) {
             return request.method === 'HEAD' ? new Response(null, { status: 200, headers: cached.headers }) : cached;
           }
-          const upstream = await fetch(upstreamURL.href, { method: 'GET', redirect: 'error', signal: AbortSignal.timeout(30000) });
+          const upstream = await fetch(upstreamURL.href, { method: 'GET', redirect: 'manual', signal: AbortSignal.timeout(30000) });
           if (!upstream.ok || !upstream.body || Number(upstream.headers.get('Content-Length')) > 8 * 1024 * 1024) return unavailable();
           const reader = upstream.body.getReader();
           const chunks = [];
