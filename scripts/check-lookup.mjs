@@ -25,7 +25,7 @@ try{
   });
   await test('an unusable model key degrades to the no-key dictionary',async()=>{
     globalThis.fetch=async url=>String(url).includes('chat/completions')?json({error:'no'},401):String(url).includes('dictionaryapi')?json(dictionary()):new Response(bing());
-    const response=await createReadingAPI().fetch(request('dignity',{apiKey:'test-only-invalid-key'}));const data=await response.json();assert.equal(response.status,200);assert.match(data.entry.meaning,/尊严/);assert.match(data.notice,/已改用无需密钥/);assert.ok(!JSON.stringify(data).includes('test-only-invalid-key'));
+    const response=await createReadingAPI().fetch(request('dignity',{provider:'deepseek',apiKey:'test-only-invalid-key'}));const data=await response.json();assert.equal(response.status,200);assert.match(data.entry.meaning,/尊严/);assert.match(data.notice,/已改用无需密钥/);assert.ok(!JSON.stringify(data).includes('test-only-invalid-key'));
   });
   await test('invalid translation and a search result for another word are not saved as a meaning',async()=>{
     globalThis.fetch=async url=>String(url).includes('cn.bing.com')?new Response(bing('unrelated')):String(url).includes('mymemory')?json({responseStatus:200,responseData:{translatedText:'dignity'}}):json({},404);

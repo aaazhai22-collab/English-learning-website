@@ -23,7 +23,7 @@ assert.throws(()=>validateState({version:5}));
 const now=new Date('2026-10-16T01:00:00Z'),r=scheduleReview(null,'again',now);assert.ok(new Date(r.due)>now);assert.equal(isDue(null,now),true);assert.ok(scheduleReview(JSON.parse(JSON.stringify(r)),'good',new Date(now.getTime()+60000)).reps===2);
 const api=createReadingAPI();const make=(path,data,origin)=>new Request('https://example.chatgpt.site/api/reading/'+path,{method:'POST',headers:{'Content-Type':'application/json',...(origin?{Origin:origin}:{})},body:JSON.stringify(data)});
 assert.equal(await api.fetch(new Request('https://example.chatgpt.site/index.html')),null);
-let response=await api.fetch(new Request('https://example.chatgpt.site/api/reading/status'));let status=await response.json();assert.equal(status.configured,false);assert.equal(response.status,200);
+let response=await api.fetch(new Request('https://example.chatgpt.site/api/reading/status'));let status=await response.json();assert.equal(status.configured,true);assert.equal(status.provider,'free');assert.equal(status.modelConfigured,false);assert.equal(status.providers.free.configured,true);assert.equal(response.status,200);
 for(const url of ['http://localhost/','https://127.0.0.1/','https://kaoyan.eol.cn.evil.example/','https://user:pass@kaoyan.eol.cn/','https://kaoyan.eol.cn:444/'])assert.equal((await api.fetch(make('fetch',{url}))).status,400);
 assert.equal((await api.fetch(make('fetch',{url:'https://kaoyan.eol.cn/'},'https://evil.example'))).status,403);
 response=await api.fetch(make('analyze',{text:'A'.repeat(120),provider:'deepseek'}));assert.equal(response.status,503);assert.equal((await response.json()).code,'model_not_configured');
@@ -37,6 +37,6 @@ try {
  assert.equal((await api.fetch(make('fetch',{url:'https://kaoyan.eol.cn/article'}))).status,400);assert.equal(calls,1);
  globalThis.fetch=async(url,options)=>{assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(options.headers.Authorization,'Bearer test-only-sentinel');return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify(seedPassages[0])}}]}),{headers:{'content-type':'application/json'}});};
  response=await api.fetch(make('analyze',{text,provider:'deepseek',apiKey:'test-only-sentinel',profile:{level:'beginner',depth:'detailed'}}));assert.equal(response.status,200);const ai=await response.json();assert.equal(ai.passage.answerStatus,'unverified');assert.equal(ai.passage.questions.length,5);assert.ok(!JSON.stringify(ai).includes('test-only-sentinel'));
- globalThis.fetch=async()=>new Response('Sensitive upstream details test-only-sentinel',{status:401});response=await api.fetch(make('analyze',{text,apiKey:'test-only-sentinel'}));assert.equal(response.status,401);assert.ok(!(await response.text()).includes('test-only-sentinel'));
+ globalThis.fetch=async()=>new Response('Sensitive upstream details test-only-sentinel',{status:401});response=await api.fetch(make('analyze',{text,provider:'deepseek',apiKey:'test-only-sentinel'}));assert.equal(response.status,401);assert.ok(!(await response.text()).includes('test-only-sentinel'));
 } finally { globalThis.fetch=fetchBefore; }
 console.log('Reading checks passed: 3 bilingual passages / 15 questions; parser, first independent scoring, JSON recovery, FSRS, URL controls, API state and standalone Worker factory.');

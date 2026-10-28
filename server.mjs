@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createSiteHandler } from './worker/index.js';
 import { createReadingAPI } from './worker/reading-api.js';
+import { createFreeReadingAnalyzer } from './worker/free-analysis.js';
 import { buildPublicSpeechEntries, splitSpeechText } from './scripts/catalog-utils.mjs';
 
 // Node 24 can use the desktop's existing proxy for the optional online voice.
@@ -20,7 +21,7 @@ if (typeof http.setGlobalProxyFromEnv === 'function') {
 
 const root = fileURLToPath(new URL('./public/', import.meta.url));
 const catalog = JSON.parse(await readFile(path.join(root, 'data/catalog.json'), 'utf8'));
-const speechHandler = createSiteHandler({}, buildPublicSpeechEntries(catalog).map(splitSpeechText), createReadingAPI());
+const speechHandler = createSiteHandler({}, buildPublicSpeechEntries(catalog).map(splitSpeechText), createReadingAPI(createFreeReadingAnalyzer()));
 const port = Number(process.env.PORT || 5173);
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.md': 'text/plain; charset=utf-8', '.png': 'image/png', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.gz': 'application/gzip', '.bmp': 'image/bmp', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.ico': 'image/x-icon' };
 const server = http.createServer(async (request, response) => {
