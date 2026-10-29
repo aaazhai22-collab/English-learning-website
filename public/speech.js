@@ -35,17 +35,22 @@ function loadPublicOnlineAllowlist(browser) {
         const normalized = normalizeSpeechText(text);
         if (normalized && !allowed.has(normalized)) allowed.set(normalized, allowed.size);
       };
-      for (const word of Array.isArray(catalog.words) ? catalog.words : []) {
+      const words = Array.isArray(catalog.words) ? catalog.words : [];
+      const regularWords = words.filter(word => word.lexiconType !== 'grammar' && word.collectionId !== 'grammar-handbook');
+      const grammarWords = words.filter(word => word.lexiconType === 'grammar' || word.collectionId === 'grammar-handbook');
+      const addWord = word => {
         add(word.word);
         for (const example of Array.isArray(word.examples) ? word.examples : []) {
           add(example.sentence);
           for (const item of Array.isArray(example.collocations) ? example.collocations : []) add(item.phrase);
         }
         for (const item of Array.isArray(word.collocations) ? word.collocations : []) add(item.phrase);
-      }
-      for (const word of Array.isArray(catalog.words) ? catalog.words : []) {
+      };
+      for (const word of regularWords) addWord(word);
+      for (const word of regularWords) {
         try { add(selectBeginnerExample(word)?.sentence); } catch { /* Missing optional teaching data must not discard the original allowlist. */ }
       }
+      for (const word of grammarWords) addWord(word);
       publicOnlineTexts = allowed;
     })
     .catch(() => { /* Fail closed: unverified text can only use system speech. */ })
@@ -58,7 +63,7 @@ export function createSpeechController({ onStateChange, onError, allowReadingOnl
   const Utterance = browser.SpeechSynthesisUtterance;
   const AudioConstructor = browser.Audio;
   const nativeSupported = Boolean(synth && typeof synth.speak === 'function' && Utterance);
-  const onlineSupported = typeof AudioConstructor === 'function';
+  const onlineSupported = typeof AudioConstructor === 'function' && browser.location?.protocol !== 'file:';
   const supported = nativeSupported || onlineSupported;
   let destroyed = false;
   let generation = 0;

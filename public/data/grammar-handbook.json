@@ -1,0 +1,1798 @@
+{
+  "version": 1,
+  "sourceTitle": "英语零基础语序与句子成分学习手册",
+  "regularCatalogSHA256": "04f40bd6983dea6beb3485d51924de5b89abb9cb043968540e514771a8171bb5",
+  "policy": "收录手册实际讲解和高频词；补充教学例句单独标记；不收录练习中的错误形式。",
+  "entries": [
+    {
+      "id": 100001,
+      "word": "I",
+      "meaning": "我",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "作主语，说明谁做某件事；无论在句中什么位置，I 都要大写。",
+      "examples": [
+        {
+          "sentence": "I read books.",
+          "translation": "我读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100002,
+      "word": "he",
+      "meaning": "他",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "作主语时用 he；一般现在时中常与动词第三人称单数形式搭配，be 用 is。",
+      "examples": [
+        {
+          "sentence": "He reads a book.",
+          "translation": "他读一本书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100003,
+      "word": "she",
+      "meaning": "她",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "作主语时用 she；作宾语时通常换成 her。现在的习惯用 she reads。",
+      "examples": [
+        {
+          "sentence": "She reads books every day.",
+          "translation": "她每天读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第九阶段 常见错误与造句步骤",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100004,
+      "word": "it",
+      "meaning": "它",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "手册的 be 搭配是 it is；与 he、she 一样属于第三人称单数主语。",
+      "examples": [
+        {
+          "sentence": "It is quiet.",
+          "translation": "它很安静。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100005,
+      "word": "you",
+      "meaning": "你；你们",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "手册的 be 搭配是 you are；在 Do you read books? 中 you 是主语。",
+      "examples": [
+        {
+          "sentence": "Do you read books?",
+          "translation": "你读书吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100006,
+      "word": "we",
+      "meaning": "我们",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "作主语；现在时的 be 搭配是 we are。",
+      "examples": [
+        {
+          "sentence": "We listen to music.",
+          "translation": "我们听音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100007,
+      "word": "they",
+      "meaning": "他们；她们；它们",
+      "pos": "pron. 主格",
+      "category": "人称代词",
+      "usage": "作主语；现在时的 be 搭配是 they are；普通动作动词通常用原形。",
+      "examples": [
+        {
+          "sentence": "They like music.",
+          "translation": "他们喜欢音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100008,
+      "word": "her",
+      "meaning": "她；作宾语的她",
+      "pos": "pron. 宾格",
+      "category": "人称代词",
+      "usage": "在 I like her. 中 her 是 like 的宾语；不能写 I like she.。",
+      "examples": [
+        {
+          "sentence": "I like her.",
+          "translation": "我喜欢她。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100009,
+      "word": "be",
+      "meaning": "是；处于某种身份或状态",
+      "pos": "v. 系动词",
+      "category": "be 与助动词",
+      "usage": "系动词连接主语和表语；现在时常见 am、is、are，过去时常见 was、were。",
+      "examples": [
+        {
+          "sentence": "She is happy.",
+          "translation": "她很开心。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100010,
+      "word": "am",
+      "meaning": "是；be 与 I 搭配的现在时形式",
+      "pos": "v. 系动词",
+      "category": "be 与助动词",
+      "usage": "现在时先记 I am；在 I am a student. 中 am 是系动词，a student 是表语。",
+      "examples": [
+        {
+          "sentence": "I am a student.",
+          "translation": "我是一名学生。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100011,
+      "word": "is",
+      "meaning": "是；be 与 he/she/it 搭配的现在时形式",
+      "pos": "v. 系动词",
+      "category": "be 与助动词",
+      "usage": "描述状态或身份时不能省略系动词 is；She happy. 缺少本句需要的 is。",
+      "examples": [
+        {
+          "sentence": "She is happy.",
+          "translation": "她很开心。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100012,
+      "word": "are",
+      "meaning": "是；be 与 you/we/they 搭配的现在时形式",
+      "pos": "v. 系动词",
+      "category": "be 与助动词",
+      "usage": "手册最小搭配：you / we / they are。",
+      "examples": [
+        {
+          "sentence": "They are happy.",
+          "translation": "他们很开心。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100013,
+      "word": "was",
+      "meaning": "是；be 的过去时形式之一",
+      "pos": "v. 系动词",
+      "category": "be 与助动词",
+      "usage": "I was tired yesterday. 中 was 连接主语 I 与表语 tired，yesterday 表示过去。",
+      "examples": [
+        {
+          "sentence": "I was tired yesterday.",
+          "translation": "我昨天很累。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100014,
+      "word": "were",
+      "meaning": "是；be 的过去时形式之一",
+      "pos": "v. 系动词",
+      "category": "be 与助动词",
+      "usage": "手册将 was、were 列为 be 的常见过去式；用法例句为补充练习。",
+      "examples": [
+        {
+          "sentence": "They were happy yesterday.",
+          "translation": "他们昨天很开心。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100015,
+      "word": "do",
+      "meaning": "助动词；用于本课的一般现在时疑问句",
+      "pos": "aux.",
+      "category": "be 与助动词",
+      "usage": "Do you read books? 中 Do 是助动词，you 是主语，read 是主要动词；本句不能套用肯定句的全部词序。",
+      "examples": [
+        {
+          "sentence": "Do you read books?",
+          "translation": "你读书吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100016,
+      "word": "read",
+      "meaning": "阅读；过去式仍拼 read",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "原形及一般现在时读 /riːd/；过去式读 /red/，拼写仍是 read，不能写 readed。单词相同，需结合时间判断。",
+      "examples": [
+        {
+          "sentence": "I read books.",
+          "translation": "我读书。",
+          "exampleOrigin": "manual"
+        },
+        {
+          "sentence": "I read books quietly in the library last Sunday.",
+          "translation": "我上周日在图书馆安静地看书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "phonetic": "/riːd/（原形）；/red/（过去式）"
+    },
+    {
+      "id": 100017,
+      "word": "reads",
+      "meaning": "阅读；read 的第三人称单数形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "表达现在的习惯，主语为 she/he 等第三人称单数时用 reads；不能只看主语而忽略过去语境。",
+      "examples": [
+        {
+          "sentence": "She reads books.",
+          "translation": "她读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100018,
+      "word": "reading",
+      "meaning": "正在读；read 的 ing 形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "在 I am reading a book. 中 am reading 整体是谓语动词部分；不能只为翻译中文“在”就任意加 am。",
+      "examples": [
+        {
+          "sentence": "I am reading a book.",
+          "translation": "我正在读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100019,
+      "word": "walk",
+      "meaning": "走；步行",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册对照 walk → walked；表示过去发生的步行动作用 walked。",
+      "examples": [
+        {
+          "sentence": "I walk home.",
+          "translation": "我步行回家。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100020,
+      "word": "walks",
+      "meaning": "走；walk 的第三人称单数形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "She walks home slowly. 中 walks 是谓语动词；home 表示方向，slowly 表示方式。",
+      "examples": [
+        {
+          "sentence": "She walks home slowly.",
+          "translation": "她慢慢地走回家。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100021,
+      "word": "walked",
+      "meaning": "走；walk 的过去式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册对照 walk → walked；与 yesterday 等过去语境搭配。",
+      "examples": [
+        {
+          "sentence": "They walked home yesterday.",
+          "translation": "他们昨天步行回家。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100022,
+      "word": "play",
+      "meaning": "玩；进行游戏或运动",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册对照 play → played；They play in the park. 中 play 没有直接宾语。",
+      "examples": [
+        {
+          "sentence": "They play in the park.",
+          "translation": "他们在公园玩。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100023,
+      "word": "plays",
+      "meaning": "玩；play 的第三人称单数形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "She plays tennis every Sunday. 表示现在规律性的活动，主语 She 对应 plays。",
+      "examples": [
+        {
+          "sentence": "She plays tennis every Sunday.",
+          "translation": "她每个星期日打网球。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100024,
+      "word": "played",
+      "meaning": "玩；play 的过去式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "last Sunday 或 yesterday 指过去的活动时，本课例句用 played。",
+      "examples": [
+        {
+          "sentence": "She played tennis last Sunday.",
+          "translation": "她上周日打了网球。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100025,
+      "word": "eat",
+      "meaning": "吃",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "可不明说宾语，也可直接接宾语：I eat. 与 I eat rice. 都能成立。过去式为 ate。",
+      "examples": [
+        {
+          "sentence": "I eat rice.",
+          "translation": "我吃米饭。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100026,
+      "word": "ate",
+      "meaning": "吃；eat 的过去式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册列出 eat → ate；这是不规则变化，不能机械地只加 ed。",
+      "examples": [
+        {
+          "sentence": "I ate rice yesterday.",
+          "translation": "我昨天吃了米饭。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100027,
+      "word": "go",
+      "meaning": "去",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册列出 go → went；go home 的 home 前通常不加 to，但 go to school 需要 to。",
+      "examples": [
+        {
+          "sentence": "I go to school.",
+          "translation": "我去上学。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100028,
+      "word": "went",
+      "meaning": "去；go 的过去式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册列出 go → went；过去式不能全部靠加 ed。",
+      "examples": [
+        {
+          "sentence": "I went home yesterday.",
+          "translation": "我昨天回家了。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100029,
+      "word": "sleep",
+      "meaning": "睡觉",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "本课将 sleep 作为不直接接对象的用法；不必为了凑主谓宾而添加宾语。",
+      "examples": [
+        {
+          "sentence": "I sleep at home.",
+          "translation": "我在家睡觉。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100030,
+      "word": "sleeps",
+      "meaning": "睡觉；sleep 的第三人称单数形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "The baby sleeps. 中 sleeps 是谓语动词，句子没有宾语，但结构完整。",
+      "examples": [
+        {
+          "sentence": "The baby sleeps.",
+          "translation": "这个婴儿睡觉。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100031,
+      "word": "like",
+      "meaning": "喜欢",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "表达喜好，也属于动词；可直接接对象，如 like music、like her。",
+      "examples": [
+        {
+          "sentence": "They like music.",
+          "translation": "他们喜欢音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100032,
+      "word": "know",
+      "meaning": "知道；认识",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "手册用 know 说明：动词表达的未必是看得见的动作，也可以表达知道等状态。",
+      "examples": [
+        {
+          "sentence": "I know her.",
+          "translation": "我认识她。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100033,
+      "word": "listen",
+      "meaning": "听",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "表达“听某个内容”通常要用 listen to；We listen to music. 中 music 是介词 to 的宾语。",
+      "examples": [
+        {
+          "sentence": "We listen to music.",
+          "translation": "我们听音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100034,
+      "word": "opens",
+      "meaning": "打开；open 的第三人称单数形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "She opens the door quietly. 中 opens 是谓语动词，the door 是宾语。",
+      "examples": [
+        {
+          "sentence": "She opens the door quietly.",
+          "translation": "她轻轻地开门。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100035,
+      "word": "writes",
+      "meaning": "书写；write 的第三人称单数形式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "She writes with care. 中 writes 是谓语动词，with care 整体作方式状语。",
+      "examples": [
+        {
+          "sentence": "She writes with care.",
+          "translation": "她小心认真地书写。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100036,
+      "word": "put",
+      "meaning": "放；本课例句中为过去式",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "put 通常需要交代放在哪里；He put the book. 在本课语境中信息不完整。",
+      "examples": [
+        {
+          "sentence": "He put the book on the table.",
+          "translation": "他把书放在桌子上。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100037,
+      "word": "study",
+      "meaning": "学习",
+      "pos": "v.",
+      "category": "动词与形式",
+      "usage": "We study here. 中 study 是谓语动词，here 是地点状语，本句没有直接宾语。",
+      "examples": [
+        {
+          "sentence": "We study here.",
+          "translation": "我们在这里学习。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100038,
+      "word": "a",
+      "meaning": "一；用于本课的单数可数名词前",
+      "pos": "限定词",
+      "category": "冠词与限定词",
+      "usage": "a book 是一整个宾语；a 不是另一个独立句子成分。music 在本课用法中不可数，不能说 a music。",
+      "examples": [
+        {
+          "sentence": "He reads a book.",
+          "translation": "他读一本书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100039,
+      "word": "the",
+      "meaning": "这；那；用于已知或已确定的对象前",
+      "pos": "限定词",
+      "category": "冠词与限定词",
+      "usage": "the book 表示双方知道或已确定的那本书；the 与其后名词常组成一个整体。",
+      "examples": [
+        {
+          "sentence": "He put the book on the table.",
+          "translation": "他把书放在桌子上。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100040,
+      "word": "my",
+      "meaning": "我的",
+      "pos": "限定词",
+      "category": "冠词与限定词",
+      "usage": "手册列 a、the、my 为单数可数名词常需要的限定词；my 与名词组成词组。",
+      "examples": [
+        {
+          "sentence": "This is my book.",
+          "translation": "这是我的书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100041,
+      "word": "quiet",
+      "meaning": "安静的",
+      "pos": "adj.",
+      "category": "形容词与副词",
+      "usage": "形容词；手册对照 quiet → quietly。描述状态可用 quiet，描述动作怎样做用 quietly。",
+      "examples": [
+        {
+          "sentence": "The library is quiet.",
+          "translation": "图书馆很安静。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100042,
+      "word": "quietly",
+      "meaning": "安静地；轻轻地",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "方式副词，说明怎么做；常放动词或宾语后，也可前移。避免 I read quietly books.。",
+      "examples": [
+        {
+          "sentence": "She opens the door quietly.",
+          "translation": "她轻轻地开门。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100043,
+      "word": "slow",
+      "meaning": "慢的",
+      "pos": "adj.",
+      "category": "形容词与副词",
+      "usage": "手册对照 slow → slowly；注意词的类别与句中成分不是同一个概念。",
+      "examples": [
+        {
+          "sentence": "He is slow.",
+          "translation": "他很慢。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100044,
+      "word": "slowly",
+      "meaning": "缓慢地；慢慢地",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "方式副词；He walks slowly. 中 slowly 说明走路的方式。",
+      "examples": [
+        {
+          "sentence": "He walks slowly.",
+          "translation": "他慢慢地走。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100045,
+      "word": "careful",
+      "meaning": "仔细的；小心的",
+      "pos": "adj.",
+      "category": "形容词与副词",
+      "usage": "手册对照 careful → carefully；形容词与方式副词要分清。",
+      "examples": [
+        {
+          "sentence": "She is careful.",
+          "translation": "她很仔细。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100046,
+      "word": "carefully",
+      "meaning": "仔细地",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "方式副词，手册列为方式状语的单词示例；由 careful 加 ly 构成。",
+      "examples": [
+        {
+          "sentence": "She reads carefully.",
+          "translation": "她仔细地阅读。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100047,
+      "word": "good",
+      "meaning": "好的",
+      "pos": "adj.",
+      "category": "形容词与副词",
+      "usage": "描述动作做得好时，手册提醒 good 通常换成方式副词 well。",
+      "examples": [
+        {
+          "sentence": "The book is good.",
+          "translation": "这本书很好。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100048,
+      "word": "well",
+      "meaning": "好地；做得好",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "手册对照 good → well；不能将 good 机械地加 ly。",
+      "examples": [
+        {
+          "sentence": "She reads well.",
+          "translation": "她读得好。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100049,
+      "word": "fast",
+      "meaning": "快的；快地",
+      "pos": "adj. / adv.",
+      "category": "形容词与副词",
+      "usage": "手册中形容词和副词形式均为 fast；不要机械写成 fastly。",
+      "examples": [
+        {
+          "sentence": "He walks fast.",
+          "translation": "他走得快。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100050,
+      "word": "with care",
+      "meaning": "小心地；认真地",
+      "pos": "介词短语",
+      "category": "形容词与副词",
+      "usage": "整个 with care 作方式状语；care 不能误认成 writes 的直接宾语。",
+      "examples": [
+        {
+          "sentence": "She writes with care.",
+          "translation": "她小心认真地书写。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100051,
+      "word": "often",
+      "meaning": "经常",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "表示多常发生，不是怎么做；本课一般现在时简单句中常放普通实义动词前。",
+      "examples": [
+        {
+          "sentence": "I often read books at home.",
+          "translation": "我经常在家读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100052,
+      "word": "usually",
+      "meaning": "通常",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "手册列出的频率副词；本课规则是普通实义动词前、be 后。",
+      "examples": [
+        {
+          "sentence": "I usually read books at home.",
+          "translation": "我通常在家读书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100053,
+      "word": "always",
+      "meaning": "总是",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "频率副词；She is always happy. 中 always 放在 be 动词 is 后。",
+      "examples": [
+        {
+          "sentence": "She is always happy.",
+          "translation": "她总是很开心。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100054,
+      "word": "never",
+      "meaning": "从不",
+      "pos": "adv.",
+      "category": "形容词与副词",
+      "usage": "手册列出的频率副词；表示事情不发生的频率。",
+      "examples": [
+        {
+          "sentence": "I never read in the park.",
+          "translation": "我从不在公园读书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100055,
+      "word": "in",
+      "meaning": "在……里面；用于本课的月份、年份或一般时段",
+      "pos": "prep.",
+      "category": "介词",
+      "usage": "地点可用 in the library；时间可用 in October、in 2025、in the morning；不要看见中文“在”就一律加 in。",
+      "examples": [
+        {
+          "sentence": "I read books in the library.",
+          "translation": "我在图书馆读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100056,
+      "word": "at",
+      "meaning": "在；用于本课的地点或具体钟点",
+      "pos": "prep.",
+      "category": "介词",
+      "usage": "本课常见搭配 at home 和 at seven；具体钟点常用 at。",
+      "examples": [
+        {
+          "sentence": "I read books at home yesterday.",
+          "translation": "我昨天在家读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100057,
+      "word": "on",
+      "meaning": "在……表面；在某一天",
+      "pos": "prep.",
+      "category": "介词",
+      "usage": "on the table 常表示接触物体表面；时间中常用于星期或具体某一天，如 on Sunday。",
+      "examples": [
+        {
+          "sentence": "He put the book on the table.",
+          "translation": "他把书放在桌子上。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100058,
+      "word": "to",
+      "meaning": "到；本课中的介词",
+      "pos": "prep.",
+      "category": "介词",
+      "usage": "listen to 表示听某个内容，go to school 表示去上学；go home 中 home 前不加 to。",
+      "examples": [
+        {
+          "sentence": "We listen to music.",
+          "translation": "我们听音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100059,
+      "word": "listen to",
+      "meaning": "听……",
+      "pos": "动词搭配",
+      "category": "地点与常用搭配",
+      "usage": "表达听某个内容时通常用 listen to；不要漏掉 to。music 是介词 to 的宾语。",
+      "examples": [
+        {
+          "sentence": "We listen to music.",
+          "translation": "我们听音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100060,
+      "word": "in the library",
+      "meaning": "在图书馆",
+      "pos": "介词短语",
+      "category": "地点与常用搭配",
+      "usage": "整个词组在本课原句中作地点状语；the library 是介词 in 的宾语。",
+      "examples": [
+        {
+          "sentence": "I read books in the library.",
+          "translation": "我在图书馆读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100061,
+      "word": "in the park",
+      "meaning": "在公园",
+      "pos": "介词短语",
+      "category": "地点与常用搭配",
+      "usage": "整个词组作地点状语；They play in the park. 的 play 没有直接宾语。",
+      "examples": [
+        {
+          "sentence": "They play in the park.",
+          "translation": "他们在公园玩。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100062,
+      "word": "at home",
+      "meaning": "在家",
+      "pos": "介词短语",
+      "category": "地点与常用搭配",
+      "usage": "整体说明地点，可与时间状语连用。",
+      "examples": [
+        {
+          "sentence": "I read books at home yesterday.",
+          "translation": "我昨天在家读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100063,
+      "word": "here",
+      "meaning": "在这里",
+      "pos": "adv.",
+      "category": "地点与常用搭配",
+      "usage": "here 本身可表示地点，不必为逐字翻译“在这里”而加 in。",
+      "examples": [
+        {
+          "sentence": "We study here.",
+          "translation": "我们在这里学习。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100064,
+      "word": "there",
+      "meaning": "在那里",
+      "pos": "adv.",
+      "category": "地点与常用搭配",
+      "usage": "手册列出的常见地点表达；整体可补充地点信息。",
+      "examples": [
+        {
+          "sentence": "We study there.",
+          "translation": "我们在那里学习。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100065,
+      "word": "home",
+      "meaning": "家；回家方向",
+      "pos": "n. / adv.",
+      "category": "地点与常用搭配",
+      "usage": "在 go home、walk home 中 home 可直接跟在移动动词后，通常不加 to。",
+      "examples": [
+        {
+          "sentence": "She walks home slowly.",
+          "translation": "她慢慢地走回家。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100066,
+      "word": "go home",
+      "meaning": "回家",
+      "pos": "动词搭配",
+      "category": "地点与常用搭配",
+      "usage": "home 在此直接跟 go，通常不加 to；与 go to school 对照记忆。",
+      "examples": [
+        {
+          "sentence": "I go home.",
+          "translation": "我回家。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100067,
+      "word": "go to school",
+      "meaning": "去上学",
+      "pos": "动词搭配",
+      "category": "地点与常用搭配",
+      "usage": "school 在此表达中要与 to 搭配；不能套用 go home 而漏 to。",
+      "examples": [
+        {
+          "sentence": "I go to school.",
+          "translation": "我去上学。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100068,
+      "word": "on the table",
+      "meaning": "在桌子上",
+      "pos": "介词短语",
+      "category": "地点与常用搭配",
+      "usage": "on 常指接触物体表面；在 He put the book on the table. 中，整体作地点补足语。",
+      "examples": [
+        {
+          "sentence": "He put the book on the table.",
+          "translation": "他把书放在桌子上。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100069,
+      "word": "in here",
+      "meaning": "在这里面",
+      "pos": "地点表达",
+      "category": "地点与常用搭配",
+      "usage": "here 不必加介词；in here 在特定语境中可以表示“在这里面”，并非一概错误。",
+      "examples": [
+        {
+          "sentence": "We study in here.",
+          "translation": "我们在这里面学习。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100070,
+      "word": "yesterday",
+      "meaning": "昨天",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "本课常见时间状语，可放句末或句首；前面通常不加 at、on、in。",
+      "examples": [
+        {
+          "sentence": "I read books at home yesterday.",
+          "translation": "我昨天在家读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100071,
+      "word": "last Sunday",
+      "meaning": "上周日",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "指过去；前面通常不加 on。与 every Sunday 的规律性活动不同。",
+      "examples": [
+        {
+          "sentence": "She played tennis last Sunday.",
+          "translation": "她上周日打了网球。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100072,
+      "word": "every day",
+      "meaning": "每天",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "常表达规律性的活动；本课例句中通常不加介词。",
+      "examples": [
+        {
+          "sentence": "She reads books every day.",
+          "translation": "她每天读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100073,
+      "word": "every Sunday",
+      "meaning": "每个星期日",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "表示规律性的活动；本课用一般现在时，与 last Sunday 对照。",
+      "examples": [
+        {
+          "sentence": "She plays tennis every Sunday.",
+          "translation": "她每个星期日打网球。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100074,
+      "word": "at seven",
+      "meaning": "在七点",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "具体钟点常用 at；本词组为文档时间搭配表所列。",
+      "examples": [
+        {
+          "sentence": "I read at seven.",
+          "translation": "我在七点读书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100075,
+      "word": "on Sunday",
+      "meaning": "在星期日",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "星期或具体某一天常用 on；不能把 on 与 last Sunday 机械拼成 on last Sunday。",
+      "examples": [
+        {
+          "sentence": "I read on Sunday.",
+          "translation": "我在星期日读书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100076,
+      "word": "on Monday morning",
+      "meaning": "在星期一早晨",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "具体某一天的早晨常用 on；与一般时段 in the morning 对照。",
+      "examples": [
+        {
+          "sentence": "I read on Monday morning.",
+          "translation": "我在星期一早晨读书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100077,
+      "word": "in October",
+      "meaning": "在十月",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "月份常用 in；本词组为文档时间搭配表所列。",
+      "examples": [
+        {
+          "sentence": "I read the book in October.",
+          "translation": "我在十月读了这本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100078,
+      "word": "in 2025",
+      "meaning": "在2025年",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "年份常用 in；本词组为文档时间搭配表所列。",
+      "examples": [
+        {
+          "sentence": "I read the book in 2025.",
+          "translation": "我在2025年读了这本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100079,
+      "word": "in the morning",
+      "meaning": "在早晨",
+      "pos": "时间表达",
+      "category": "时间状语",
+      "usage": "一般时段可用 in；具体某一天的早晨则可用 on Monday morning。",
+      "examples": [
+        {
+          "sentence": "I read in the morning.",
+          "translation": "我在早晨读书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100080,
+      "word": "book",
+      "meaning": "书",
+      "pos": "n. 可数名词",
+      "category": "核心词与名词词组",
+      "usage": "文档高频词；单数可数名词通常需要 a、the、my 等限定词。",
+      "examples": [
+        {
+          "sentence": "He reads a book.",
+          "translation": "他读一本书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "复习速查 本课高频词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100081,
+      "word": "books",
+      "meaning": "书；book 的复数",
+      "pos": "n. 复数",
+      "category": "核心词与名词词组",
+      "usage": "可概括表达书这一类东西；在 I read books. 中作宾语。",
+      "examples": [
+        {
+          "sentence": "I read books.",
+          "translation": "我读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100082,
+      "word": "a book",
+      "meaning": "一本书",
+      "pos": "名词词组",
+      "category": "核心词与名词词组",
+      "usage": "a book 整体作宾语；a 不是另一个句子成分。",
+      "examples": [
+        {
+          "sentence": "He reads a book.",
+          "translation": "他读一本书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100083,
+      "word": "the book",
+      "meaning": "特指的那本书",
+      "pos": "名词词组",
+      "category": "核心词与名词词组",
+      "usage": "the 表示双方知道或已确定的对象。",
+      "examples": [
+        {
+          "sentence": "He put the book on the table.",
+          "translation": "他把书放在桌子上。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100084,
+      "word": "library",
+      "meaning": "图书馆",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "文档高频词；in the library 整体说明地点。",
+      "examples": [
+        {
+          "sentence": "I read books in the library.",
+          "translation": "我在图书馆读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "复习速查 本课高频词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100085,
+      "word": "park",
+      "meaning": "公园",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "文档高频词；in the park 是常见地点表达。",
+      "examples": [
+        {
+          "sentence": "They play in the park.",
+          "translation": "他们在公园玩。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "复习速查 本课高频词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100086,
+      "word": "door",
+      "meaning": "门",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "文档高频词；在 She opens the door quietly. 中 the door 整体作宾语。",
+      "examples": [
+        {
+          "sentence": "She opens the door quietly.",
+          "translation": "她轻轻地开门。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "复习速查 本课高频词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100087,
+      "word": "music",
+      "meaning": "音乐",
+      "pos": "n. 不可数名词",
+      "category": "核心词与名词词组",
+      "usage": "本课用法为不可数名词，不写 a music；可以作 like 的宾语，也可作介词 to 的宾语。",
+      "examples": [
+        {
+          "sentence": "They like music.",
+          "translation": "他们喜欢音乐。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100088,
+      "word": "happy",
+      "meaning": "开心的",
+      "pos": "adj.",
+      "category": "核心词与名词词组",
+      "usage": "文档高频词；在 She is happy. 中 happy 是表语，不是宾语，也不能代替系动词 is。",
+      "examples": [
+        {
+          "sentence": "She is happy.",
+          "translation": "她很开心。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100089,
+      "word": "student",
+      "meaning": "学生",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "文档高频词；I am a student. 中 a student 是表语，说明身份。",
+      "examples": [
+        {
+          "sentence": "I am a student.",
+          "translation": "我是一名学生。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100090,
+      "word": "tired",
+      "meaning": "累的；疲倦的",
+      "pos": "adj.",
+      "category": "核心词与名词词组",
+      "usage": "在 I was tired yesterday. 中 tired 是表语，was 是系动词。",
+      "examples": [
+        {
+          "sentence": "I was tired yesterday.",
+          "translation": "我昨天很累。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100091,
+      "word": "predicate",
+      "meaning": "谓语；语法术语",
+      "pos": "语法术语",
+      "category": "句子成分术语",
+      "usage": "手册特别说明：英语语法书中的 predicate 有时指主语以外的更大部分，不应直接等同于本手册的“谓语动词”。",
+      "examples": [
+        {
+          "sentence": "I read books.",
+          "translation": "我读书。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "先认识六个名称",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "exampleNote": "用于对照主语与其余部分的整句示例；predicate 一词本身来自手册术语说明，不是例句词。"
+    },
+    {
+      "id": 100092,
+      "word": "baby",
+      "meaning": "婴儿",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "The baby 整体作主语，不能把 the 与 baby 拆成两个句子成分。",
+      "examples": [
+        {
+          "sentence": "The baby sleeps.",
+          "translation": "这个婴儿睡觉。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100093,
+      "word": "the baby",
+      "meaning": "这个婴儿",
+      "pos": "名词词组",
+      "category": "核心词与名词词组",
+      "usage": "The baby 整体是主语；sleeps 是谓语动词，本句没有宾语。",
+      "examples": [
+        {
+          "sentence": "The baby sleeps.",
+          "translation": "这个婴儿睡觉。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100094,
+      "word": "the door",
+      "meaning": "这扇门",
+      "pos": "名词词组",
+      "category": "核心词与名词词组",
+      "usage": "在开门例句中，the door 整体作 opens 的宾语；quietly 说明开门的方式。",
+      "examples": [
+        {
+          "sentence": "She opens the door quietly.",
+          "translation": "她轻轻地开门。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第五阶段 方式状语说明怎样做",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100095,
+      "word": "a student",
+      "meaning": "一名学生",
+      "pos": "名词词组",
+      "category": "核心词与名词词组",
+      "usage": "在 I am a student. 中，a student 是表语，说明主语的身份，不是宾语。",
+      "examples": [
+        {
+          "sentence": "I am a student.",
+          "translation": "我是一名学生。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100096,
+      "word": "rice",
+      "meaning": "米饭",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "I eat rice. 中 rice 是 eat 的宾语；与不明说宾语的 I eat. 对照。",
+      "examples": [
+        {
+          "sentence": "I eat rice.",
+          "translation": "我吃米饭。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100097,
+      "word": "tennis",
+      "meaning": "网球",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "She plays tennis every Sunday. 中 tennis 是宾语；play tennis 表示打网球。",
+      "examples": [
+        {
+          "sentence": "She plays tennis every Sunday.",
+          "translation": "她每个星期日打网球。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第七阶段 时间状语说明什么时候",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    },
+    {
+      "id": 100098,
+      "word": "school",
+      "meaning": "学校",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "go to school 表示去上学；school 在本课这个方向表达中要与 to 搭配。",
+      "examples": [
+        {
+          "sentence": "I go to school.",
+          "translation": "我去上学。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "added"
+    },
+    {
+      "id": 100099,
+      "word": "table",
+      "meaning": "桌子",
+      "pos": "n.",
+      "category": "核心词与名词词组",
+      "usage": "on the table 表示在桌子上；put 通常需要交代放在哪里，整个地点词组不能一概删去。",
+      "examples": [
+        {
+          "sentence": "He put the book on the table.",
+          "translation": "他把书放在桌子上。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual"
+    }
+  ],
+  "importedOn": "2026-10-29"
+}

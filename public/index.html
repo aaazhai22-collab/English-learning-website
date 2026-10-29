@@ -4962,12 +4962,12 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         libraryPage: 0,
         libraryRandomSeed: Date.now() >>> 0,
         studyCollectionFilter: "all",
-        homeCollectionIndex: vocabularyCollections.length - 1,
+        homeCollectionIndex: regularCollections().length - 1,
         homeSwipeStart: null,
         sort: "original",
         flashSearchKeyword: "",
         flashCollectionFilter:
-          vocabularyCollections[vocabularyCollections.length - 1].id,
+          latestRegularCollection().id,
         flashCategoryFilter: "all",
         flashStatusFilter: "all",
         flashSort: "original",
@@ -5325,11 +5325,39 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         );
       }
       function collectionDisplayName(collection) {
-        const index = vocabularyCollections.findIndex(
+        if (isGrammarCollection(collection)) return `语法词库（${grammarWords().length} 词）`;
+        const index = regularCollections().findIndex(
           (candidate) => candidate.id === collection.id,
         );
         const number = index >= 0 ? index + 1 : Number(collection.sortOrder) + 1;
         return `第 ${String(number).padStart(2, "0")} 批 · ${collection.title}`;
+      }
+      function isGrammarCollection(collection) {
+        return collection?.type === "grammar" || collection?.id === "grammar-handbook";
+      }
+      function isGrammarWord(word) {
+        return word?.lexiconType === "grammar" || word?.collectionId === "grammar-handbook";
+      }
+      function regularCollections() {
+        return vocabularyCollections.filter((collection) => !isGrammarCollection(collection));
+      }
+      function latestRegularCollection() {
+        return regularCollections().at(-1) || vocabularyCollections.at(-1);
+      }
+      function grammarWords() {
+        return vocabularyData.filter(isGrammarWord);
+      }
+      function wordsForCollectionScope(collection = "all") {
+        if (collection === "all") return vocabularyData.filter((word) => !isGrammarWord(word));
+        const id = collection === "latest" ? latestRegularCollection()?.id : collection;
+        return vocabularyData.filter((word) => word.collectionId === id);
+      }
+      function scopeCategories(collection) {
+        return [...new Set(wordsForCollectionScope(collection).map((word) => word.category))];
+      }
+      function grammarContextHtml(word) {
+        if (!isGrammarWord(word)) return "";
+        return `<div class="grammar-word-context">${word.grammarNote ? `<p>${escapeHtml(word.grammarNote)}</p>` : ""}${word.sourceSection ? `<small>手册章节 · ${escapeHtml(word.sourceSection)}</small>` : ""}</div>`;
       }
       function setBackendStatus(status, text, title = "") {
         state.backendStatus = status;
@@ -5549,6 +5577,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
               collection.date || collection.collectionDate || collection.id,
             ),
             title: String(collection.title || "Untitled Collection"),
+            type: collection.type === "grammar" || collection.id === "grammar-handbook" ? "grammar" : "regular",
             sortOrder: Number.isFinite(Number(collection.sortOrder))
               ? Number(collection.sortOrder)
               : index,
@@ -5571,7 +5600,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             const collectionId = String(
               word.collectionId || word.collection?.id || "",
             );
-            const partOfSpeech = normalizePartOfSpeechLabel(
+            const normalizePOS = isGrammarWord(word) ? value => String(value).trim() : normalizePartOfSpeechLabel;
+            const partOfSpeech = normalizePOS(
               word.pos || word.partOfSpeech || "—",
             );
             const sourceExamples = Array.isArray(word.examples)
@@ -5598,12 +5628,13 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
                     ]
                   : []
             ).map((example) => ({
-              pos: normalizePartOfSpeechLabel(
+              pos: normalizePOS(
                 example.pos || example.partOfSpeech || partOfSpeech || "—",
               ),
               sentence: String(example.sentence || ""),
               translation: String(example.translation || ""),
               sense: String(example.sense || example.gloss || word.meaning || ""),
+              exampleOrigin: String(example.exampleOrigin || word.exampleOrigin || "manual"),
               collocations: normalizeCollocations(example.collocations),
             }));
             return {
@@ -5617,6 +5648,10 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
               examples,
               collocations: normalizeCollocations(word.collocations),
               category: String(word.category || "其他"),
+              lexiconType: word.lexiconType === "grammar" || collectionId === "grammar-handbook" ? "grammar" : "regular",
+              grammarNote: String(word.grammarNote || ""),
+              sourceSection: String(word.sourceSection || ""),
+              sourceTitle: String(word.sourceTitle || "英语零基础语序与句子成分学习手册"),
               collectionId,
               collectionTitle:
                 word.collectionTitle ||
@@ -5797,11 +5832,11 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           vocabularyCollections.map((collection) => collection.id),
         );
         const latestCollection =
-          vocabularyCollections[vocabularyCollections.length - 1];
+          latestRegularCollection();
         // 每次载入数据库或单文件词库时，首页默认展示真正的最新一期。
         state.homeCollectionIndex = Math.max(
           0,
-          vocabularyCollections.length - 1,
+          regularCollections().length - 1,
         );
         if (
           state.collectionFilter !== "all" &&
@@ -6362,9 +6397,10 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           ? state.user.history[state.user.history.length - 1]
           : null;
         const dateText = beijingDateParts().date.replace("星期", " · 星期");
-        const latestCollection = vocabularyCollections[vocabularyCollections.length - 1];
+        const latestCollection = latestRegularCollection();
+        const homeCollections = regularCollections();
         const selectedCollection =
-          vocabularyCollections[state.homeCollectionIndex] || latestCollection;
+          homeCollections[state.homeCollectionIndex] || latestCollection;
         const selectedWords = ws.filter((word) => word.collectionId === selectedCollection.id);
         const selectedStatusCount = (status) =>
           selectedWords.filter((word) => word.status === status).length;
@@ -6396,6 +6432,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             <button class="pill home-action" data-continue>继续上次进度</button>
           </div>
           <p class="home-read-hint"><span aria-hidden="true">◖))</span> 点击英文单词、例句或搭配，即可收听发音。</p>
+          ${grammarWords().length ? `<section class="grammar-home-entry" aria-label="语法词库入口"><div><span class="eyebrow">GRAMMAR ESSENTIALS</span><h2>语法词库，把词语放回句子。</h2><p>${grammarWords().length} 个手册词条 · 人称、动词、方式、地点与时间，按用途慢慢记。</p></div><div class="grammar-entry-actions"><button class="pill primary" data-library-scope="grammar">打开语法词库 →</button><button class="pill" data-grammar-quiz>语法专项测试</button></div></section>` : ""}
           <div class="dashboard glass home-animated-card" data-home-reveal="dashboard">
             <div class="ring" style="--progress:${progress}%"><span>${countUpHtml(progress, "全部词集进度", "home-progress", "%")}<small>全部词集进度</small></span></div>
             <div class="stats">
@@ -6413,7 +6450,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             <div class="home-grid">
               <div class="collection-stage home-animated-card" data-home-reveal="collection" data-collection-swipe>
                 <article class="journal-card collection-card glass">
-                  <div class="journal-label">BATCH ${String(state.homeCollectionIndex + 1).padStart(2, "0")} / ${vocabularyCollections.length}${selectedCollection.id === latestCollection.id ? " · LATEST" : ""}</div>
+                  <div class="journal-label">BATCH ${String(state.homeCollectionIndex + 1).padStart(2, "0")} / ${homeCollections.length}${selectedCollection.id === latestCollection.id ? " · LATEST" : ""}</div>
                   <h3>${selectedCollection.title}</h3>
                   <p class="collection-note">第 ${String(state.homeCollectionIndex + 1).padStart(2, "0")} 批 · 收录 ${selectedWords.length} 个单词</p>
                   <div class="collection-focus"><div><small>NEXT REVIEW</small><b>${nextFocusWord?.word || "All in bloom"}</b></div><span>${remainingCollectionWords ? `还有 ${remainingCollectionWords} 词` : "本期已完成"}</span></div>
@@ -6422,7 +6459,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
                   <div class="collection-progress-track" style="--collection-progress:${collectionProgress}%"><i></i></div>
                   <div class="collection-categories">${collectionCategories.map((category) => `<span>${category}</span>`).join("")}</div>
                   <div class="collection-actions"><button class="pill primary" data-study-collection="${selectedCollection.id}">继续学习本期</button><button class="pill" data-open-collection="${selectedCollection.id}">打开完整词单</button></div>
-                  <div class="collection-nav"><button class="collection-arrow" data-home-collection="-1" aria-label="上一期词集">←</button><span class="collection-position">第 ${state.homeCollectionIndex + 1} / ${vocabularyCollections.length} 期</span><button class="collection-arrow" data-home-collection="1" aria-label="下一期词集">→</button></div>
+                  <div class="collection-nav"><button class="collection-arrow" data-home-collection="-1" aria-label="上一期词集">←</button><span class="collection-position">第 ${state.homeCollectionIndex + 1} / ${homeCollections.length} 期</span><button class="collection-arrow" data-home-collection="1" aria-label="下一期词集">→</button></div>
                 </article>
               </div>
               <aside class="journal-card glass home-animated-card" data-home-reveal="routine"><div class="journal-label">A QUIET ROUTINE</div><h3>长期学习路径</h3><div class="path-list"><div class="path-item"><i>01</i><div><b>学习最新词集</b><small>New words settle here, day by day.</small></div></div><div class="path-item"><i>02</i><div><b>跨词集复习</b><small>Your progress follows every word.</small></div></div><div class="path-item"><i>03</i><div><b>检验长期记忆</b><small>Review one collection—or all of them.</small></div></div><div class="path-item"><i>04</i><div><b>专注一段时光</b><small>Give each session a quiet beginning and a clear end.</small></div></div></div></aside>
@@ -6511,6 +6548,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         const searchableText = [
           word.word,
           word.meaning,
+          word.grammarNote,
+          word.sourceSection,
           word.beginnerExample?.sentence,
           word.beginnerExample?.translation,
           ...word.examples.flatMap((example) => [
@@ -6547,16 +6586,19 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           sort = "original",
           randomSeed = 0,
           forceFavorite = false,
+          includeGrammar = false,
         } = {},
       ) {
         let pool = [...words].filter((word) =>
           wordMatchesKeyword(word, keyword),
         );
         if (collection === "latest") {
-          const latest = vocabularyCollections[vocabularyCollections.length - 1];
+          const latest = latestRegularCollection();
           pool = pool.filter((word) => word.collectionId === latest.id);
         } else if (collection !== "all") {
           pool = pool.filter((word) => word.collectionId === collection);
+        } else if (!forceFavorite && !includeGrammar) {
+          pool = pool.filter((word) => !isGrammarWord(word));
         }
         if (category !== "all")
           pool = pool.filter((word) => word.category === category);
@@ -6700,7 +6742,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       // 一处渲染函数服务词库、收藏夹、沉浸学习和记忆卡片，保证多词性逻辑一致。
       function examplesHtml(
         word,
-        { forceAll = false, individualControls = false } = {},
+        { forceAll = false, individualControls = false, includeGrammarNote = true } = {},
       ) {
         const originalExamples = `<div class="example-list">${word.examples
           .map(
@@ -6712,10 +6754,11 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
               );
               const sense = example.sense || word.meaning || "待补充";
               const collocations = normalizeCollocations(example.collocations);
-              return `<section class="example-item"><div class="example-label"><div class="example-label-main"><span class="tag pos">${escapeHtml(example.pos)}</span><span class="example-sense"><b>本句义项</b>${escapeHtml(sense)}</span></div><span>EXAMPLE ${index + 1}</span></div><div class="sentence">${highlightFirstTarget(example.sentence, word.word)}</div>${individualControls ? `<div class="example-translation-actions"><button class="example-translation-toggle" data-example-translate="${word.id}:${index}">${translationVisible ? "隐藏此条翻译" : "显示此条翻译"}</button></div>` : ""}<p class="translation ${translationVisible ? "show" : ""}">${escapeHtml(example.translation)}</p><div class="collocations">${collocations.map((collocation) => `<span class="collocation"><span class="collocation-phrase">${escapeHtml(collocation.phrase)}</span><span class="collocation-meaning">${escapeHtml(collocation.meaning || "中文释义待补充")}</span></span>`).join("")}</div></section>`;
+              return `<section class="example-item"><div class="example-label"><div class="example-label-main"><span class="tag pos">${escapeHtml(example.pos)}</span><span class="example-sense"><b>本句义项</b>${escapeHtml(sense)}</span></div><span>${isGrammarWord(word) ? (example.exampleOrigin === "added" ? "补充例句" : "手册例句") : "EXAMPLE"} ${index + 1}</span></div><div class="sentence">${highlightFirstTarget(example.sentence, word.word)}</div>${individualControls ? `<div class="example-translation-actions"><button class="example-translation-toggle" data-example-translate="${word.id}:${index}">${translationVisible ? "隐藏此条翻译" : "显示此条翻译"}</button></div>` : ""}<p class="translation ${translationVisible ? "show" : ""}">${escapeHtml(example.translation)}</p><div class="collocations">${collocations.map((collocation) => `<span class="collocation"><span class="collocation-phrase">${escapeHtml(collocation.phrase)}</span><span class="collocation-meaning">${escapeHtml(collocation.meaning || "中文释义待补充")}</span></span>`).join("")}</div></section>`;
             },
           )
           .join("")}</div>`;
+        if (isGrammarWord(word)) return `${includeGrammarNote ? grammarContextHtml(word) : ""}${originalExamples}`;
         const basic = word.beginnerExample || beginnerExampleFor?.(word);
         if (!basic) return originalExamples;
         return `<div class="beginner-example" data-beginner-example="${word.id}"><div class="beginner-example-heading"><span>基础例句</span><span class="tag pos">${escapeHtml(basic.pos || word.pos || '')}</span></div><p class="beginner-sense">${escapeHtml(basic.sense || word.meaning || '')}</p><div class="sentence">${highlightFirstTarget(basic.sentence, word.word)}</div><p class="translation show">${escapeHtml(basic.translation)}</p></div><details class="original-examples"><summary>更多义项与原有例句 · ${word.examples.length} 条</summary>${originalExamples}</details>`;
@@ -6726,13 +6769,13 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         const favoriteIcon = `<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><ellipse cx="12" cy="6.3" rx="3.1" ry="4.2"></ellipse><ellipse cx="12" cy="6.3" rx="3.1" ry="4.2" transform="rotate(72 12 12)"></ellipse><ellipse cx="12" cy="6.3" rx="3.1" ry="4.2" transform="rotate(144 12 12)"></ellipse><ellipse cx="12" cy="6.3" rx="3.1" ry="4.2" transform="rotate(216 12 12)"></ellipse><ellipse cx="12" cy="6.3" rx="3.1" ry="4.2" transform="rotate(288 12 12)"></ellipse><circle cx="12" cy="12" r="2.3" fill="#f7dce4"></circle></g></svg>`;
         // 收起状态不生成例句和搭配 DOM；用户展开时再渲染，显著降低列表布局与绘制量。
         const detailHtml = open
-          ? `<div class="detail">${examplesHtml(w, { individualControls: true })}<div class="mini-actions">${Object.entries(
+          ? `<div class="detail">${examplesHtml(w, { individualControls: true, includeGrammarNote: false })}<div class="mini-actions">${Object.entries(
           statusNames,
         )
           .map(([s, n]) => `<button data-status="${w.id}:${s}">${n}</button>`)
           .join("")}</div></div>`
           : "";
-        return `<article class="word-card glass ${open ? "open" : ""} ${w.favorite ? "favorite-card" : ""}" data-card="${w.id}" data-study-word="${w.id}" aria-label="进入 ${escapeHtml(w.word)} 的沉浸学习"><div class="card-top"><span>NO. ${String(w.id).padStart(2, "0")}</span><div class="card-favorite-actions">${w.favorite ? '<span class="favorite-label">已收藏</span>' : ""}<button class="fav ${w.favorite ? "on" : ""}" data-fav="${w.id}" aria-label="${w.favorite ? "取消收藏" : "收藏"} ${w.word}">${w.favorite ? favoriteIcon : "♡"}</button></div></div><div class="word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="meaning">${w.meaning}</div><div class="tags"><span class="tag pos">${w.pos}</span><span class="tag">${w.collectionTitle}</span><span class="tag">${w.category}</span><span class="tag status">${statusNames[w.status]}</span></div><button class="pill" data-expand="${w.id}">${open ? "收起例句与用法" : `查看基础例句与用法`}</button>${detailHtml}</article>`;
+        return `<article class="word-card glass ${open ? "open" : ""} ${w.favorite ? "favorite-card" : ""} ${isGrammarWord(w) ? "grammar-word-card" : ""}" data-card="${w.id}" data-study-word="${w.id}" aria-label="进入 ${escapeHtml(w.word)} 的沉浸学习"><div class="card-top"><span>${isGrammarWord(w) ? "GRAMMAR" : "NO."} ${String(isGrammarWord(w) ? w.id - 100000 : w.id).padStart(2, "0")}</span><div class="card-favorite-actions">${w.favorite ? '<span class="favorite-label">已收藏</span>' : ""}<button class="fav ${w.favorite ? "on" : ""}" data-fav="${w.id}" aria-label="${w.favorite ? "取消收藏" : "收藏"} ${escapeHtml(w.word)}">${w.favorite ? favoriteIcon : "♡"}</button></div></div><div class="word">${escapeHtml(w.word)}</div><div class="phonetic">${escapeHtml(w.phonetic)}</div><div class="meaning">${escapeHtml(w.meaning)}</div><div class="tags"><span class="tag pos">${escapeHtml(w.pos)}</span><span class="tag">${escapeHtml(w.collectionTitle)}</span><span class="tag">${escapeHtml(w.category)}</span><span class="tag status">${statusNames[w.status]}</span></div>${grammarContextHtml(w)}<button class="pill" data-expand="${w.id}">${open ? "收起例句与用法" : `查看${isGrammarWord(w) ? "语法" : "基础"}例句与用法`}</button>${detailHtml}</article>`;
       }
       function allExamplesVisible(words) {
         return words.length > 0 && words.every((word) => state.expanded.has(word.id));
@@ -6786,12 +6829,14 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         renderCurrent();
       }
       function renderLibrary() {
-        const cats = [...new Set(vocabularyData.map((w) => w.category))],
+        const grammarView = state.collectionFilter === "grammar-handbook";
+        const collections = grammarView ? vocabularyCollections.filter(isGrammarCollection) : regularCollections();
+        const cats = scopeCategories(state.collectionFilter),
           filtered = filteredWords(),
           page = libraryPageSlice(filtered),
           ws = page.words;
         $("#library").innerHTML =
-          `<div class="section-head"><div><h2>词集库</h2><p>Browse each collection in order, or search across every word you have gathered.</p></div></div><div class="filters glass"><input class="field" id="search" value="${escapeHtml(state.searchKeyword)}" placeholder="跨词集搜索单词、释义或例句…" aria-label="搜索"><select class="field" id="collection"><option value="all">全部词集</option>${vocabularyCollections.map((c) => `<option value="${c.id}" ${state.collectionFilter === c.id ? "selected" : ""}>${collectionDisplayName(c)}</option>`).join("")}</select><select class="field" id="category"><option value="all">全部分类</option>${cats.map((c) => `<option ${state.categoryFilter === c ? "selected" : ""}>${c}</option>`).join("")}</select><select class="field" id="status"><option value="all">全部状态</option>${Object.entries(
+          `<div class="section-head"><div><h2>${grammarView ? "语法词库" : "词集库"}</h2><p>${grammarView ? "从手册中的词语出发，理解它们在句子里的位置和作用。" : "按词集慢慢积累，也可以跨词集搜索、收藏与复习。"}</p></div></div><div class="lexicon-switch" role="group" aria-label="选择词库类型"><button type="button" data-library-scope="regular" aria-pressed="${!grammarView}" class="${!grammarView ? "active" : ""}">常规词库 <small>${regularCollections().length} 期</small></button><button type="button" data-library-scope="grammar" aria-pressed="${grammarView}" class="${grammarView ? "active" : ""}">语法词库 <small>${grammarWords().length} 词</small></button></div>${grammarView ? `<section class="grammar-library-intro"><div><h3>先认词，再看懂一句话。</h3><p>按用途学习手册中的人称、动词和时间地点表达。相同拼写的语法词条单独记录学习进度。</p></div><div class="grammar-entry-actions"><button type="button" class="pill" data-grammar-study>开始语法学习</button><button type="button" class="pill" data-grammar-flash>记忆卡片</button><button type="button" class="pill primary" data-grammar-quiz>语法专项测试</button></div></section><div class="grammar-category-list" role="group" aria-label="语法词语分类"><button type="button" data-grammar-category="all" aria-pressed="${state.categoryFilter === "all"}" class="${state.categoryFilter === "all" ? "active" : ""}">全部 ${grammarWords().length}</button>${cats.map((category) => `<button type="button" data-grammar-category="${escapeHtml(category)}" aria-pressed="${state.categoryFilter === category}" class="${state.categoryFilter === category ? "active" : ""}">${escapeHtml(category)} <small>${grammarWords().filter((word) => word.category === category).length}</small></button>`).join("")}</div>` : ""}<div class="filters glass"><input class="field" id="search" value="${escapeHtml(state.searchKeyword)}" placeholder="搜索单词、释义、用法或例句…" aria-label="搜索"><select class="field" id="collection" aria-label="选择词集">${grammarView ? "" : '<option value="all">全部常规词集</option>'}${collections.map((c) => `<option value="${c.id}" ${state.collectionFilter === c.id ? "selected" : ""}>${escapeHtml(collectionDisplayName(c))}</option>`).join("")}</select><select class="field" id="category" aria-label="选择词语分类"><option value="all">全部分类</option>${cats.map((c) => `<option value="${escapeHtml(c)}" ${state.categoryFilter === c ? "selected" : ""}>${escapeHtml(c)}</option>`).join("")}</select><select class="field" id="status"><option value="all">全部状态</option>${Object.entries(
             statusNames,
           )
             .map(
@@ -6800,7 +6845,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             )
             .join(
               "",
-            )}<option value="favorite" ${state.statusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><select class="field" id="sort"><option value="original">录入顺序</option><option value="alpha">字母顺序</option><option value="random">随机顺序</option><option value="review">待复习优先</option><option value="favorite">收藏优先</option></select><button class="pill" data-random>从当前结果随机学习</button><button class="pill" id="clearFilters">清除筛选</button></div><div class="content-tools"><p class="count">共 ${vocabularyCollections.length} 期词集 · 筛选到 ${filtered.length} 个单词${filtered.length ? ` · 第 ${state.libraryPage + 1}/${page.pageCount} 页 · 本页 ${ws.length} 个` : ""}</p>${ws.length ? `<div class="batch-detail-actions"><button class="pill" data-toggle-examples="library">${allExamplesVisible(ws) ? "收起当页例句" : "展开当页例句"}</button><button class="pill" data-toggle-translations="library">${allTranslationsVisible(ws) ? "隐藏当页翻译" : "展开当页翻译"}</button></div>` : ""}</div>${ws.length ? `<div class="grid">${ws.map(cardHtml).join("")}</div>${libraryPaginationHtml(page.pageCount)}` : `<div class="empty glass">No words found here yet.<br>Try another collection or a different phrase.</div>`}`;
+            )}<option value="favorite" ${state.statusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><select class="field" id="sort"><option value="original">录入顺序</option><option value="alpha">字母顺序</option><option value="random">随机顺序</option><option value="review">待复习优先</option><option value="favorite">收藏优先</option></select><button class="pill" data-random>从当前结果随机学习</button><button class="pill" id="clearFilters">清除筛选</button></div><div class="content-tools"><p class="count">${grammarView ? "语法词库 · 手册专项" : `共 ${regularCollections().length} 期常规词集`} · 筛选到 ${filtered.length} 个词条${filtered.length ? ` · 第 ${state.libraryPage + 1}/${page.pageCount} 页 · 本页 ${ws.length} 个` : ""}</p>${ws.length ? `<div class="batch-detail-actions"><button class="pill" data-toggle-examples="library">${allExamplesVisible(ws) ? "收起当页例句" : "展开当页例句"}</button><button class="pill" data-toggle-translations="library">${allTranslationsVisible(ws) ? "隐藏当页翻译" : "展开当页翻译"}</button></div>` : ""}</div>${ws.length ? `<div class="grid">${ws.map(cardHtml).join("")}</div>${libraryPaginationHtml(page.pageCount)}` : `<div class="empty glass">当前筛选没有匹配的词条。<br>试试其他分类，或清除搜索与状态筛选。</div>`}`;
         $("#sort").value = state.sort;
         initLibraryCardEffects();
       }
@@ -6845,7 +6890,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           return words.filter((word) => ids.has(String(word.id)));
         }
         return state.studyCollectionFilter === "all"
-          ? words
+          ? words.filter((word) => !isGrammarWord(word))
           : words.filter((w) => w.collectionId === state.studyCollectionFilter);
       }
       // ===== 沉浸学习：按选定词集前后切换并同步学习状态 =====
@@ -7243,7 +7288,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         if (positionChanged || collectionChanged || shouldRecordVisit)
           saveUserData();
         $("#study").innerHTML =
-          `<div class="section-head"><div><h2>沉浸学习</h2><p>One collection at a time. One word, fully present.</p></div><button class="pill" data-page="library">← 返回词集库</button></div><div class="study-toolbar"><label for="studyCollection">当前学习范围</label><select class="field" id="studyCollection" aria-label="切换沉浸学习词集"><option value="all" ${state.studyCollectionFilter === "all" ? "selected" : ""}>全部词集 · ${vocabularyData.length} 词</option>${vocabularyCollections.map((c) => `<option value="${c.id}" ${state.studyCollectionFilter === c.id ? "selected" : ""}>${collectionDisplayName(c)}</option>`).join("")}</select></div><div class="study-wrap"><div class="study-layout"><div class="study-primary"><article class="study-card glass"><div class="study-meta">${w.collectionTitle} · ${position + 1} / ${pool.length} · ${statusNames[w.status]} ${w.favorite ? "· 已收藏" : ""}</div><div class="study-word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="word-pos">${w.pos}</div><div class="meaning">${w.meaning}</div>${examplesHtml(w, { individualControls: true })}<div class="study-controls navigation"><button class="pill" data-study-step="-1">← 上一个</button><button class="pill" data-study-step="1">下一个 →</button></div><div class="study-controls status-actions"><button class="pill ${w.favorite ? "primary" : ""}" data-fav="${w.id}">${w.favorite ? "取消收藏" : "♡ 收藏"}</button><button class="pill ${w.status === "learning" ? "primary" : ""}" data-status="${w.id}:learning" aria-pressed="${w.status === "learning"}">学习中</button><button class="pill ${w.status === "mastered" ? "primary" : ""}" data-status="${w.id}:mastered" aria-pressed="${w.status === "mastered"}">已掌握</button><button class="pill ${w.status === "review" ? "primary" : ""}" data-status="${w.id}:review" aria-pressed="${w.status === "review"}">待复习</button></div></article><p class="shortcut">快捷键：← → 切换 · M 掌握 · R 复习 · F 收藏</p></div>${renderPomodoroCard()}</div></div>`;
+          `<div class="section-head"><div><h2>沉浸学习</h2><p>One collection at a time. One word, fully present.</p></div><button class="pill" data-page="library">← 返回词集库</button></div><div class="study-toolbar"><label for="studyCollection">当前学习范围</label><select class="field" id="studyCollection" aria-label="切换沉浸学习词集"><option value="all" ${state.studyCollectionFilter === "all" ? "selected" : ""}>全部常规词集 · ${wordsForCollectionScope("all").length} 词</option>${vocabularyCollections.map((c) => `<option value="${c.id}" ${state.studyCollectionFilter === c.id ? "selected" : ""}>${collectionDisplayName(c)}</option>`).join("")}</select></div><div class="study-wrap"><div class="study-layout"><div class="study-primary"><article class="study-card glass"><div class="study-meta">${w.collectionTitle} · ${position + 1} / ${pool.length} · ${statusNames[w.status]} ${w.favorite ? "· 已收藏" : ""}</div><div class="study-word">${w.word}</div><div class="phonetic">${w.phonetic}</div><div class="word-pos">${w.pos}</div><div class="meaning">${w.meaning}</div>${examplesHtml(w, { individualControls: true })}<div class="study-controls navigation"><button class="pill" data-study-step="-1">← 上一个</button><button class="pill" data-study-step="1">下一个 →</button></div><div class="study-controls status-actions"><button class="pill ${w.favorite ? "primary" : ""}" data-fav="${w.id}">${w.favorite ? "取消收藏" : "♡ 收藏"}</button><button class="pill ${w.status === "learning" ? "primary" : ""}" data-status="${w.id}:learning" aria-pressed="${w.status === "learning"}">学习中</button><button class="pill ${w.status === "mastered" ? "primary" : ""}" data-status="${w.id}:mastered" aria-pressed="${w.status === "mastered"}">已掌握</button><button class="pill ${w.status === "review" ? "primary" : ""}" data-status="${w.id}:review" aria-pressed="${w.status === "review"}">待复习</button></div></article><p class="shortcut">快捷键：← → 切换 · M 掌握 · R 复习 · F 收藏</p></div>${renderPomodoroCard()}</div></div>`;
         ensurePomodoroTicker();
         updatePomodoroDisplay();
       }
@@ -7260,8 +7305,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       // ===== 记忆卡片：使用与词集库一致的组合筛选建立卡片池 =====
       function renderFlash() {
         const pool = flashPool();
-        const categories = [...new Set(vocabularyData.map((w) => w.category))];
-        const filterPanel = `<div class="filters memory-filters glass"><input class="field" id="flashSearch" value="${escapeHtml(state.flashSearchKeyword)}" placeholder="搜索单词、释义、例句或搭配…" aria-label="筛选记忆卡片"><select class="field" id="flashCollection" aria-label="选择记忆卡片词集"><option value="all" ${state.flashCollectionFilter === "all" ? "selected" : ""}>全部词集</option>${vocabularyCollections.map((collection) => `<option value="${collection.id}" ${state.flashCollectionFilter === collection.id ? "selected" : ""}>${collectionDisplayName(collection)}</option>`).join("")}</select><select class="field" id="flashCategory" aria-label="选择记忆卡片分类"><option value="all">全部分类</option>${categories.map((category) => `<option value="${escapeHtml(category)}" ${state.flashCategoryFilter === category ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}</select><select class="field" id="flashStatus" aria-label="选择记忆卡片状态"><option value="all">全部状态</option>${Object.entries(statusNames).map(([status, name]) => `<option value="${status}" ${state.flashStatusFilter === status ? "selected" : ""}>${name}</option>`).join("")}<option value="favorite" ${state.flashStatusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><select class="field" id="flashSort" aria-label="选择记忆卡片顺序"><option value="original" ${state.flashSort === "original" ? "selected" : ""}>录入顺序</option><option value="alpha" ${state.flashSort === "alpha" ? "selected" : ""}>字母顺序</option><option value="random" ${state.flashSort === "random" ? "selected" : ""}>随机顺序</option><option value="review" ${state.flashSort === "review" ? "selected" : ""}>待复习优先</option><option value="favorite" ${state.flashSort === "favorite" ? "selected" : ""}>收藏优先</option></select><button class="pill" id="clearFlashFilters">清除筛选</button></div>`;
+        const categories = scopeCategories(state.flashCollectionFilter);
+        const filterPanel = `<div class="filters memory-filters glass"><input class="field" id="flashSearch" value="${escapeHtml(state.flashSearchKeyword)}" placeholder="搜索单词、释义、例句或搭配…" aria-label="筛选记忆卡片"><select class="field" id="flashCollection" aria-label="选择记忆卡片词集"><option value="all" ${state.flashCollectionFilter === "all" ? "selected" : ""}>全部常规词集</option>${vocabularyCollections.map((collection) => `<option value="${collection.id}" ${state.flashCollectionFilter === collection.id ? "selected" : ""}>${collectionDisplayName(collection)}</option>`).join("")}</select><select class="field" id="flashCategory" aria-label="选择记忆卡片分类"><option value="all">全部分类</option>${categories.map((category) => `<option value="${escapeHtml(category)}" ${state.flashCategoryFilter === category ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}</select><select class="field" id="flashStatus" aria-label="选择记忆卡片状态"><option value="all">全部状态</option>${Object.entries(statusNames).map(([status, name]) => `<option value="${status}" ${state.flashStatusFilter === status ? "selected" : ""}>${name}</option>`).join("")}<option value="favorite" ${state.flashStatusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><select class="field" id="flashSort" aria-label="选择记忆卡片顺序"><option value="original" ${state.flashSort === "original" ? "selected" : ""}>录入顺序</option><option value="alpha" ${state.flashSort === "alpha" ? "selected" : ""}>字母顺序</option><option value="random" ${state.flashSort === "random" ? "selected" : ""}>随机顺序</option><option value="review" ${state.flashSort === "review" ? "selected" : ""}>待复习优先</option><option value="favorite" ${state.flashSort === "favorite" ? "selected" : ""}>收藏优先</option></select><button class="pill" id="clearFlashFilters">清除筛选</button></div>`;
         const heading = `<div class="section-head"><div><h2>记忆卡片</h2><p>Shape your own study set, then reveal each answer at your own pace.</p></div><button class="pill" data-page="library">← 返回词集库</button></div>${filterPanel}<div class="filter-summary"><p class="count">当前筛选得到 ${pool.length} 个单词</p>${state.flashSort === "random" && pool.length ? '<button class="pill" id="reshuffleFlash">重新随机</button>' : ""}</div>`;
         if (!pool.length) {
           $("#flash").innerHTML =
@@ -7283,16 +7328,32 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           : allWords;
         return filterWordPool(scopedWords, {
           keyword: state.quizSearchKeyword,
+          includeGrammar: Boolean(sessionIds),
           collection: state.quizCollectionFilter,
           category: state.quizCategoryFilter,
           status: state.quizStatusFilter,
         });
       }
-      function updateQuizHint() {
+      function grammarBlankExample(word) {
+        const variants = word.word.split("/").map((item) => item.trim()).filter(Boolean);
+        const sentences = [...new Set([word.sentence, ...word.examples.map((example) => example.sentence)].filter(Boolean))];
+        for (const sentence of sentences) {
+          for (const answer of variants) {
+            const pattern = new RegExp(`\\b${escapeRegExp(answer)}\\b`, "i");
+            if (pattern.test(sentence)) return { text: sentence.replace(pattern, "________"), answer };
+          }
+        }
+        return null;
+      }
+      function quizEligiblePool(mode = $("#quizMode")?.value || "cn-en") {
         const pool = quizFilteredPool();
+        return mode === "blank" ? pool.filter((word) => !isGrammarWord(word) || grammarBlankExample(word)) : pool;
+      }
+      function updateQuizHint() {
+        const pool = quizEligiblePool();
         const hint = $("#quizHint");
         if (hint)
-          hint.textContent = `当前筛选可用于测试的单词：${pool.length} 个`;
+          hint.textContent = `当前筛选可用于${$("#quizMode")?.value === "blank" ? "例句填空" : "测试"}的词条：${pool.length} 个${$("#quizMode")?.value === "blank" && state.quizCollectionFilter === "grammar-handbook" ? "（仅使用例句中含目标词的词条）" : ""}`;
         const availableCount = $("#quizAvailableCount");
         if (availableCount) availableCount.textContent = pool.length;
         const reviewCount = $("#quizReviewCount");
@@ -7323,24 +7384,29 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         );
       }
       function quizSetup() {
-        const categories = [...new Set(vocabularyData.map((w) => w.category))];
+        const categories = scopeCategories(state.quizCollectionFilter);
         const pool = quizFilteredPool();
         const reviewCount = pool.filter(
           (wordItem) => wordItem.status === "review",
         ).length;
         const latestResult = state.user.history.at(-1);
-        return `<div class="quiz-page-intro"><div><span class="eyebrow">MEMORY CHECK-IN</span><h2>记忆测试</h2><p>Choose a quiet set, then see what memory has kept.</p></div><div class="quiz-intro-summary" aria-label="记忆测试摘要"><div class="quiz-intro-stat"><b id="quizAvailableCount">${pool.length}</b><small>可测试单词</small></div><div class="quiz-intro-stat"><b id="quizReviewCount">${reviewCount}</b><small>待复习</small></div><div class="quiz-intro-stat"><b>${latestResult ? `${latestResult.rate}%` : "—"}</b><small>最近正确率</small></div></div></div><div class="quiz-setup glass"><div class="quiz-exit-row"><button class="pill" data-page="home">← 返回首页</button><span class="eyebrow">MEMORY TEST</span></div><h2>Where would you like to begin?</h2><div class="setup-grid"><label>测试模式<select class="field" id="quizMode"><option value="cn-en">看中文选英文</option><option value="en-cn">看英文选中文</option><option value="blank">例句填空</option></select></label><label>题目数量<select class="field" id="quizCount"><option>10</option><option>20</option><option>30</option><option value="all">全部</option></select></label></div><div class="quiz-filter-panel"><h3>筛选测试范围</h3><div class="quiz-filter-grid"><input class="field" id="quizSearch" value="${escapeHtml(state.quizSearchKeyword)}" placeholder="搜索单词、释义、例句或搭配…" aria-label="筛选测试单词"><select class="field" id="quizCollection"><option value="latest" ${state.quizCollectionFilter === "latest" ? "selected" : ""}>最新一期词集</option><option value="all" ${state.quizCollectionFilter === "all" ? "selected" : ""}>全部词集</option>${vocabularyCollections.map((collection) => `<option value="${collection.id}" ${state.quizCollectionFilter === collection.id ? "selected" : ""}>${collectionDisplayName(collection)}</option>`).join("")}</select><select class="field" id="quizCategory"><option value="all">全部分类</option>${categories.map((category) => `<option value="${escapeHtml(category)}" ${state.quizCategoryFilter === category ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}</select><select class="field" id="quizStatus"><option value="all">全部状态</option>${Object.entries(statusNames).map(([status, name]) => `<option value="${status}" ${state.quizStatusFilter === status ? "selected" : ""}>${name}</option>`).join("")}<option value="favorite" ${state.quizStatusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><button class="pill" id="clearQuizFilters">清除筛选</button></div></div><p id="quizHint" class="count">当前筛选可用于测试的单词：${pool.length} 个</p><div class="actions"><button class="pill primary" id="startQuiz">开始测试</button></div></div>`;
+        return `<div class="quiz-page-intro"><div><span class="eyebrow">MEMORY CHECK-IN</span><h2>记忆测试</h2><p>Choose a quiet set, then see what memory has kept.</p></div><div class="quiz-intro-summary" aria-label="记忆测试摘要"><div class="quiz-intro-stat"><b id="quizAvailableCount">${pool.length}</b><small>可测试单词</small></div><div class="quiz-intro-stat"><b id="quizReviewCount">${reviewCount}</b><small>待复习</small></div><div class="quiz-intro-stat"><b>${latestResult ? `${latestResult.rate}%` : "—"}</b><small>最近正确率</small></div></div></div><div class="quiz-setup glass"><div class="quiz-exit-row"><button class="pill" data-page="home">← 返回首页</button><span class="eyebrow">MEMORY TEST</span></div><h2>Where would you like to begin?</h2><div class="setup-grid"><label>测试模式<select class="field" id="quizMode"><option value="cn-en">看中文选英文</option><option value="en-cn">看英文选中文</option><option value="blank">例句填空</option></select></label><label>题目数量<select class="field" id="quizCount"><option>10</option><option>20</option><option>30</option><option value="all">全部</option></select></label></div><div class="quiz-filter-panel"><h3>筛选测试范围</h3><div class="quiz-filter-grid"><input class="field" id="quizSearch" value="${escapeHtml(state.quizSearchKeyword)}" placeholder="搜索单词、释义、例句或搭配…" aria-label="筛选测试单词"><select class="field" id="quizCollection" aria-label="选择测试词库或词集"><option value="latest" ${state.quizCollectionFilter === "latest" ? "selected" : ""}>最新一期词集</option><option value="all" ${state.quizCollectionFilter === "all" ? "selected" : ""}>全部常规词集</option>${vocabularyCollections.map((collection) => `<option value="${collection.id}" ${state.quizCollectionFilter === collection.id ? "selected" : ""}>${collectionDisplayName(collection)}</option>`).join("")}</select><select class="field" id="quizCategory" aria-label="选择测试词语分类"><option value="all">全部分类</option>${categories.map((category) => `<option value="${escapeHtml(category)}" ${state.quizCategoryFilter === category ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}</select><select class="field" id="quizStatus"><option value="all">全部状态</option>${Object.entries(statusNames).map(([status, name]) => `<option value="${status}" ${state.quizStatusFilter === status ? "selected" : ""}>${name}</option>`).join("")}<option value="favorite" ${state.quizStatusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><button class="pill" id="clearQuizFilters">清除筛选</button></div></div><p id="quizHint" class="count">当前筛选可用于测试的单词：${pool.length} 个</p><div class="actions"><button class="pill primary" id="startQuiz">开始测试</button></div></div>`;
       }
       // ===== 记忆测试：出题、按题保存、判分、切换与结果汇总 =====
       function startQuiz() {
-        const pool = quizFilteredPool();
+        const mode = $("#quizMode").value;
+        const pool = quizEligiblePool(mode);
         const wanted =
           $("#quizCount").value === "all"
             ? pool.length
             : Number($("#quizCount").value);
         if (!pool.length) {
           $("#quizHint").textContent =
-            "No words are waiting in this range. Try another collection.";
+            "当前范围没有可测试词条，请调整分类或清除筛选。";
+          return;
+        }
+        if (mode !== "blank" && new Set(pool.map((word) => (mode === "cn-en" ? word.word : word.meaning).trim().toLowerCase())).size < 2) {
+          $("#quizHint").textContent = "选择题至少需要两个不同答案的词条。请扩大筛选范围，或改用例句填空。";
           return;
         }
         const count = Math.min(wanted, pool.length);
@@ -7349,7 +7415,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             `Only ${count} words are available here, so this test will include them all.`;
         pool.sort(() => Math.random() - 0.5);
         state.quiz = {
-          mode: $("#quizMode").value,
+          mode,
+          optionPool: [...pool],
           items: pool.slice(0, count),
           index: 0,
           correct: 0,
@@ -7372,11 +7439,20 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         renderQuiz();
       }
       function makeOptions(w, type) {
-        const others = vocabularyData
-            .filter((x) => x.id !== w.id)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3),
-          all = [w, ...others].sort(() => Math.random() - 0.5);
+        const label = (word) => String(type === "cn-en" ? word.word : word.meaning).replace(/\s+/g, " ").trim().toLowerCase();
+        const seen = new Set([label(w)]);
+        const source = state.quiz?.optionPool || quizFilteredPool();
+        const others = [...source]
+          .filter((word) => word.id !== w.id)
+          .sort(() => Math.random() - 0.5)
+          .filter((word) => {
+            const key = label(word);
+            if (!key || seen.has(key)) return false;
+            seen.add(key);
+            return true;
+          })
+          .slice(0, 3);
+        const all = [w, ...others].sort(() => Math.random() - 0.5);
         return all.map((x) => ({
           label: type === "cn-en" ? x.word : x.meaning,
           word: x.word,
@@ -7389,6 +7465,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       }
       function createBlankQuestion(w) {
+        if (isGrammarWord(w)) return grammarBlankExample(w) || { text: `请写出“${w.meaning}”对应的英文词语。`, answer: w.word };
         const variants = w.word
           .split("/")
           .map((item) => item.trim())
@@ -7608,8 +7685,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           state.quizCollectionFilter === "latest"
             ? "最新一期"
             : state.quizCollectionFilter === "all"
-              ? "全部词集"
-              : "指定词集";
+              ? "常规词库"
+              : state.quizCollectionFilter === "grammar-handbook" ? "语法词库" : "指定词集";
         const sessionIntro = `<div class="quiz-page-intro quiz-session-intro"><div><span class="eyebrow">MEMORY SESSION</span><h2>静心作答</h2><p>One word at a time; let memory answer before instinct.</p></div><div class="quiz-intro-summary" aria-label="当前测试信息"><div class="quiz-intro-stat"><b>${q.index + 1} / ${q.items.length}</b><small>当前题目</small></div><div class="quiz-intro-stat"><b title="${modeLabel}">${modeLabel}</b><small>测试模式</small></div><div class="quiz-intro-stat"><b>${scopeLabel}</b><small>测试范围</small></div></div></div>`;
         $("#quiz").innerHTML =
           `${sessionIntro}<article class="quiz-card glass ${q.feedback === "ok" ? "correct" : q.feedback === "bad" ? "wrong" : ""}"><div class="quiz-exit-row"><button class="pill" id="exitQuiz">← 返回测试设置</button><button class="pill" data-page="home">返回首页</button></div><div class="quiz-top"><span>${q.index + 1}/${q.items.length}</span><span>正确 ${q.correct}</span><span>错误 ${q.wrong}</span><span>连续 ${q.streak}</span><span>正确率 ${rate}%</span></div><div class="progress"><i style="width:${(answeredCount / q.items.length) * 100}%"></i></div>${body}<div class="feedback">${feedback}</div><div class="quiz-question-nav"><button class="pill" id="prevQuestion" ${q.index === 0 ? "disabled" : ""}>← 上一题</button><span class="quiz-nav-position">已作答 ${answeredCount} / ${q.items.length}</span><button class="pill primary" id="nextQuestion">${answeredCount === q.items.length ? "完成测试" : q.index === q.items.length - 1 ? "检查未答题" : "下一题 →"}</button></div>${q.navigationHint ? `<p class="quiz-nav-hint">${q.navigationHint}</p>` : ""}</article>`;
@@ -7928,8 +8005,8 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       }
       function moveHomeCollection(step) {
         state.homeCollectionIndex =
-          (state.homeCollectionIndex + step + vocabularyCollections.length) %
-          vocabularyCollections.length;
+          (state.homeCollectionIndex + step + regularCollections().length) %
+          regularCollections().length;
         renderHome();
       }
       let flashTransitioning = false;
@@ -8034,7 +8111,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             toggleAllTranslations(favoriteWords());
           if (b.dataset.latestStudy !== undefined)
             state.studyCollectionFilter =
-              vocabularyCollections[vocabularyCollections.length - 1].id;
+              latestRegularCollection().id;
         },
         true,
       );
@@ -8063,6 +8140,55 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           "button,[data-flip],[data-study-word],[data-quiz-study-word]",
         );
         if (!b) return;
+        if (b.dataset.libraryScope !== undefined) {
+          state.collectionFilter = b.dataset.libraryScope === "grammar" ? "grammar-handbook" : "all";
+          state.searchKeyword = "";
+          state.categoryFilter = "all";
+          state.statusFilter = "all";
+          state.sort = "original";
+          state.libraryPage = 0;
+          navigate("library");
+          return;
+        }
+        if (b.dataset.grammarCategory !== undefined) {
+          state.collectionFilter = "grammar-handbook";
+          state.categoryFilter = b.dataset.grammarCategory;
+          state.searchKeyword = "";
+          state.statusFilter = "all";
+          state.libraryPage = 0;
+          renderLibrary();
+          return;
+        }
+        if (b.dataset.grammarStudy !== undefined) {
+          const words = grammarWords().map(getWord);
+          const next = words.find((word) => word.status !== "mastered") || words[0];
+          if (!next) return;
+          state.studySessionIds = null;
+          state.studyCollectionFilter = "grammar-handbook";
+          setCurrentWordById(next.id);
+          navigate("study");
+          return;
+        }
+        if (b.dataset.grammarFlash !== undefined) {
+          state.flashCollectionFilter = "grammar-handbook";
+          state.flashSearchKeyword = "";
+          state.flashCategoryFilter = "all";
+          state.flashStatusFilter = "all";
+          state.flashIndex = 0;
+          state.flashFlipped = false;
+          navigate("flash");
+          return;
+        }
+        if (b.dataset.grammarQuiz !== undefined) {
+          state.quiz = null;
+          state.quizSessionIds = null;
+          state.quizCollectionFilter = "grammar-handbook";
+          state.quizSearchKeyword = "";
+          state.quizCategoryFilter = "all";
+          state.quizStatusFilter = "all";
+          navigate("quiz");
+          return;
+        }
         if (b.dataset.quizStudyWord) {
           saveQuizQuestionState();
           const id = Number(b.dataset.quizStudyWord);
@@ -8121,7 +8247,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         if (b.dataset.latestStudy !== undefined) {
           state.studySessionIds = null;
           const latest =
-            vocabularyCollections[vocabularyCollections.length - 1].id;
+            latestRegularCollection().id;
           state.currentWordIndex = vocabularyData.findIndex(
             (w) => w.collectionId === latest,
           );
@@ -8147,8 +8273,10 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         }
         if (b.dataset.random !== undefined) {
           const pool =
-            state.currentPage === "library" ? filteredWords() : vocabularyData;
+            state.currentPage === "library" ? filteredWords() : wordsForCollectionScope("all");
           if (pool.length) {
+            state.studySessionIds = pool.map((word) => word.id);
+            state.studyCollectionFilter = state.currentPage === "library" ? state.collectionFilter : "all";
             setCurrentWordById(
               pool[Math.floor(Math.random() * pool.length)].id,
             );
@@ -8166,7 +8294,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         }
         if (b.id === "clearFlashFilters" || b.dataset.clearFlash !== undefined) {
           state.flashSearchKeyword = "";
-          state.flashCollectionFilter = "all";
+          state.flashCollectionFilter = state.flashCollectionFilter === "grammar-handbook" ? "grammar-handbook" : "all";
           state.flashCategoryFilter = "all";
           state.flashStatusFilter = "all";
           state.flashSort = "original";
@@ -8220,7 +8348,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         }
         if (b.id === "clearFilters") {
           state.searchKeyword = "";
-          state.collectionFilter = "all";
+          state.collectionFilter = state.collectionFilter === "grammar-handbook" ? "grammar-handbook" : "all";
           state.categoryFilter = "all";
           state.statusFilter = "all";
           state.sort = "original";
@@ -8234,7 +8362,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         if (b.id === "clearQuizFilters") {
           state.quizSessionIds = null;
           state.quizSearchKeyword = "";
-          state.quizCollectionFilter = "all";
+          state.quizCollectionFilter = state.quizCollectionFilter === "grammar-handbook" ? "grammar-handbook" : "all";
           state.quizCategoryFilter = "all";
           state.quizStatusFilter = "all";
           renderQuiz();
@@ -8443,6 +8571,9 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       document.addEventListener("change", (e) => {
         if (e.target.id === "flashCollection") {
           state.flashCollectionFilter = e.target.value;
+          state.flashSearchKeyword = "";
+          state.flashCategoryFilter = "all";
+          state.flashStatusFilter = "all";
           state.flashIndex = 0;
           state.flashFlipped = false;
           renderFlash();
@@ -8470,8 +8601,15 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         if (e.target.id === "quizCollection") {
           state.quizSessionIds = null;
           state.quizCollectionFilter = e.target.value;
+          state.quizSearchKeyword = "";
+          state.quizCategoryFilter = "all";
+          state.quizStatusFilter = "all";
+          $("#quizSearch").value = "";
+          $("#quizStatus").value = "all";
+          $("#quizCategory").innerHTML = '<option value="all">全部分类</option>' + scopeCategories(state.quizCollectionFilter).map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
           updateQuizHint();
         }
+        if (e.target.id === "quizMode") updateQuizHint();
         if (e.target.id === "quizCategory") {
           state.quizSessionIds = null;
           state.quizCategoryFilter = e.target.value;
@@ -8491,6 +8629,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         }
         if (e.target.id === "collection") {
           state.collectionFilter = e.target.value;
+          state.categoryFilter = "all";
           state.libraryPage = 0;
           renderLibrary();
         }

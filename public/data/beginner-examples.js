@@ -276,6 +276,11 @@ export function validateBeginnerExample(example,word){
 }
 export function selectBeginnerExample(word){
   if(!word||typeof word!=='object')throw new Error('请选择一个词条');
+  if(word.lexiconType==='grammar'||word.collectionId==='grammar-handbook'){
+    const example=word.examples?.find(value=>value?.sentence&&value?.translation);
+    if(!example)throw new Error(`这个语法词条没有可用例句：${word.word||''}`);
+    return {...example,pos:example.pos||word.pos||'',sense:example.sense||word.meaning||'',source:'grammar-handbook',level:'手册例句'};
+  }
   const key=normalized(word.word),curated=curatedBeginnerExamples[key];
   if(curated){const value={...curated,pos:word.pos||word.examples?.[0]?.pos||'',collocations:word.collocations||word.examples?.[0]?.collocations||[],level:'基础例句'};validateBeginnerExample(value,word.word);return value;}
   const source=Array.isArray(word.examples)?word.examples:[];

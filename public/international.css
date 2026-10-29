@@ -545,3 +545,103 @@ body .home-boot-action { background: #f5f5f7; border-color: #e5e5e8; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+/* The handbook is a separate learning space with its own vocabulary progress. */
+.grammar-home-entry,
+.grammar-library-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 26px 30px;
+  margin: 26px 0;
+  border: 1px solid #e5e5e8;
+  border-radius: 20px;
+  background: #f5f7fa;
+  text-align: left;
+}
+.grammar-home-entry .eyebrow { font-size: 9px; letter-spacing: .12em; }
+.grammar-home-entry h2,
+.grammar-library-intro h3 {
+  margin: 8px 0 9px;
+  color: #1d1d1f;
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.grammar-home-entry p,
+.grammar-library-intro p {
+  max-width: 610px;
+  margin: 0;
+  color: #61616a;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.grammar-entry-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; flex-shrink: 0; }
+.grammar-entry-actions .pill { margin: 0; white-space: nowrap; font-size: 12px; }
+.lexicon-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+  margin: 0 0 24px;
+  border: 1px solid #e4e4e9;
+  border-radius: 30px;
+  background: #f5f5f7;
+}
+.lexicon-switch button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 39px;
+  padding: 10px 19px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  color: #6e6e73;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lexicon-switch button small { color: inherit; font-size: 10px; opacity: .8; }
+.lexicon-switch button.active { background: #fff; color: #1d1d1f; box-shadow: 0 1px 5px rgb(0 0 0 / 6%); }
+.grammar-library-intro { margin: 0 0 23px; padding: 24px 27px; }
+.grammar-library-intro h3 { margin-top: 0; font-size: 19px; }
+.grammar-category-list { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 23px; }
+.grammar-category-list button {
+  min-height: 35px;
+  padding: 8px 12px;
+  border: 1px solid #e2e2e8;
+  border-radius: 20px;
+  background: #fff;
+  color: #64646d;
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.grammar-category-list button small { color: inherit; margin-left: 4px; font-size: 10px; }
+.grammar-category-list button.active { background: #edf5ff; border-color: #bdd6f2; color: #0067ce; }
+.grammar-word-context { margin: 19px 0; padding-top: 16px; border-top: 1px solid #ececf0; text-align: left; }
+.grammar-word-context p { margin: 0; color: #565660; font-size: 13px; line-height: 1.95; }
+.grammar-word-context small { display: block; color: #73737b; font-size: 10px; line-height: 1.8; margin-top: 10px; }
+.grammar-word-card .word { overflow-wrap: anywhere; font-size: clamp(26px, 2.7vw, 39px); }
+.grammar-word-card .read-word-button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.grammar-word-card .tags { align-items: flex-start; }
+.grammar-word-card .tag { white-space: normal; line-height: 1.6; }
+.face.back .grammar-word-context { margin-top: 20px; }
+@media (max-width: 1080px) {
+  .grammar-home-entry, .grammar-library-intro { align-items: flex-start; flex-direction: column; gap: 20px; }
+}
+@media (max-width: 700px) {
+  .grammar-home-entry, .grammar-library-intro { padding: 22px; margin: 22px 0; gap: 18px; border-radius: 17px; }
+  .grammar-home-entry h2, .grammar-library-intro h3 { font-size: 19px; }
+  .grammar-home-entry p, .grammar-library-intro p { font-size: 12px; }
+  .grammar-entry-actions { width: 100%; gap: 9px; }
+  .grammar-entry-actions .pill { flex: 1 1 auto; min-height: 40px; padding: 10px 14px; font-size: 11px; }
+  .lexicon-switch { display: flex; width: 100%; margin-bottom: 20px; }
+  .lexicon-switch button { flex: 1; justify-content: center; min-width: 0; padding: 10px 11px; font-size: 12px; }
+  .lexicon-switch button small { font-size: 9px; }
+  .grammar-category-list { gap: 7px; margin-bottom: 20px; }
+  .grammar-category-list button { font-size: 10px; padding: 8px 11px; }
+  .grammar-word-context p { font-size: 12px; }
+  .grammar-word-context small { font-size: 10px; }
+}

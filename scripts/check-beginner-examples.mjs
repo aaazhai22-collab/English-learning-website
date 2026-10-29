@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {curatedBeginnerExamples,beginnerExampleMetadata,selectBeginnerExample,validateBeginnerExample,exampleDifficulty,exampleWordCount} from '../public/data/beginner-examples.js';
-const catalog=JSON.parse(fs.readFileSync(new URL('../public/data/catalog.json',import.meta.url),'utf8'));
+const fullCatalog=JSON.parse(fs.readFileSync(new URL('../public/data/catalog.json',import.meta.url),'utf8'));
+const catalog={...fullCatalog,words:fullCatalog.words.filter(word=>word.collectionId!=='grammar-handbook')};
 const before=JSON.stringify(catalog);
 const rows=catalog.words.map(word=>({word:word.word,originalLength:exampleWordCount(word.sentence),example:selectBeginnerExample(word)}));
 assert.equal(rows.length,2557);

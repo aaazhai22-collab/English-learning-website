@@ -6,19 +6,25 @@ export function buildPublicSpeechEntries(catalog) {
     const text = value.replace(/\s+/g, ' ').trim();
     if (text) texts.add(text);
   };
-  for (const word of catalog.words || []) {
+  const regularWords = (catalog.words || []).filter(word => word.lexiconType !== 'grammar' && word.collectionId !== 'grammar-handbook');
+  const grammarWords = (catalog.words || []).filter(word => word.lexiconType === 'grammar' || word.collectionId === 'grammar-handbook');
+  const addWord = word => {
     add(word.word);
     for (const example of word.examples || []) {
       add(example.sentence);
       for (const collocation of example.collocations || []) add(collocation.phrase);
     }
     for (const collocation of word.collocations || []) add(collocation.phrase);
-  }
+  };
+  for (const word of regularWords) addWord(word);
   // Append new teaching sentences after the original entries so old tabs keep
   // their exact public speech IDs while the catalog gains simpler examples.
-  for (const word of catalog.words || []) {
+  for (const word of regularWords) {
     try { add(selectBeginnerExample(word)?.sentence); } catch { /* Keep original public entries usable when optional teaching data is incomplete. */ }
   }
+  // Grammar entries come after every existing entry, including beginner
+  // sentences, so already-open tabs retain their original speech IDs.
+  for (const word of grammarWords) addWord(word);
   return [...texts];
 }
 
