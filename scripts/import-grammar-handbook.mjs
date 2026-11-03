@@ -14,7 +14,7 @@ if (hash !== grammar.regularCatalogSHA256) throw new Error('The original catalog
 const ids = new Set(regular.words.map(value => value.id));
 const terms = new Set();
 const words = grammar.entries.map(entry => {
-  const term = entry.word.toLowerCase();
+  const term = entry.word+'\u0000'+entry.category;
   if (!Number.isInteger(entry.id) || entry.id < 100001 || ids.has(entry.id) || terms.has(term)) throw new Error(`Duplicate or unstable grammar entry: ${entry.word}`);
   ids.add(entry.id); terms.add(term);
   const examples = entry.examples.map(example => ({...example,pos:entry.pos,sense:entry.meaning,collocations:[]}));
@@ -22,15 +22,16 @@ const words = grammar.entries.map(entry => {
   return {
     id:entry.id, word:entry.word, phonetic:entry.phonetic || '', pos:entry.pos,
     meaning:entry.meaning, sentence:examples[0].sentence, translation:examples[0].translation,
-    category:entry.category, collectionId:'grammar-handbook', collectionTitle:'语法词库 · 零基础语序',
+    category:entry.category, collectionId:'grammar-handbook', collectionTitle:'语法词库 · 零基础核心清单',
     status:'new',favorite:false,examples,collocations:[],lexiconType:'grammar',
     grammarNote:entry.usage+(entry.exampleNote ? ` ${entry.exampleNote}` : ''),
-    sourceSection:entry.sourceSection,sourceKind:'manual',sourceTitle:grammar.sourceTitle,
+    sourceSection:entry.sourceSection,sourceKind:entry.sourceKind||'manual',sourceTitle:entry.sourceTitle||grammar.sourceTitle,
+    verbForms:entry.verbForms||null,verbLemma:entry.verbLemma||'',formLabel:entry.formLabel||'',priority:entry.priority||'',
   };
 });
 const collection = {
-  id:'grammar-handbook',date:'2026-10-29',title:'语法词库 · 零基础语序',type:'grammar',
+  id:'grammar-handbook',date:'2026-10-30',title:'语法词库 · 零基础核心清单',type:'grammar',
   sortOrder:1000,wordCount:words.length,description:'手册词语、动词形式与基础句法，按语法用途分组。',
 };
-await writeFile(catalogURL,JSON.stringify({...catalog,collections:[...regular.collections,collection],words:[...regular.words,...words]})+'\n');
+await writeFile(catalogURL,JSON.stringify({...catalog,grammarSpeechBaseline:grammar.speechBaseline||[],collections:[...regular.collections,collection],words:[...regular.words,...words]})+'\n');
 console.log(`Imported ${words.length} grammar entries. Original ${regular.words.length} words and their IDs are unchanged.`);

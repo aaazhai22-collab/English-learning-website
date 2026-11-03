@@ -5357,7 +5357,14 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       }
       function grammarContextHtml(word) {
         if (!isGrammarWord(word)) return "";
-        return `<div class="grammar-word-context">${word.grammarNote ? `<p>${escapeHtml(word.grammarNote)}</p>` : ""}${word.sourceSection ? `<small>手册章节 · ${escapeHtml(word.sourceSection)}</small>` : ""}</div>`;
+        const forms = word.verbForms;
+        const formsHtml = forms ? `<dl class="verb-forms" data-verb-forms="${word.id}" aria-label="${escapeHtml(word.word)} 的动词变化">${[["原形",word.verbLemma||word.word],[(word.verbLemma||word.word)==="be"?"现在时形式":"第三人称单数",forms.thirdPerson],["过去式",forms.past],["过去分词",forms.pastParticiple],["-ing 形式",forms.ing]].map(([label,value])=>`<div><dt>${label}</dt><dd lang="en"><span class="collocation-phrase">${escapeHtml(value||"—")}</span></dd></div>`).join("")}</dl>` : "";
+        return `<div class="grammar-word-context">${word.priority ? `<span class="tag">${escapeHtml(word.priority)}</span>` : ""}${word.formLabel ? `<span class="tag">${escapeHtml(word.formLabel)}</span>` : ""}${word.grammarNote ? `<p>${escapeHtml(word.grammarNote)}</p>` : ""}${formsHtml}${word.sourceSection ? `<small>${word.sourceTitle ? `${escapeHtml(word.sourceTitle)} · ` : "手册章节 · "}${escapeHtml(word.sourceSection)}</small>` : ""}</div>`;
+      }
+      function grammarLibrarySelection() {
+        return state.currentPage === "library" && state.collectionFilter === "grammar-handbook"
+          ? {category:state.categoryFilter,keyword:state.searchKeyword,status:state.statusFilter}
+          : {category:"all",keyword:"",status:"all"};
       }
       function setBackendStatus(status, text, title = "") {
         state.backendStatus = status;
@@ -5650,6 +5657,10 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
               category: String(word.category || "其他"),
               lexiconType: word.lexiconType === "grammar" || collectionId === "grammar-handbook" ? "grammar" : "regular",
               grammarNote: String(word.grammarNote || ""),
+              verbForms: word.verbForms ? {...word.verbForms} : null,
+              verbLemma: String(word.verbLemma || ""),
+              formLabel: String(word.formLabel || ""),
+              priority: String(word.priority || ""),
               sourceSection: String(word.sourceSection || ""),
               sourceTitle: String(word.sourceTitle || "英语零基础语序与句子成分学习手册"),
               collectionId,
@@ -6550,6 +6561,9 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           word.meaning,
           word.grammarNote,
           word.sourceSection,
+          word.sourceTitle,
+          word.priority,
+          ...Object.values(word.verbForms || {}),
           word.beginnerExample?.sentence,
           word.beginnerExample?.translation,
           ...word.examples.flatMap((example) => [
@@ -6830,13 +6844,14 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
       }
       function renderLibrary() {
         const grammarView = state.collectionFilter === "grammar-handbook";
+        const verbView = grammarView && state.categoryFilter === "动词";
         const collections = grammarView ? vocabularyCollections.filter(isGrammarCollection) : regularCollections();
         const cats = scopeCategories(state.collectionFilter),
           filtered = filteredWords(),
           page = libraryPageSlice(filtered),
           ws = page.words;
         $("#library").innerHTML =
-          `<div class="section-head"><div><h2>${grammarView ? "语法词库" : "词集库"}</h2><p>${grammarView ? "从手册中的词语出发，理解它们在句子里的位置和作用。" : "按词集慢慢积累，也可以跨词集搜索、收藏与复习。"}</p></div></div><div class="lexicon-switch" role="group" aria-label="选择词库类型"><button type="button" data-library-scope="regular" aria-pressed="${!grammarView}" class="${!grammarView ? "active" : ""}">常规词库 <small>${regularCollections().length} 期</small></button><button type="button" data-library-scope="grammar" aria-pressed="${grammarView}" class="${grammarView ? "active" : ""}">语法词库 <small>${grammarWords().length} 词</small></button></div>${grammarView ? `<section class="grammar-library-intro"><div><h3>先认词，再看懂一句话。</h3><p>按用途学习手册中的人称、动词和时间地点表达。相同拼写的语法词条单独记录学习进度。</p></div><div class="grammar-entry-actions"><button type="button" class="pill" data-grammar-study>开始语法学习</button><button type="button" class="pill" data-grammar-flash>记忆卡片</button><button type="button" class="pill primary" data-grammar-quiz>语法专项测试</button></div></section><div class="grammar-category-list" role="group" aria-label="语法词语分类"><button type="button" data-grammar-category="all" aria-pressed="${state.categoryFilter === "all"}" class="${state.categoryFilter === "all" ? "active" : ""}">全部 ${grammarWords().length}</button>${cats.map((category) => `<button type="button" data-grammar-category="${escapeHtml(category)}" aria-pressed="${state.categoryFilter === category}" class="${state.categoryFilter === category ? "active" : ""}">${escapeHtml(category)} <small>${grammarWords().filter((word) => word.category === category).length}</small></button>`).join("")}</div>` : ""}<div class="filters glass"><input class="field" id="search" value="${escapeHtml(state.searchKeyword)}" placeholder="搜索单词、释义、用法或例句…" aria-label="搜索"><select class="field" id="collection" aria-label="选择词集">${grammarView ? "" : '<option value="all">全部常规词集</option>'}${collections.map((c) => `<option value="${c.id}" ${state.collectionFilter === c.id ? "selected" : ""}>${escapeHtml(collectionDisplayName(c))}</option>`).join("")}</select><select class="field" id="category" aria-label="选择词语分类"><option value="all">全部分类</option>${cats.map((c) => `<option value="${escapeHtml(c)}" ${state.categoryFilter === c ? "selected" : ""}>${escapeHtml(c)}</option>`).join("")}</select><select class="field" id="status"><option value="all">全部状态</option>${Object.entries(
+          `<div class="section-head"><div><h2>${verbView ? "动词词库" : grammarView ? "语法词库" : "词集库"}</h2><p>${grammarView ? "从手册中的词语出发，理解它们在句子里的位置和作用。" : "按词集慢慢积累，也可以跨词集搜索、收藏与复习。"}</p></div></div><div class="lexicon-switch" role="group" aria-label="选择词库类型"><button type="button" data-library-scope="regular" aria-pressed="${!grammarView}" class="${!grammarView ? "active" : ""}">常规词库 <small>${regularCollections().length} 期</small></button><button type="button" data-library-scope="grammar" aria-pressed="${grammarView && !verbView}" class="${grammarView && !verbView ? "active" : ""}">语法词库 <small>${grammarWords().length} 词</small></button><button type="button" data-library-scope="verbs" aria-pressed="${verbView}" class="${verbView ? "active" : ""}">动词词库 <small>${grammarWords().filter((word) => word.category === "动词").length} 词</small></button></div>${grammarView ? `<section class="grammar-library-intro"><div><h3>${verbView ? "动词变化，放回句子里记。" : "先认词，再看懂一句话。"}</h3><p>${verbView ? "120 个主要动词，保留必背与扩展标记；搭配词形、用法和简短双语例句一起学习。" : "按用途学习手册中的人称、动词和时间地点表达。相同拼写的语法词条单独记录学习进度。"}</p></div><div class="grammar-entry-actions"><button type="button" class="pill" data-grammar-study>${verbView ? "开始动词学习" : "开始语法学习"}</button><button type="button" class="pill" data-grammar-flash>记忆卡片</button><button type="button" class="pill primary" data-grammar-quiz>${verbView ? "动词专项测试" : "语法专项测试"}</button></div></section><p id="grammar-scope-notice" class="count" role="status" aria-live="polite"></p><div class="grammar-category-list" role="group" aria-label="语法词语分类"><button type="button" data-grammar-category="all" aria-pressed="${state.categoryFilter === "all"}" class="${state.categoryFilter === "all" ? "active" : ""}">全部 ${grammarWords().length}</button>${cats.map((category) => `<button type="button" data-grammar-category="${escapeHtml(category)}" aria-pressed="${state.categoryFilter === category}" class="${state.categoryFilter === category ? "active" : ""}">${escapeHtml(category)} <small>${grammarWords().filter((word) => word.category === category).length}</small></button>`).join("")}</div>` : ""}<div class="filters glass"><input class="field" id="search" value="${escapeHtml(state.searchKeyword)}" placeholder="搜索单词、释义、用法或例句…" aria-label="搜索"><select class="field" id="collection" aria-label="选择词集">${grammarView ? "" : '<option value="all">全部常规词集</option>'}${collections.map((c) => `<option value="${c.id}" ${state.collectionFilter === c.id ? "selected" : ""}>${escapeHtml(collectionDisplayName(c))}</option>`).join("")}</select><select class="field" id="category" aria-label="选择词语分类"><option value="all">全部分类</option>${cats.map((c) => `<option value="${escapeHtml(c)}" ${state.categoryFilter === c ? "selected" : ""}>${escapeHtml(c)}</option>`).join("")}</select><select class="field" id="status"><option value="all">全部状态</option>${Object.entries(
             statusNames,
           )
             .map(
@@ -6845,7 +6860,7 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             )
             .join(
               "",
-            )}<option value="favorite" ${state.statusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><select class="field" id="sort"><option value="original">录入顺序</option><option value="alpha">字母顺序</option><option value="random">随机顺序</option><option value="review">待复习优先</option><option value="favorite">收藏优先</option></select><button class="pill" data-random>从当前结果随机学习</button><button class="pill" id="clearFilters">清除筛选</button></div><div class="content-tools"><p class="count">${grammarView ? "语法词库 · 手册专项" : `共 ${regularCollections().length} 期常规词集`} · 筛选到 ${filtered.length} 个词条${filtered.length ? ` · 第 ${state.libraryPage + 1}/${page.pageCount} 页 · 本页 ${ws.length} 个` : ""}</p>${ws.length ? `<div class="batch-detail-actions"><button class="pill" data-toggle-examples="library">${allExamplesVisible(ws) ? "收起当页例句" : "展开当页例句"}</button><button class="pill" data-toggle-translations="library">${allTranslationsVisible(ws) ? "隐藏当页翻译" : "展开当页翻译"}</button></div>` : ""}</div>${ws.length ? `<div class="grid">${ws.map(cardHtml).join("")}</div>${libraryPaginationHtml(page.pageCount)}` : `<div class="empty glass">当前筛选没有匹配的词条。<br>试试其他分类，或清除搜索与状态筛选。</div>`}`;
+            )}<option value="favorite" ${state.statusFilter === "favorite" ? "selected" : ""}>已收藏</option></select><select class="field" id="sort"><option value="original">录入顺序</option><option value="alpha">字母顺序</option><option value="random">随机顺序</option><option value="review">待复习优先</option><option value="favorite">收藏优先</option></select><button class="pill" data-random>从当前结果随机学习</button><button class="pill" id="clearFilters">清除筛选</button></div><div class="content-tools"><p class="count">${verbView ? "动词词库 · 手册专项" : grammarView ? "语法词库 · 手册专项" : `共 ${regularCollections().length} 期常规词集`} · 筛选到 ${filtered.length} 个词条${filtered.length ? ` · 第 ${state.libraryPage + 1}/${page.pageCount} 页 · 本页 ${ws.length} 个` : ""}</p>${ws.length ? `<div class="batch-detail-actions"><button class="pill" data-toggle-examples="library">${allExamplesVisible(ws) ? "收起当页例句" : "展开当页例句"}</button><button class="pill" data-toggle-translations="library">${allTranslationsVisible(ws) ? "隐藏当页翻译" : "展开当页翻译"}</button></div>` : ""}</div>${ws.length ? `<div class="grid">${ws.map(cardHtml).join("")}</div>${libraryPaginationHtml(page.pageCount)}` : `<div class="empty glass">当前筛选没有匹配的词条。<br>试试其他分类，或清除搜索与状态筛选。</div>`}`;
         $("#sort").value = state.sort;
         initLibraryCardEffects();
       }
@@ -7339,15 +7354,39 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         const sentences = [...new Set([word.sentence, ...word.examples.map((example) => example.sentence)].filter(Boolean))];
         for (const sentence of sentences) {
           for (const answer of variants) {
-            const pattern = new RegExp(`\\b${escapeRegExp(answer)}\\b`, "i");
-            if (pattern.test(sentence)) return { text: sentence.replace(pattern, "________"), answer };
+            const pattern = new RegExp(`(^|[^A-Za-z0-9'-])${escapeRegExp(answer)}(?=$|[^A-Za-z0-9'-])`, "i");
+            if (pattern.test(sentence)) return { text: sentence.replace(pattern, (_,before) => before + "________"), answer };
           }
         }
         return null;
       }
+      function quizMeaningSenses(word) {
+        return String(word.meaning || "")
+          .replace(/（[^）]*）|\([^)]*\)/g, "")
+          .split(/[；;、，,／/]/)
+          .map((sense) => {
+            const normalized = sense.replace(/\s+/g, "").replace(/[。.!！]/g, "");
+            const aliases = {"挑选":"选择", "仍然保持":"保持"};
+            return aliases[normalized] || normalized;
+          })
+          .filter(Boolean);
+      }
+      function quizCanDistinguish(target, candidate, type) {
+        if (String(target.id) === String(candidate.id)) return false;
+        const normalize = (value) => String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
+        if (normalize(target.word) === normalize(candidate.word)) return false;
+        // A form card and its lemma must never become competing answers.
+        if (normalize(target.verbLemma || target.word) === normalize(candidate.verbLemma || candidate.word)) return false;
+        const meanings = new Set(quizMeaningSenses(target));
+        if (quizMeaningSenses(candidate).some((sense) => meanings.has(sense))) return false;
+        const label = (word) => normalize(type === "cn-en" ? word.word : word.meaning);
+        return Boolean(label(candidate)) && label(target) !== label(candidate);
+      }
       function quizEligiblePool(mode = $("#quizMode")?.value || "cn-en") {
         const pool = quizFilteredPool();
-        return mode === "blank" ? pool.filter((word) => !isGrammarWord(word) || grammarBlankExample(word)) : pool;
+        return mode === "blank"
+          ? pool.filter((word) => !isGrammarWord(word) || grammarBlankExample(word))
+          : pool.filter((word) => pool.some((other) => quizCanDistinguish(word, other, mode)));
       }
       function updateQuizHint() {
         const pool = quizEligiblePool();
@@ -7402,7 +7441,9 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
             : Number($("#quizCount").value);
         if (!pool.length) {
           $("#quizHint").textContent =
-            "当前范围没有可测试词条，请调整分类或清除筛选。";
+            mode !== "blank" && quizFilteredPool().length
+              ? "选择题至少需要两个可区分答案的词条。请扩大筛选范围，或改用例句填空。"
+              : "当前范围没有可测试词条，请调整分类或清除筛选。";
           return;
         }
         if (mode !== "blank" && new Set(pool.map((word) => (mode === "cn-en" ? word.word : word.meaning).trim().toLowerCase())).size < 2) {
@@ -7439,21 +7480,13 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         renderQuiz();
       }
       function makeOptions(w, type) {
-        const label = (word) => String(type === "cn-en" ? word.word : word.meaning).replace(/\s+/g, " ").trim().toLowerCase();
-        const seen = new Set([label(w)]);
         const source = state.quiz?.optionPool || quizFilteredPool();
-        const others = [...source]
-          .filter((word) => word.id !== w.id)
-          .sort(() => Math.random() - 0.5)
-          .filter((word) => {
-            const key = label(word);
-            if (!key || seen.has(key)) return false;
-            seen.add(key);
-            return true;
-          })
-          .slice(0, 3);
-        const all = [w, ...others].sort(() => Math.random() - 0.5);
-        return all.map((x) => ({
+        const chosen = [w];
+        for (const word of [...source].sort(() => Math.random() - 0.5)) {
+          if (chosen.every((other) => quizCanDistinguish(other, word, type))) chosen.push(word);
+          if (chosen.length === 4) break;
+        }
+        return chosen.sort(() => Math.random() - 0.5).map((x) => ({
           label: type === "cn-en" ? x.word : x.meaning,
           word: x.word,
           meaning: x.meaning,
@@ -8141,9 +8174,9 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
         );
         if (!b) return;
         if (b.dataset.libraryScope !== undefined) {
-          state.collectionFilter = b.dataset.libraryScope === "grammar" ? "grammar-handbook" : "all";
+          state.collectionFilter = ["grammar", "verbs"].includes(b.dataset.libraryScope) ? "grammar-handbook" : "all";
           state.searchKeyword = "";
-          state.categoryFilter = "all";
+          state.categoryFilter = b.dataset.libraryScope === "verbs" ? "动词" : "all";
           state.statusFilter = "all";
           state.sort = "original";
           state.libraryPage = 0;
@@ -8160,32 +8193,39 @@ delegate|conference delegate；elected delegate；send a delegate|Each union del
           return;
         }
         if (b.dataset.grammarStudy !== undefined) {
-          const words = grammarWords().map(getWord);
+          const selection = grammarLibrarySelection();
+          const words = filterWordPool(vocabularyData.map(getWord), {...selection,collection:"grammar-handbook"});
           const next = words.find((word) => word.status !== "mastered") || words[0];
-          if (!next) return;
-          state.studySessionIds = null;
+          if (!next) {
+            const notice = $("#grammar-scope-notice");
+            if (notice) notice.textContent = "当前范围没有可学习的词条，请调整分类或清除搜索与收藏筛选。";
+            return;
+          }
+          state.studySessionIds = words.map(word => word.id);
           state.studyCollectionFilter = "grammar-handbook";
           setCurrentWordById(next.id);
           navigate("study");
           return;
         }
         if (b.dataset.grammarFlash !== undefined) {
+          const selection = grammarLibrarySelection();
           state.flashCollectionFilter = "grammar-handbook";
-          state.flashSearchKeyword = "";
-          state.flashCategoryFilter = "all";
-          state.flashStatusFilter = "all";
+          state.flashSearchKeyword = selection.keyword;
+          state.flashCategoryFilter = selection.category;
+          state.flashStatusFilter = selection.status;
           state.flashIndex = 0;
           state.flashFlipped = false;
           navigate("flash");
           return;
         }
         if (b.dataset.grammarQuiz !== undefined) {
+          const selection = grammarLibrarySelection();
           state.quiz = null;
           state.quizSessionIds = null;
           state.quizCollectionFilter = "grammar-handbook";
-          state.quizSearchKeyword = "";
-          state.quizCategoryFilter = "all";
-          state.quizStatusFilter = "all";
+          state.quizSearchKeyword = selection.keyword;
+          state.quizCategoryFilter = selection.category;
+          state.quizStatusFilter = selection.status;
           navigate("quiz");
           return;
         }

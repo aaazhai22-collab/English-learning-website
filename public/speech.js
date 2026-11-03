@@ -50,7 +50,9 @@ function loadPublicOnlineAllowlist(browser) {
       for (const word of regularWords) {
         try { add(selectBeginnerExample(word)?.sentence); } catch { /* Missing optional teaching data must not discard the original allowlist. */ }
       }
+      for (const text of catalog.grammarSpeechBaseline || []) add(text);
       for (const word of grammarWords) addWord(word);
+      for (const word of grammarWords) for (const form of Object.values(word.verbForms || {})) add(form);
       publicOnlineTexts = allowed;
     })
     .catch(() => { /* Fail closed: unverified text can only use system speech. */ })

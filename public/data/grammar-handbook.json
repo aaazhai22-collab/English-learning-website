@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "sourceTitle": "英语零基础语序与句子成分学习手册",
+  "sourceTitle": "语法词库 · 核心动词更新",
   "regularCatalogSHA256": "04f40bd6983dea6beb3485d51924de5b89abb9cb043968540e514771a8171bb5",
-  "policy": "收录手册实际讲解和高频词；补充教学例句单独标记；不收录练习中的错误形式。",
+  "policy": "本次仅合并核心清单中的动词、助动词、情态动词和动词搭配；保留原有非动词内容与全部旧ID。表中120个动词保留75个必背、45个扩展标记及变化；补充例句单独标记。",
   "entries": [
     {
       "id": 100001,
@@ -20,7 +20,8 @@
       ],
       "sourceSection": "第二阶段 找到句子的核心",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100002,
@@ -38,7 +39,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100003,
@@ -56,7 +58,8 @@
       ],
       "sourceSection": "第九阶段 常见错误与造句步骤",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100004,
@@ -74,7 +77,8 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100005,
@@ -92,7 +96,8 @@
       ],
       "sourceSection": "第八阶段 语序规律与灵活变化",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100006,
@@ -110,7 +115,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100007,
@@ -128,7 +134,8 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100008,
@@ -146,32 +153,44 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100009,
       "word": "be",
-      "meaning": "是；处于某种身份或状态",
-      "pos": "v. 系动词",
-      "category": "be 与助动词",
-      "usage": "系动词连接主语和表语；现在时常见 am、is、are，过去时常见 was、were。",
+      "meaning": "是；在",
+      "pos": "v.",
+      "category": "动词",
+      "usage": "be 可以连接主语与身份、状态或位置，也可以帮助构成进行时和被动语态。现在时 I 用 am，he/she/it 通常用 is，you/we/they 用 are；手册变化表该栏保留三种现在时形式。 变化：现在时形式 am/is/are；过去式 was/were；过去分词 been；-ing being。",
       "examples": [
         {
-          "sentence": "She is happy.",
-          "translation": "她很开心。",
+          "sentence": "I will be there.",
+          "translation": "我会在那里。",
           "exampleOrigin": "manual"
         }
       ],
-      "sourceSection": "第二阶段 找到句子的核心",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "tableNumber": 1,
+      "coreSource": true
     },
     {
       "id": 100010,
       "word": "am",
       "meaning": "是；be 与 I 搭配的现在时形式",
       "pos": "v. 系动词",
-      "category": "be 与助动词",
+      "category": "动词",
       "usage": "现在时先记 I am；在 I am a student. 中 am 是系动词，a student 是表语。",
       "examples": [
         {
@@ -182,14 +201,25 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "be",
+      "formLabel": "现在时形式",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100011,
       "word": "is",
       "meaning": "是；be 与 he/she/it 搭配的现在时形式",
       "pos": "v. 系动词",
-      "category": "be 与助动词",
+      "category": "动词",
       "usage": "描述状态或身份时不能省略系动词 is；She happy. 缺少本句需要的 is。",
       "examples": [
         {
@@ -200,14 +230,25 @@
       ],
       "sourceSection": "第二阶段 找到句子的核心",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "be",
+      "formLabel": "现在时形式",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100012,
       "word": "are",
       "meaning": "是；be 与 you/we/they 搭配的现在时形式",
       "pos": "v. 系动词",
-      "category": "be 与助动词",
+      "category": "动词",
       "usage": "手册最小搭配：you / we / they are。",
       "examples": [
         {
@@ -218,14 +259,25 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "be",
+      "formLabel": "现在时形式",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100013,
       "word": "was",
       "meaning": "是；be 的过去时形式之一",
       "pos": "v. 系动词",
-      "category": "be 与助动词",
+      "category": "动词",
       "usage": "I was tired yesterday. 中 was 连接主语 I 与表语 tired，yesterday 表示过去。",
       "examples": [
         {
@@ -236,14 +288,25 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "be",
+      "formLabel": "过去式",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100014,
       "word": "were",
       "meaning": "是；be 的过去时形式之一",
       "pos": "v. 系动词",
-      "category": "be 与助动词",
+      "category": "动词",
       "usage": "手册将 was、were 列为 be 的常见过去式；用法例句为补充练习。",
       "examples": [
         {
@@ -254,56 +317,84 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "be",
+      "formLabel": "过去式",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100015,
       "word": "do",
-      "meaning": "助动词；用于本课的一般现在时疑问句",
-      "pos": "aux.",
-      "category": "be 与助动词",
-      "usage": "Do you read books? 中 Do 是助动词，you 是主语，read 是主要动词；本句不能套用肯定句的全部词序。",
+      "meaning": "做",
+      "pos": "v.",
+      "category": "动词",
+      "usage": "do 可作实义动词“做”，也可作疑问、否定中的助动词；does/did 后的主要动词用原形。 变化：第三人称单数 does；过去式 did；过去分词 done；-ing doing。",
       "examples": [
         {
-          "sentence": "Do you read books?",
-          "translation": "你读书吗？",
-          "exampleOrigin": "manual"
+          "sentence": "I do my homework.",
+          "translation": "我做家庭作业。",
+          "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第八阶段 语序规律与灵活变化",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "does",
+        "past": "did",
+        "pastParticiple": "done",
+        "ing": "doing"
+      },
+      "tableNumber": 3,
+      "coreSource": true
     },
     {
       "id": 100016,
       "word": "read",
-      "meaning": "阅读；过去式仍拼 read",
+      "meaning": "阅读",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "原形及一般现在时读 /riːd/；过去式读 /red/，拼写仍是 read，不能写 readed。单词相同，需结合时间判断。",
+      "category": "动词",
+      "usage": "read 原形读 /riːd/；过去式和过去分词仍拼 read，但读 /red/，不能机械写成 readed。 变化：第三人称单数 reads；过去式 read；过去分词 read；-ing reading。",
       "examples": [
         {
           "sentence": "I read books.",
           "translation": "我读书。",
-          "exampleOrigin": "manual"
-        },
-        {
-          "sentence": "I read books quietly in the library last Sunday.",
-          "translation": "我上周日在图书馆安静地看书。",
-          "exampleOrigin": "manual"
+          "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual",
-      "phonetic": "/riːd/（原形）；/red/（过去式）"
+      "exampleOrigin": "added",
+      "phonetic": "/riːd/（原形）；/red/（过去式）",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "reads",
+        "past": "read",
+        "pastParticiple": "read",
+        "ing": "reading"
+      },
+      "tableNumber": 57,
+      "coreSource": true
     },
     {
       "id": 100017,
       "word": "reads",
       "meaning": "阅读；read 的第三人称单数形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "表达现在的习惯，主语为 she/he 等第三人称单数时用 reads；不能只看主语而忽略过去语境。",
       "examples": [
         {
@@ -314,14 +405,25 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "read",
+      "formLabel": "第三人称单数",
+      "verbForms": {
+        "thirdPerson": "reads",
+        "past": "read",
+        "pastParticiple": "read",
+        "ing": "reading"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100018,
       "word": "reading",
       "meaning": "正在读；read 的 ing 形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "在 I am reading a book. 中 am reading 整体是谓语动词部分；不能只为翻译中文“在”就任意加 am。",
       "examples": [
         {
@@ -332,15 +434,26 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "read",
+      "formLabel": "-ing 形式",
+      "verbForms": {
+        "thirdPerson": "reads",
+        "past": "read",
+        "pastParticiple": "read",
+        "ing": "reading"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100019,
       "word": "walk",
-      "meaning": "走；步行",
+      "meaning": "走路",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "手册对照 walk → walked；表示过去发生的步行动作用 walked。",
+      "category": "动词",
+      "usage": "walk 表示走路；walk home 中 home 直接表示方向，通常不加 to。 变化：第三人称单数 walks；过去式 walked；过去分词 walked；-ing walking。",
       "examples": [
         {
           "sentence": "I walk home.",
@@ -348,16 +461,27 @@
           "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "walks",
+        "past": "walked",
+        "pastParticiple": "walked",
+        "ing": "walking"
+      },
+      "tableNumber": 62,
+      "coreSource": true
     },
     {
       "id": 100020,
       "word": "walks",
       "meaning": "走；walk 的第三人称单数形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "She walks home slowly. 中 walks 是谓语动词；home 表示方向，slowly 表示方式。",
       "examples": [
         {
@@ -368,14 +492,25 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "walk",
+      "formLabel": "第三人称单数",
+      "verbForms": {
+        "thirdPerson": "walks",
+        "past": "walked",
+        "pastParticiple": "walked",
+        "ing": "walking"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100021,
       "word": "walked",
       "meaning": "走；walk 的过去式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "手册对照 walk → walked；与 yesterday 等过去语境搭配。",
       "examples": [
         {
@@ -386,32 +521,54 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "walk",
+      "formLabel": "过去式",
+      "verbForms": {
+        "thirdPerson": "walks",
+        "past": "walked",
+        "pastParticiple": "walked",
+        "ing": "walking"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100022,
       "word": "play",
-      "meaning": "玩；进行游戏或运动",
+      "meaning": "玩；演奏；打球",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "手册对照 play → played；They play in the park. 中 play 没有直接宾语。",
+      "category": "动词",
+      "usage": "play 可表示玩、打球或演奏；运动名词前在常见搭配中通常不加 the。 变化：第三人称单数 plays；过去式 played；过去分词 played；-ing playing。",
       "examples": [
         {
-          "sentence": "They play in the park.",
-          "translation": "他们在公园玩。",
+          "sentence": "They play football every day.",
+          "translation": "他们每天踢足球。",
           "exampleOrigin": "manual"
         }
       ],
-      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "plays",
+        "past": "played",
+        "pastParticiple": "played",
+        "ing": "playing"
+      },
+      "tableNumber": 38,
+      "coreSource": true
     },
     {
       "id": 100023,
       "word": "plays",
       "meaning": "玩；play 的第三人称单数形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "She plays tennis every Sunday. 表示现在规律性的活动，主语 She 对应 plays。",
       "examples": [
         {
@@ -422,14 +579,25 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "play",
+      "formLabel": "第三人称单数",
+      "verbForms": {
+        "thirdPerson": "plays",
+        "past": "played",
+        "pastParticiple": "played",
+        "ing": "playing"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100024,
       "word": "played",
       "meaning": "玩；play 的过去式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "last Sunday 或 yesterday 指过去的活动时，本课例句用 played。",
       "examples": [
         {
@@ -440,32 +608,54 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "play",
+      "formLabel": "过去式",
+      "verbForms": {
+        "thirdPerson": "plays",
+        "past": "played",
+        "pastParticiple": "played",
+        "ing": "playing"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100025,
       "word": "eat",
       "meaning": "吃",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "可不明说宾语，也可直接接宾语：I eat. 与 I eat rice. 都能成立。过去式为 ate。",
+      "category": "动词",
+      "usage": "eat 可直接接食物作宾语，也可不明说宾语；例句中 rice 是宾语。 变化：第三人称单数 eats；过去式 ate；过去分词 eaten；-ing eating。",
       "examples": [
         {
           "sentence": "I eat rice.",
           "translation": "我吃米饭。",
-          "exampleOrigin": "manual"
+          "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "eats",
+        "past": "ate",
+        "pastParticiple": "eaten",
+        "ing": "eating"
+      },
+      "tableNumber": 68,
+      "coreSource": true
     },
     {
       "id": 100026,
       "word": "ate",
       "meaning": "吃；eat 的过去式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "手册列出 eat → ate；这是不规则变化，不能机械地只加 ed。",
       "examples": [
         {
@@ -476,15 +666,26 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "eat",
+      "formLabel": "过去式",
+      "verbForms": {
+        "thirdPerson": "eats",
+        "past": "ate",
+        "pastParticiple": "eaten",
+        "ing": "eating"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100027,
       "word": "go",
       "meaning": "去",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "手册列出 go → went；go home 的 home 前通常不加 to，但 go to school 需要 to。",
+      "category": "动词",
+      "usage": "go 表示去；go to school 常有 to，go home 的 home 前通常不加 to。 变化：第三人称单数 goes；过去式 went；过去分词 gone；-ing going。 也可在 go bad 等固定搭配中作系动词，表示“变得”；此时后面的形容词说明主语状态。",
       "examples": [
         {
           "sentence": "I go to school.",
@@ -492,16 +693,27 @@
           "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "goes",
+        "past": "went",
+        "pastParticiple": "gone",
+        "ing": "going"
+      },
+      "tableNumber": 5,
+      "coreSource": true
     },
     {
       "id": 100028,
       "word": "went",
       "meaning": "去；go 的过去式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "手册列出 go → went；过去式不能全部靠加 ed。",
       "examples": [
         {
@@ -512,32 +724,54 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "go",
+      "formLabel": "过去式",
+      "verbForms": {
+        "thirdPerson": "goes",
+        "past": "went",
+        "pastParticiple": "gone",
+        "ing": "going"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100029,
       "word": "sleep",
       "meaning": "睡觉",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "本课将 sleep 作为不直接接对象的用法；不必为了凑主谓宾而添加宾语。",
+      "category": "动词",
+      "usage": "sleep 在本例中不接宾语；at night 补充睡觉的时间。 变化：第三人称单数 sleeps；过去式 slept；过去分词 slept；-ing sleeping。",
       "examples": [
         {
-          "sentence": "I sleep at home.",
-          "translation": "我在家睡觉。",
+          "sentence": "I sleep at night.",
+          "translation": "我在夜里睡觉。",
           "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "sleeps",
+        "past": "slept",
+        "pastParticiple": "slept",
+        "ing": "sleeping"
+      },
+      "tableNumber": 70,
+      "coreSource": true
     },
     {
       "id": 100030,
       "word": "sleeps",
       "meaning": "睡觉；sleep 的第三人称单数形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "The baby sleeps. 中 sleeps 是谓语动词，句子没有宾语，但结构完整。",
       "examples": [
         {
@@ -548,68 +782,112 @@
       ],
       "sourceSection": "第二阶段 找到句子的核心",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "sleep",
+      "formLabel": "第三人称单数",
+      "verbForms": {
+        "thirdPerson": "sleeps",
+        "past": "slept",
+        "pastParticiple": "slept",
+        "ing": "sleeping"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100031,
       "word": "like",
       "meaning": "喜欢",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "表达喜好，也属于动词；可直接接对象，如 like music、like her。",
+      "category": "动词",
+      "usage": "like 后可直接接喜欢的人或事物；一般现在时 he/she 等主语通常用 likes。 变化：第三人称单数 likes；过去式 liked；过去分词 liked；-ing liking。 表达日常喜好时常用一般现在时；表中的 liking 不表示所有喜好句都应改成进行时。",
       "examples": [
         {
-          "sentence": "They like music.",
-          "translation": "他们喜欢音乐。",
+          "sentence": "I like you.",
+          "translation": "我喜欢你。",
           "exampleOrigin": "manual"
         }
       ],
-      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceSection": "PART 01 代词怎么使用",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "正文动词补充",
+      "verbForms": {
+        "thirdPerson": "likes",
+        "past": "liked",
+        "pastParticiple": "liked",
+        "ing": "liking"
+      },
+      "formsOrigin": "added",
+      "coreSource": true
     },
     {
       "id": 100032,
       "word": "know",
       "meaning": "知道；认识",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "手册用 know 说明：动词表达的未必是看得见的动作，也可以表达知道等状态。",
+      "category": "动词",
+      "usage": "know 可表示知道或认识；例句中 him 是宾格，作 know 的宾语。 变化：第三人称单数 knows；过去式 knew；过去分词 known；-ing knowing。 表示知道或认识时通常不用进行时；表中的 knowing 是词形，不表示任何语境都适合使用进行时。",
       "examples": [
         {
-          "sentence": "I know her.",
-          "translation": "我认识她。",
+          "sentence": "I know him.",
+          "translation": "我认识他。",
           "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第三阶段 动词与时间的基础",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "knows",
+        "past": "knew",
+        "pastParticiple": "known",
+        "ing": "knowing"
+      },
+      "tableNumber": 8,
+      "coreSource": true
     },
     {
       "id": 100033,
       "word": "listen",
       "meaning": "听",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "表达“听某个内容”通常要用 listen to；We listen to music. 中 music 是介词 to 的宾语。",
+      "category": "动词",
+      "usage": "表达听某个内容时通常用 listen to；music 是介词 to 的宾语。 变化：第三人称单数 listens；过去式 listened；过去分词 listened；-ing listening。",
       "examples": [
         {
-          "sentence": "We listen to music.",
-          "translation": "我们听音乐。",
-          "exampleOrigin": "manual"
+          "sentence": "I listen to music.",
+          "translation": "我听音乐。",
+          "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第四阶段 宾语是动作涉及的对象",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "listens",
+        "past": "listened",
+        "pastParticiple": "listened",
+        "ing": "listening"
+      },
+      "tableNumber": 120,
+      "coreSource": true
     },
     {
       "id": 100034,
       "word": "opens",
       "meaning": "打开；open 的第三人称单数形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "She opens the door quietly. 中 opens 是谓语动词，the door 是宾语。",
       "examples": [
         {
@@ -620,14 +898,25 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "open",
+      "formLabel": "第三人称单数",
+      "verbForms": {
+        "thirdPerson": "opens",
+        "past": "opened",
+        "pastParticiple": "opened",
+        "ing": "opening"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100035,
       "word": "writes",
       "meaning": "书写；write 的第三人称单数形式",
       "pos": "v.",
-      "category": "动词与形式",
+      "category": "动词",
       "usage": "She writes with care. 中 writes 是谓语动词，with care 整体作方式状语。",
       "examples": [
         {
@@ -638,43 +927,76 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册",
+      "verbLemma": "write",
+      "formLabel": "第三人称单数",
+      "verbForms": {
+        "thirdPerson": "writes",
+        "past": "wrote",
+        "pastParticiple": "written",
+        "ing": "writing"
+      },
+      "priority": "必背",
+      "verbGroup": "保留词形卡"
     },
     {
       "id": 100036,
       "word": "put",
-      "meaning": "放；本课例句中为过去式",
+      "meaning": "放",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "put 通常需要交代放在哪里；He put the book. 在本课语境中信息不完整。",
+      "category": "动词",
+      "usage": "put 通常需要交代把东西放在哪里；例句的 on the table 补充放置地点。 变化：第三人称单数 puts；过去式 put；过去分词 put；-ing putting。 原形、过去式和过去分词都拼 put；本例可结合上下文理解为现在的习惯或过去的动作。",
       "examples": [
         {
-          "sentence": "He put the book on the table.",
-          "translation": "他把书放在桌子上。",
-          "exampleOrigin": "manual"
+          "sentence": "I put the book on the table.",
+          "translation": "我把书放在桌子上。",
+          "exampleOrigin": "added"
         }
       ],
-      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "puts",
+        "past": "put",
+        "pastParticiple": "put",
+        "ing": "putting"
+      },
+      "tableNumber": 27,
+      "coreSource": true
     },
     {
       "id": 100037,
       "word": "study",
-      "meaning": "学习",
+      "meaning": "学习；研究",
       "pos": "v.",
-      "category": "动词与形式",
-      "usage": "We study here. 中 study 是谓语动词，here 是地点状语，本句没有直接宾语。",
+      "category": "动词",
+      "usage": "study 可接学习或研究的内容；主语为 he/she 等时，study 的三单是 studies。 变化：第三人称单数 studies；过去式 studied；过去分词 studied；-ing studying。",
       "examples": [
         {
-          "sentence": "We study here.",
-          "translation": "我们在这里学习。",
+          "sentence": "I study English.",
+          "translation": "我学习英语。",
           "exampleOrigin": "manual"
         }
       ],
-      "sourceSection": "第六阶段 地点状语说明在哪里",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "studies",
+        "past": "studied",
+        "pastParticiple": "studied",
+        "ing": "studying"
+      },
+      "tableNumber": 65,
+      "coreSource": true
     },
     {
       "id": 100038,
@@ -692,7 +1014,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100039,
@@ -710,7 +1033,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100040,
@@ -728,7 +1052,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100041,
@@ -746,7 +1071,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100042,
@@ -764,7 +1090,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100043,
@@ -782,7 +1109,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100044,
@@ -800,7 +1128,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100045,
@@ -818,7 +1147,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100046,
@@ -836,7 +1166,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100047,
@@ -854,7 +1185,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100048,
@@ -872,7 +1204,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100049,
@@ -890,7 +1223,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100050,
@@ -908,7 +1242,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100051,
@@ -926,7 +1261,8 @@
       ],
       "sourceSection": "第八阶段 语序规律与灵活变化",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100052,
@@ -944,7 +1280,8 @@
       ],
       "sourceSection": "第八阶段 语序规律与灵活变化",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100053,
@@ -962,7 +1299,8 @@
       ],
       "sourceSection": "第八阶段 语序规律与灵活变化",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100054,
@@ -980,7 +1318,8 @@
       ],
       "sourceSection": "第八阶段 语序规律与灵活变化",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100055,
@@ -998,7 +1337,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100056,
@@ -1016,7 +1356,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100057,
@@ -1034,7 +1375,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100058,
@@ -1052,14 +1394,15 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100059,
       "word": "listen to",
       "meaning": "听……",
       "pos": "动词搭配",
-      "category": "地点与常用搭配",
+      "category": "动词",
       "usage": "表达听某个内容时通常用 listen to；不要漏掉 to。music 是介词 to 的宾语。",
       "examples": [
         {
@@ -1070,7 +1413,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100060,
@@ -1088,7 +1432,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100061,
@@ -1106,7 +1451,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100062,
@@ -1124,7 +1470,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100063,
@@ -1142,7 +1489,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100064,
@@ -1160,7 +1508,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100065,
@@ -1178,14 +1527,15 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100066,
       "word": "go home",
       "meaning": "回家",
       "pos": "动词搭配",
-      "category": "地点与常用搭配",
+      "category": "动词",
       "usage": "home 在此直接跟 go，通常不加 to；与 go to school 对照记忆。",
       "examples": [
         {
@@ -1196,14 +1546,15 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100067,
       "word": "go to school",
       "meaning": "去上学",
       "pos": "动词搭配",
-      "category": "地点与常用搭配",
+      "category": "动词",
       "usage": "school 在此表达中要与 to 搭配；不能套用 go home 而漏 to。",
       "examples": [
         {
@@ -1214,7 +1565,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100068,
@@ -1232,7 +1584,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100069,
@@ -1250,7 +1603,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100070,
@@ -1268,7 +1622,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100071,
@@ -1286,7 +1641,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100072,
@@ -1304,7 +1660,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100073,
@@ -1322,7 +1679,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100074,
@@ -1340,7 +1698,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100075,
@@ -1358,7 +1717,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100076,
@@ -1376,7 +1736,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100077,
@@ -1394,7 +1755,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100078,
@@ -1412,7 +1774,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100079,
@@ -1430,7 +1793,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100080,
@@ -1448,7 +1812,8 @@
       ],
       "sourceSection": "复习速查 本课高频词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100081,
@@ -1466,7 +1831,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100082,
@@ -1484,7 +1850,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100083,
@@ -1502,7 +1869,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100084,
@@ -1520,7 +1888,8 @@
       ],
       "sourceSection": "复习速查 本课高频词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100085,
@@ -1538,7 +1907,8 @@
       ],
       "sourceSection": "复习速查 本课高频词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100086,
@@ -1556,7 +1926,8 @@
       ],
       "sourceSection": "复习速查 本课高频词",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100087,
@@ -1574,7 +1945,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100088,
@@ -1592,7 +1964,8 @@
       ],
       "sourceSection": "第二阶段 找到句子的核心",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100089,
@@ -1610,7 +1983,8 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100090,
@@ -1628,7 +2002,8 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100091,
@@ -1647,7 +2022,8 @@
       "sourceSection": "先认识六个名称",
       "sourceKind": "manual",
       "exampleOrigin": "manual",
-      "exampleNote": "用于对照主语与其余部分的整句示例；predicate 一词本身来自手册术语说明，不是例句词。"
+      "exampleNote": "用于对照主语与其余部分的整句示例；predicate 一词本身来自手册术语说明，不是例句词。",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100092,
@@ -1665,7 +2041,8 @@
       ],
       "sourceSection": "第二阶段 找到句子的核心",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100093,
@@ -1683,7 +2060,8 @@
       ],
       "sourceSection": "第二阶段 找到句子的核心",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100094,
@@ -1701,7 +2079,8 @@
       ],
       "sourceSection": "第五阶段 方式状语说明怎样做",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100095,
@@ -1719,7 +2098,8 @@
       ],
       "sourceSection": "第三阶段 动词与时间的基础",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100096,
@@ -1737,7 +2117,8 @@
       ],
       "sourceSection": "第四阶段 宾语是动作涉及的对象",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100097,
@@ -1755,7 +2136,8 @@
       ],
       "sourceSection": "第七阶段 时间状语说明什么时候",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100098,
@@ -1773,7 +2155,8 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "added"
+      "exampleOrigin": "added",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
     },
     {
       "id": 100099,
@@ -1791,8 +2174,4708 @@
       ],
       "sourceSection": "第六阶段 地点状语说明在哪里",
       "sourceKind": "manual",
-      "exampleOrigin": "manual"
+      "exampleOrigin": "manual",
+      "sourceTitle": "英语零基础语序与句子成分学习手册"
+    },
+    {
+      "word": "open",
+      "meaning": "打开",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "opens",
+        "past": "opened",
+        "pastParticiple": "opened",
+        "ing": "opening"
+      },
+      "usage": "open 在本句中是祈使句的谓语动词，the door 是宾语；隐含主语是 you。 变化：第三人称单数 opens；过去式 opened；过去分词 opened；-ing opening。",
+      "examples": [
+        {
+          "sentence": "Please open the door.",
+          "translation": "请打开门。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 61,
+      "id": 100100,
+      "coreSource": true
+    },
+    {
+      "word": "write",
+      "meaning": "写",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "writes",
+        "past": "wrote",
+        "pastParticiple": "written",
+        "ing": "writing"
+      },
+      "usage": "write 后可接写的内容；一般现在时中 he/she 等主语常用 writes。 变化：第三人称单数 writes；过去式 wrote；过去分词 written；-ing writing。",
+      "examples": [
+        {
+          "sentence": "I write my name.",
+          "translation": "我写下我的名字。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 44,
+      "id": 100101,
+      "coreSource": true
+    },
+    {
+      "word": "have",
+      "meaning": "有；吃；喝",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "has",
+        "past": "had",
+        "pastParticiple": "had",
+        "ing": "having"
+      },
+      "usage": "have 可表示“有”，也可帮助构成完成时；完成时用 have/has + 过去分词。 变化：第三人称单数 has；过去式 had；过去分词 had；-ing having。 表示拥有时通常不用进行时；表示吃、喝等动作时则要结合具体搭配判断。",
+      "examples": [
+        {
+          "sentence": "I have a book.",
+          "translation": "我有一本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 2,
+      "id": 100102,
+      "coreSource": true
+    },
+    {
+      "word": "say",
+      "meaning": "说",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "says",
+        "past": "said",
+        "pastParticiple": "said",
+        "ing": "saying"
+      },
+      "usage": "say 后可直接接说出的内容；不要把“说某事”与“告诉某人”机械混用。 变化：第三人称单数 says；过去式 said；过去分词 said；-ing saying。",
+      "examples": [
+        {
+          "sentence": "I say hello.",
+          "translation": "我说你好。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 4,
+      "id": 100103,
+      "coreSource": true
+    },
+    {
+      "word": "get",
+      "meaning": "得到；变得",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "gets",
+        "past": "got",
+        "pastParticiple": "got/gotten",
+        "ing": "getting"
+      },
+      "usage": "get 可以表示得到，也可作系动词表示“变得”；例句中 tired 描述主语状态。 变化：第三人称单数 gets；过去式 got；过去分词 got/gotten；-ing getting。",
+      "examples": [
+        {
+          "sentence": "I get tired.",
+          "translation": "我变累了。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 6,
+      "id": 100104,
+      "coreSource": true
+    },
+    {
+      "word": "make",
+      "meaning": "制作；使",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "makes",
+        "past": "made",
+        "pastParticiple": "made",
+        "ing": "making"
+      },
+      "usage": "make 可表示制作；make + 宾语 + 形容词也可说明使某人或某物变得怎样。 变化：第三人称单数 makes；过去式 made；过去分词 made；-ing making。",
+      "examples": [
+        {
+          "sentence": "I make dinner.",
+          "translation": "我做晚饭。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 7,
+      "id": 100105,
+      "coreSource": true
+    },
+    {
+      "word": "think",
+      "meaning": "想；认为",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "thinks",
+        "past": "thought",
+        "pastParticiple": "thought",
+        "ing": "thinking"
+      },
+      "usage": "think 表示想或认为；think about 后可接思考或想念的对象。 变化：第三人称单数 thinks；过去式 thought；过去分词 thought；-ing thinking。",
+      "examples": [
+        {
+          "sentence": "I think about you.",
+          "translation": "我想起你。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 9,
+      "id": 100106,
+      "coreSource": true
+    },
+    {
+      "word": "take",
+      "meaning": "拿；带；花费",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "takes",
+        "past": "took",
+        "pastParticiple": "taken",
+        "ing": "taking"
+      },
+      "usage": "take 与 bus 等交通工具搭配可表示乘坐；也可表示拿、带或花费时间。 变化：第三人称单数 takes；过去式 took；过去分词 taken；-ing taking。",
+      "examples": [
+        {
+          "sentence": "I take the bus.",
+          "translation": "我乘公共汽车。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 10,
+      "id": 100107,
+      "coreSource": true
+    },
+    {
+      "word": "see",
+      "meaning": "看见",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "sees",
+        "past": "saw",
+        "pastParticiple": "seen",
+        "ing": "seeing"
+      },
+      "usage": "see 表示看见；与表示有意观看的 watch 不完全相同。 变化：第三人称单数 sees；过去式 saw；过去分词 seen；-ing seeing。",
+      "examples": [
+        {
+          "sentence": "I see a bird.",
+          "translation": "我看见一只鸟。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 11,
+      "id": 100108,
+      "coreSource": true
+    },
+    {
+      "word": "come",
+      "meaning": "来",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "comes",
+        "past": "came",
+        "pastParticiple": "come",
+        "ing": "coming"
+      },
+      "usage": "come 表示来；here 是地点副词，这个表达中通常不加 to。 变化：第三人称单数 comes；过去式 came；过去分词 come；-ing coming。",
+      "examples": [
+        {
+          "sentence": "Please come here.",
+          "translation": "请来这里。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 12,
+      "id": 100109,
+      "coreSource": true
+    },
+    {
+      "word": "want",
+      "meaning": "想要",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "wants",
+        "past": "wanted",
+        "pastParticiple": "wanted",
+        "ing": "wanting"
+      },
+      "usage": "want 后可接想要的东西；表达想做某事时常用 want to + 动词原形。 变化：第三人称单数 wants；过去式 wanted；过去分词 wanted；-ing wanting。",
+      "examples": [
+        {
+          "sentence": "I want some water.",
+          "translation": "我想要一些水。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 13,
+      "id": 100110,
+      "coreSource": true
+    },
+    {
+      "word": "look",
+      "meaning": "看；看起来",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "looks",
+        "past": "looked",
+        "pastParticiple": "looked",
+        "ing": "looking"
+      },
+      "usage": "look 可作系动词接形容词说明状态；看某个对象时常用 look at。 变化：第三人称单数 looks；过去式 looked；过去分词 looked；-ing looking。",
+      "examples": [
+        {
+          "sentence": "You look great.",
+          "translation": "你看起来很好。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 14,
+      "id": 100111,
+      "coreSource": true
+    },
+    {
+      "word": "use",
+      "meaning": "使用",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "uses",
+        "past": "used",
+        "pastParticiple": "used",
+        "ing": "using"
+      },
+      "usage": "use 后可直接接使用的东西；use 是动词原形，不要和 used 的其他结构混淆。 变化：第三人称单数 uses；过去式 used；过去分词 used；-ing using。",
+      "examples": [
+        {
+          "sentence": "I use a pen.",
+          "translation": "我使用一支笔。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 15,
+      "id": 100112,
+      "coreSource": true
+    },
+    {
+      "word": "find",
+      "meaning": "找到；发现",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "finds",
+        "past": "found",
+        "pastParticiple": "found",
+        "ing": "finding"
+      },
+      "usage": "find 常强调找到的结果；后面可接找到的人或事物。 变化：第三人称单数 finds；过去式 found；过去分词 found；-ing finding。",
+      "examples": [
+        {
+          "sentence": "I find my book.",
+          "translation": "我找到我的书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 16,
+      "id": 100113,
+      "coreSource": true
+    },
+    {
+      "word": "give",
+      "meaning": "给",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "gives",
+        "past": "gave",
+        "pastParticiple": "given",
+        "ing": "giving"
+      },
+      "usage": "give 可接“给谁”和“给什么”两个宾语，如 give me a book。 变化：第三人称单数 gives；过去式 gave；过去分词 given；-ing giving。",
+      "examples": [
+        {
+          "sentence": "Please give me a book.",
+          "translation": "请给我一本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 17,
+      "id": 100114,
+      "coreSource": true
+    },
+    {
+      "word": "tell",
+      "meaning": "告诉；讲述",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "tells",
+        "past": "told",
+        "pastParticiple": "told",
+        "ing": "telling"
+      },
+      "usage": "tell 常接被告知的人，再接内容；tell me your name 中 me 表示告诉谁。 变化：第三人称单数 tells；过去式 told；过去分词 told；-ing telling。",
+      "examples": [
+        {
+          "sentence": "Please tell me your name.",
+          "translation": "请告诉我你的名字。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 18,
+      "id": 100115,
+      "coreSource": true
+    },
+    {
+      "word": "work",
+      "meaning": "工作",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "works",
+        "past": "worked",
+        "pastParticiple": "worked",
+        "ing": "working"
+      },
+      "usage": "work 作动词表示工作；at home 补充工作的地点。 变化：第三人称单数 works；过去式 worked；过去分词 worked；-ing working。",
+      "examples": [
+        {
+          "sentence": "I work at home.",
+          "translation": "我在家工作。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 19,
+      "id": 100116,
+      "coreSource": true
+    },
+    {
+      "word": "call",
+      "meaning": "打电话；称呼",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "calls",
+        "past": "called",
+        "pastParticiple": "called",
+        "ing": "calling"
+      },
+      "usage": "call 可直接接打电话的对象，也可表示称呼；例句中 my mother 是宾语。 变化：第三人称单数 calls；过去式 called；过去分词 called；-ing calling。",
+      "examples": [
+        {
+          "sentence": "I call my mother.",
+          "translation": "我给妈妈打电话。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 20,
+      "id": 100117,
+      "coreSource": true
+    },
+    {
+      "word": "try",
+      "meaning": "尝试",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "tries",
+        "past": "tried",
+        "pastParticiple": "tried",
+        "ing": "trying"
+      },
+      "usage": "try to + 动词原形表示努力或尝试做某事；try doing 在不同语境中也有用法。 变化：第三人称单数 tries；过去式 tried；过去分词 tried；-ing trying。",
+      "examples": [
+        {
+          "sentence": "I try to read.",
+          "translation": "我尝试阅读。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 21,
+      "id": 100118,
+      "coreSource": true
+    },
+    {
+      "word": "ask",
+      "meaning": "问；请求",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "asks",
+        "past": "asked",
+        "pastParticiple": "asked",
+        "ing": "asking"
+      },
+      "usage": "ask 可表示问问题，也可表示请求；ask a question 是常见搭配。 变化：第三人称单数 asks；过去式 asked；过去分词 asked；-ing asking。",
+      "examples": [
+        {
+          "sentence": "I ask a question.",
+          "translation": "我问一个问题。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 22,
+      "id": 100119,
+      "coreSource": true
+    },
+    {
+      "word": "need",
+      "meaning": "需要",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "needs",
+        "past": "needed",
+        "pastParticiple": "needed",
+        "ing": "needing"
+      },
+      "usage": "need 在这里作实义动词，后接需要的东西；need to + 动词原形表示需要做某事。 变化：第三人称单数 needs；过去式 needed；过去分词 needed；-ing needing。",
+      "examples": [
+        {
+          "sentence": "I need some water.",
+          "translation": "我需要一些水。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 23,
+      "id": 100120,
+      "coreSource": true
+    },
+    {
+      "word": "feel",
+      "meaning": "感觉",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "feels",
+        "past": "felt",
+        "pastParticiple": "felt",
+        "ing": "feeling"
+      },
+      "usage": "feel 作系动词时，后面的形容词说明主语的感受；tired 是表语。 变化：第三人称单数 feels；过去式 felt；过去分词 felt；-ing feeling。",
+      "examples": [
+        {
+          "sentence": "I feel tired.",
+          "translation": "我感觉很累。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 24,
+      "id": 100121,
+      "coreSource": true
+    },
+    {
+      "word": "become",
+      "meaning": "变成",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "becomes",
+        "past": "became",
+        "pastParticiple": "become",
+        "ing": "becoming"
+      },
+      "usage": "become 常连接主语与新的身份或状态；become a teacher 中 a teacher 是表语。 变化：第三人称单数 becomes；过去式 became；过去分词 become；-ing becoming。",
+      "examples": [
+        {
+          "sentence": "I want to become a teacher.",
+          "translation": "我想成为一名老师。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 25,
+      "id": 100122,
+      "coreSource": true
+    },
+    {
+      "word": "leave",
+      "meaning": "离开；留下",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "leaves",
+        "past": "left",
+        "pastParticiple": "left",
+        "ing": "leaving"
+      },
+      "usage": "leave 可表示离开，也可表示留下；at seven 是时间状语。 变化：第三人称单数 leaves；过去式 left；过去分词 left；-ing leaving。",
+      "examples": [
+        {
+          "sentence": "I leave at seven.",
+          "translation": "我七点离开。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 26,
+      "id": 100123,
+      "coreSource": true
+    },
+    {
+      "word": "mean",
+      "meaning": "意味着",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "means",
+        "past": "meant",
+        "pastParticiple": "meant",
+        "ing": "meaning"
+      },
+      "usage": "mean 表示意味着；疑问句里 does 已体现三单，因此主要动词用原形 mean。 变化：第三人称单数 means；过去式 meant；过去分词 meant；-ing meaning。",
+      "examples": [
+        {
+          "sentence": "What does it mean?",
+          "translation": "它是什么意思？",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 28,
+      "id": 100124,
+      "coreSource": true
+    },
+    {
+      "word": "keep",
+      "meaning": "保持；保存",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "keeps",
+        "past": "kept",
+        "pastParticiple": "kept",
+        "ing": "keeping"
+      },
+      "usage": "keep 可表示保存或保持；here 补充保存地点。 变化：第三人称单数 keeps；过去式 kept；过去分词 kept；-ing keeping。",
+      "examples": [
+        {
+          "sentence": "I keep my books here.",
+          "translation": "我把书保存在这里。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 29,
+      "id": 100125,
+      "coreSource": true
+    },
+    {
+      "word": "let",
+      "meaning": "让",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "lets",
+        "past": "let",
+        "pastParticiple": "let",
+        "ing": "letting"
+      },
+      "usage": "let + 人 + 动词原形是常见结构；let me help 中 help 前不用 to。 变化：第三人称单数 lets；过去式 let；过去分词 let；-ing letting。",
+      "examples": [
+        {
+          "sentence": "Let me help you.",
+          "translation": "让我帮助你。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 30,
+      "id": 100126,
+      "coreSource": true
+    },
+    {
+      "word": "begin",
+      "meaning": "开始",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "begins",
+        "past": "began",
+        "pastParticiple": "begun",
+        "ing": "beginning"
+      },
+      "usage": "begin 表示开始；后面可接事情，也可接 to do 或 doing 等结构。 变化：第三人称单数 begins；过去式 began；过去分词 begun；-ing beginning。",
+      "examples": [
+        {
+          "sentence": "I begin my work.",
+          "translation": "我开始工作。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 31,
+      "id": 100127,
+      "coreSource": true
+    },
+    {
+      "word": "help",
+      "meaning": "帮助",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "helps",
+        "past": "helped",
+        "pastParticiple": "helped",
+        "ing": "helping"
+      },
+      "usage": "help 后可接需要帮助的人；情态动词 can 后用原形 help。 变化：第三人称单数 helps；过去式 helped；过去分词 helped；-ing helping。",
+      "examples": [
+        {
+          "sentence": "Can you help me?",
+          "translation": "你能帮助我吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 32,
+      "id": 100128,
+      "coreSource": true
+    },
+    {
+      "word": "talk",
+      "meaning": "交谈",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "talks",
+        "past": "talked",
+        "pastParticiple": "talked",
+        "ing": "talking"
+      },
+      "usage": "talk 通常不直接接交谈对象，talk to/with someone 表示和某人交谈。 变化：第三人称单数 talks；过去式 talked；过去分词 talked；-ing talking。",
+      "examples": [
+        {
+          "sentence": "I talk to my teacher.",
+          "translation": "我和老师交谈。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 33,
+      "id": 100129,
+      "coreSource": true
+    },
+    {
+      "word": "turn",
+      "meaning": "转向；变成",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "turns",
+        "past": "turned",
+        "pastParticiple": "turned",
+        "ing": "turning"
+      },
+      "usage": "turn 可表示转向，也可作系动词表示变得；yellow 在本句中是表语。 变化：第三人称单数 turns；过去式 turned；过去分词 turned；-ing turning。",
+      "examples": [
+        {
+          "sentence": "The leaves turn yellow.",
+          "translation": "树叶变黄了。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 34,
+      "id": 100130,
+      "coreSource": true
+    },
+    {
+      "word": "start",
+      "meaning": "开始",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "starts",
+        "past": "started",
+        "pastParticiple": "started",
+        "ing": "starting"
+      },
+      "usage": "start 后可接开始的事情；也常接 to do 或 doing。 变化：第三人称单数 starts；过去式 started；过去分词 started；-ing starting。",
+      "examples": [
+        {
+          "sentence": "I start my work.",
+          "translation": "我开始工作。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 35,
+      "id": 100131,
+      "coreSource": true
+    },
+    {
+      "word": "show",
+      "meaning": "展示",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "shows",
+        "past": "showed",
+        "pastParticiple": "shown/showed",
+        "ing": "showing"
+      },
+      "usage": "show 可接“给谁看”和“展示什么”，如 show me your book。 变化：第三人称单数 shows；过去式 showed；过去分词 shown/showed；-ing showing。",
+      "examples": [
+        {
+          "sentence": "Please show me your book.",
+          "translation": "请给我看你的书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 36,
+      "id": 100132,
+      "coreSource": true
+    },
+    {
+      "word": "hear",
+      "meaning": "听见",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "hears",
+        "past": "heard",
+        "pastParticiple": "heard",
+        "ing": "hearing"
+      },
+      "usage": "hear 强调听见；与有意听某个内容的 listen to 不完全相同。 变化：第三人称单数 hears；过去式 heard；过去分词 heard；-ing hearing。",
+      "examples": [
+        {
+          "sentence": "I hear music.",
+          "translation": "我听见音乐。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 37,
+      "id": 100133,
+      "coreSource": true
+    },
+    {
+      "word": "run",
+      "meaning": "跑；经营",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "runs",
+        "past": "ran",
+        "pastParticiple": "run",
+        "ing": "running"
+      },
+      "usage": "run 可表示跑，也有经营等用法；例句中没有直接宾语。 变化：第三人称单数 runs；过去式 ran；过去分词 run；-ing running。",
+      "examples": [
+        {
+          "sentence": "I run every day.",
+          "translation": "我每天跑步。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 39,
+      "id": 100134,
+      "coreSource": true
+    },
+    {
+      "word": "move",
+      "meaning": "移动；搬家",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "moves",
+        "past": "moved",
+        "pastParticiple": "moved",
+        "ing": "moving"
+      },
+      "usage": "move 可表示移动东西，也可表示自己移动或搬家；例句中 the chair 是宾语。 变化：第三人称单数 moves；过去式 moved；过去分词 moved；-ing moving。",
+      "examples": [
+        {
+          "sentence": "I move the chair.",
+          "translation": "我移动这把椅子。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 40,
+      "id": 100135,
+      "coreSource": true
+    },
+    {
+      "word": "live",
+      "meaning": "居住；生活",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "lives",
+        "past": "lived",
+        "pastParticiple": "lived",
+        "ing": "living"
+      },
+      "usage": "live 表示居住或生活；here 可直接说明地点。 变化：第三人称单数 lives；过去式 lived；过去分词 lived；-ing living。",
+      "examples": [
+        {
+          "sentence": "I live here.",
+          "translation": "我住在这里。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 41,
+      "id": 100136,
+      "coreSource": true
+    },
+    {
+      "word": "bring",
+      "meaning": "带来",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "brings",
+        "past": "brought",
+        "pastParticiple": "brought",
+        "ing": "bringing"
+      },
+      "usage": "bring 常表示带到说话者或谈论的地点；与 take 的方向含义需结合语境。 变化：第三人称单数 brings；过去式 brought；过去分词 brought；-ing bringing。",
+      "examples": [
+        {
+          "sentence": "Please bring your book.",
+          "translation": "请把你的书带来。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 42,
+      "id": 100137,
+      "coreSource": true
+    },
+    {
+      "word": "happen",
+      "meaning": "发生",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "happens",
+        "past": "happened",
+        "pastParticiple": "happened",
+        "ing": "happening"
+      },
+      "usage": "happen 表示事情发生，通常不直接接宾语；can 后用原形。 变化：第三人称单数 happens；过去式 happened；过去分词 happened；-ing happening。",
+      "examples": [
+        {
+          "sentence": "This can happen.",
+          "translation": "这可能发生。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 43,
+      "id": 100138,
+      "coreSource": true
+    },
+    {
+      "word": "sit",
+      "meaning": "坐",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "sits",
+        "past": "sat",
+        "pastParticiple": "sat",
+        "ing": "sitting"
+      },
+      "usage": "sit 表示坐；here 补充坐的位置。 变化：第三人称单数 sits；过去式 sat；过去分词 sat；-ing sitting。",
+      "examples": [
+        {
+          "sentence": "Please sit here.",
+          "translation": "请坐在这里。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 45,
+      "id": 100139,
+      "coreSource": true
+    },
+    {
+      "word": "stand",
+      "meaning": "站立",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "stands",
+        "past": "stood",
+        "pastParticiple": "stood",
+        "ing": "standing"
+      },
+      "usage": "stand 表示站立；例句中没有直接宾语。 变化：第三人称单数 stands；过去式 stood；过去分词 stood；-ing standing。",
+      "examples": [
+        {
+          "sentence": "Please stand here.",
+          "translation": "请站在这里。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 46,
+      "id": 100140,
+      "coreSource": true
+    },
+    {
+      "word": "lose",
+      "meaning": "丢失；输",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "loses",
+        "past": "lost",
+        "pastParticiple": "lost",
+        "ing": "losing"
+      },
+      "usage": "lose 可表示丢失，也可表示输掉；否定祈使句 do not 后用原形。 变化：第三人称单数 loses；过去式 lost；过去分词 lost；-ing losing。",
+      "examples": [
+        {
+          "sentence": "Do not lose your book.",
+          "translation": "不要弄丢你的书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 47,
+      "id": 100141,
+      "coreSource": true
+    },
+    {
+      "word": "pay",
+      "meaning": "支付",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "pays",
+        "past": "paid",
+        "pastParticiple": "paid",
+        "ing": "paying"
+      },
+      "usage": "pay for something 表示为某物付款；也可说 pay someone 或 pay an amount。 变化：第三人称单数 pays；过去式 paid；过去分词 paid；-ing paying。",
+      "examples": [
+        {
+          "sentence": "I pay for the book.",
+          "translation": "我付这本书的钱。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 48,
+      "id": 100142,
+      "coreSource": true
+    },
+    {
+      "word": "meet",
+      "meaning": "遇见；会面",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "meets",
+        "past": "met",
+        "pastParticiple": "met",
+        "ing": "meeting"
+      },
+      "usage": "meet 后可直接接见到的人；例句中 my friend 是宾语。 变化：第三人称单数 meets；过去式 met；过去分词 met；-ing meeting。",
+      "examples": [
+        {
+          "sentence": "I meet my friend.",
+          "translation": "我与朋友见面。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 49,
+      "id": 100143,
+      "coreSource": true
+    },
+    {
+      "word": "set",
+      "meaning": "设置；放置",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "sets",
+        "past": "set",
+        "pastParticiple": "set",
+        "ing": "setting"
+      },
+      "usage": "set 可表示设置或放置；原形、过去式和过去分词在手册中拼写相同。 变化：第三人称单数 sets；过去式 set；过去分词 set；-ing setting。",
+      "examples": [
+        {
+          "sentence": "I set the time.",
+          "translation": "我设置时间。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 50,
+      "id": 100144,
+      "coreSource": true
+    },
+    {
+      "word": "learn",
+      "meaning": "学习",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "learns",
+        "past": "learned/learnt",
+        "pastParticiple": "learned/learnt",
+        "ing": "learning"
+      },
+      "usage": "learn 可直接接学习的内容；手册保留 learned/learnt 两种过去式和过去分词。 变化：第三人称单数 learns；过去式 learned/learnt；过去分词 learned/learnt；-ing learning。",
+      "examples": [
+        {
+          "sentence": "I learn English.",
+          "translation": "我学习英语。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 51,
+      "id": 100145,
+      "coreSource": true
+    },
+    {
+      "word": "change",
+      "meaning": "改变",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "changes",
+        "past": "changed",
+        "pastParticiple": "changed",
+        "ing": "changing"
+      },
+      "usage": "change 可表示改变某物，也可表示事物发生变化。 变化：第三人称单数 changes；过去式 changed；过去分词 changed；-ing changing。",
+      "examples": [
+        {
+          "sentence": "I change my plan.",
+          "translation": "我改变计划。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 52,
+      "id": 100146,
+      "coreSource": true
+    },
+    {
+      "word": "understand",
+      "meaning": "理解",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "understands",
+        "past": "understood",
+        "pastParticiple": "understood",
+        "ing": "understanding"
+      },
+      "usage": "understand 后可接理解的人或内容；常表达理解的状态。 变化：第三人称单数 understands；过去式 understood；过去分词 understood；-ing understanding。",
+      "examples": [
+        {
+          "sentence": "I understand you.",
+          "translation": "我理解你。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 53,
+      "id": 100147,
+      "coreSource": true
+    },
+    {
+      "word": "watch",
+      "meaning": "观看",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "watches",
+        "past": "watched",
+        "pastParticiple": "watched",
+        "ing": "watching"
+      },
+      "usage": "watch 常表示有意观看；watch TV 是常见搭配。 变化：第三人称单数 watches；过去式 watched；过去分词 watched；-ing watching。",
+      "examples": [
+        {
+          "sentence": "I watch TV.",
+          "translation": "我看电视。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 54,
+      "id": 100148,
+      "coreSource": true
+    },
+    {
+      "word": "stop",
+      "meaning": "停止",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "stops",
+        "past": "stopped",
+        "pastParticiple": "stopped",
+        "ing": "stopping"
+      },
+      "usage": "stop 可表示停止某事；stop doing 表示停止正在做的事，stop to do 则常表示停下来去做另一件事。 变化：第三人称单数 stops；过去式 stopped；过去分词 stopped；-ing stopping。",
+      "examples": [
+        {
+          "sentence": "I stop the car.",
+          "translation": "我停下汽车。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 55,
+      "id": 100149,
+      "coreSource": true
+    },
+    {
+      "word": "speak",
+      "meaning": "说话；讲语言",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "speaks",
+        "past": "spoke",
+        "pastParticiple": "spoken",
+        "ing": "speaking"
+      },
+      "usage": "speak 可接语言名称；与某人说话常用 speak to/with。 变化：第三人称单数 speaks；过去式 spoke；过去分词 spoken；-ing speaking。",
+      "examples": [
+        {
+          "sentence": "I speak English.",
+          "translation": "我说英语。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 56,
+      "id": 100150,
+      "coreSource": true
+    },
+    {
+      "word": "add",
+      "meaning": "添加；加",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "adds",
+        "past": "added",
+        "pastParticiple": "added",
+        "ing": "adding"
+      },
+      "usage": "add 可直接接添加的东西；add A to B 表示把 A 加到 B 中。 变化：第三人称单数 adds；过去式 added；过去分词 added；-ing adding。",
+      "examples": [
+        {
+          "sentence": "I add some water.",
+          "translation": "我加一些水。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 58,
+      "id": 100151,
+      "coreSource": true
+    },
+    {
+      "word": "spend",
+      "meaning": "花费时间或金钱",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "spends",
+        "past": "spent",
+        "pastParticiple": "spent",
+        "ing": "spending"
+      },
+      "usage": "spend time/money on something 表示在某事物上花时间或钱；也常用 spend time doing。 变化：第三人称单数 spends；过去式 spent；过去分词 spent；-ing spending。",
+      "examples": [
+        {
+          "sentence": "I spend time on English.",
+          "translation": "我花时间学习英语。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 59,
+      "id": 100152,
+      "coreSource": true
+    },
+    {
+      "word": "grow",
+      "meaning": "生长；成长",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "grows",
+        "past": "grew",
+        "pastParticiple": "grown",
+        "ing": "growing"
+      },
+      "usage": "grow 可表示生长，也可作系动词表示逐渐变得；例句中表示植物生长。 变化：第三人称单数 grows；过去式 grew；过去分词 grown；-ing growing。",
+      "examples": [
+        {
+          "sentence": "Plants grow here.",
+          "translation": "植物在这里生长。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 60,
+      "id": 100153,
+      "coreSource": true
+    },
+    {
+      "word": "remember",
+      "meaning": "记得",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "remembers",
+        "past": "remembered",
+        "pastParticiple": "remembered",
+        "ing": "remembering"
+      },
+      "usage": "remember 后可接记得的人或事物；remember to do 与 remember doing 含义不同，需要结合语境学习。 变化：第三人称单数 remembers；过去式 remembered；过去分词 remembered；-ing remembering。",
+      "examples": [
+        {
+          "sentence": "I remember your name.",
+          "translation": "我记得你的名字。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 63,
+      "id": 100154,
+      "coreSource": true
+    },
+    {
+      "word": "love",
+      "meaning": "爱；喜欢",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "loves",
+        "past": "loved",
+        "pastParticiple": "loved",
+        "ing": "loving"
+      },
+      "usage": "love 后可接所爱的人或事物；表达喜好时也可接 doing 或 to do。 变化：第三人称单数 loves；过去式 loved；过去分词 loved；-ing loving。",
+      "examples": [
+        {
+          "sentence": "I love my family.",
+          "translation": "我爱我的家人。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 64,
+      "id": 100155,
+      "coreSource": true
+    },
+    {
+      "word": "teach",
+      "meaning": "教",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "teaches",
+        "past": "taught",
+        "pastParticiple": "taught",
+        "ing": "teaching"
+      },
+      "usage": "teach 后可接教授的内容，也可接人及内容，如 teach me English。 变化：第三人称单数 teaches；过去式 taught；过去分词 taught；-ing teaching。",
+      "examples": [
+        {
+          "sentence": "I teach English.",
+          "translation": "我教英语。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 66,
+      "id": 100156,
+      "coreSource": true
+    },
+    {
+      "word": "answer",
+      "meaning": "回答",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "answers",
+        "past": "answered",
+        "pastParticiple": "answered",
+        "ing": "answering"
+      },
+      "usage": "answer 作动词时可直接接问题，不需要在 question 前加 to。 变化：第三人称单数 answers；过去式 answered；过去分词 answered；-ing answering。",
+      "examples": [
+        {
+          "sentence": "I answer the question.",
+          "translation": "我回答这个问题。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 67,
+      "id": 100157,
+      "coreSource": true
+    },
+    {
+      "word": "drink",
+      "meaning": "喝",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "drinks",
+        "past": "drank",
+        "pastParticiple": "drunk",
+        "ing": "drinking"
+      },
+      "usage": "drink 后可接饮品；原形与不规则过去式 drank、过去分词 drunk 要区分。 变化：第三人称单数 drinks；过去式 drank；过去分词 drunk；-ing drinking。",
+      "examples": [
+        {
+          "sentence": "I drink water.",
+          "translation": "我喝水。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 69,
+      "id": 100158,
+      "coreSource": true
+    },
+    {
+      "word": "wake",
+      "meaning": "醒来；叫醒",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "wakes",
+        "past": "woke",
+        "pastParticiple": "woken",
+        "ing": "waking"
+      },
+      "usage": "wake 可表示醒来，也可表示叫醒某人；wake up 也是常见表达。 变化：第三人称单数 wakes；过去式 woke；过去分词 woken；-ing waking。",
+      "examples": [
+        {
+          "sentence": "I wake at seven.",
+          "translation": "我七点醒来。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 71,
+      "id": 100159,
+      "coreSource": true
+    },
+    {
+      "word": "buy",
+      "meaning": "买",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "buys",
+        "past": "bought",
+        "pastParticiple": "bought",
+        "ing": "buying"
+      },
+      "usage": "buy 可直接接买的东西，也可接“给谁买”和“买什么”。 变化：第三人称单数 buys；过去式 bought；过去分词 bought；-ing buying。",
+      "examples": [
+        {
+          "sentence": "I buy a book.",
+          "translation": "我买一本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 72,
+      "id": 100160,
+      "coreSource": true
+    },
+    {
+      "word": "wait",
+      "meaning": "等待",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "waits",
+        "past": "waited",
+        "pastParticiple": "waited",
+        "ing": "waiting"
+      },
+      "usage": "wait 后通常用 for 引出等待的人或事物；不要机械省略 for。 变化：第三人称单数 waits；过去式 waited；过去分词 waited；-ing waiting。",
+      "examples": [
+        {
+          "sentence": "I wait for you.",
+          "translation": "我等你。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 73,
+      "id": 100161,
+      "coreSource": true
+    },
+    {
+      "word": "send",
+      "meaning": "发送；寄",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "sends",
+        "past": "sent",
+        "pastParticiple": "sent",
+        "ing": "sending"
+      },
+      "usage": "send 可直接接寄送的东西；也可用 send something to someone。 变化：第三人称单数 sends；过去式 sent；过去分词 sent；-ing sending。",
+      "examples": [
+        {
+          "sentence": "I send a letter.",
+          "translation": "我寄一封信。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 74,
+      "id": 100162,
+      "coreSource": true
+    },
+    {
+      "word": "stay",
+      "meaning": "停留；保持",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "stays",
+        "past": "stayed",
+        "pastParticiple": "stayed",
+        "ing": "staying"
+      },
+      "usage": "stay 可表示停留，也可作系动词表示保持；safe 在此说明应保持的状态。 变化：第三人称单数 stays；过去式 stayed；过去分词 stayed；-ing staying。",
+      "examples": [
+        {
+          "sentence": "Stay safe.",
+          "translation": "注意安全。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 优先必背75词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 75,
+      "id": 100163,
+      "coreSource": true
+    },
+    {
+      "word": "wash",
+      "meaning": "洗",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "washes",
+        "past": "washed",
+        "pastParticiple": "washed",
+        "ing": "washing"
+      },
+      "usage": "wash 可直接接洗的对象；wash my hands 中 hands 是复数。 变化：第三人称单数 washes；过去式 washed；过去分词 washed；-ing washing。",
+      "examples": [
+        {
+          "sentence": "I wash my hands.",
+          "translation": "我洗手。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 76,
+      "id": 100164,
+      "coreSource": true
+    },
+    {
+      "word": "clean",
+      "meaning": "清洁",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "cleans",
+        "past": "cleaned",
+        "pastParticiple": "cleaned",
+        "ing": "cleaning"
+      },
+      "usage": "clean 在本句中作动词，my room 是宾语；在 made the room clean 中 clean 则是形容词。 变化：第三人称单数 cleans；过去式 cleaned；过去分词 cleaned；-ing cleaning。",
+      "examples": [
+        {
+          "sentence": "I clean my room.",
+          "translation": "我打扫房间。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 77,
+      "id": 100165,
+      "coreSource": true
+    },
+    {
+      "word": "cook",
+      "meaning": "烹饪",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "cooks",
+        "past": "cooked",
+        "pastParticiple": "cooked",
+        "ing": "cooking"
+      },
+      "usage": "cook 可直接接烹饪的食物或餐食；cook dinner 是常见搭配。 变化：第三人称单数 cooks；过去式 cooked；过去分词 cooked；-ing cooking。",
+      "examples": [
+        {
+          "sentence": "I cook dinner.",
+          "translation": "我做晚饭。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 78,
+      "id": 100166,
+      "coreSource": true
+    },
+    {
+      "word": "wear",
+      "meaning": "穿；戴",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "wears",
+        "past": "wore",
+        "pastParticiple": "worn",
+        "ing": "wearing"
+      },
+      "usage": "wear 说明穿着或戴着的状态；不要与强调穿上动作的 put on 完全等同。 变化：第三人称单数 wears；过去式 wore；过去分词 worn；-ing wearing。",
+      "examples": [
+        {
+          "sentence": "I wear a coat.",
+          "translation": "我穿一件外套。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 79,
+      "id": 100167,
+      "coreSource": true
+    },
+    {
+      "word": "forget",
+      "meaning": "忘记",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "forgets",
+        "past": "forgot",
+        "pastParticiple": "forgotten",
+        "ing": "forgetting"
+      },
+      "usage": "forget 后可接忘记的内容；forget to do 与 forget doing 的含义不同。 变化：第三人称单数 forgets；过去式 forgot；过去分词 forgotten；-ing forgetting。",
+      "examples": [
+        {
+          "sentence": "I forget his name.",
+          "translation": "我忘记了他的名字。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 80,
+      "id": 100168,
+      "coreSource": true
+    },
+    {
+      "word": "borrow",
+      "meaning": "借入",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "borrows",
+        "past": "borrowed",
+        "pastParticiple": "borrowed",
+        "ing": "borrowing"
+      },
+      "usage": "borrow 表示借入；borrow something from someone 表示从某人处借入。 变化：第三人称单数 borrows；过去式 borrowed；过去分词 borrowed；-ing borrowing。",
+      "examples": [
+        {
+          "sentence": "I borrow a book.",
+          "translation": "我借来一本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 81,
+      "id": 100169,
+      "coreSource": true
+    },
+    {
+      "word": "lend",
+      "meaning": "借出",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "lends",
+        "past": "lent",
+        "pastParticiple": "lent",
+        "ing": "lending"
+      },
+      "usage": "lend 表示借出；lend me a book 中 me 说明借给谁。 变化：第三人称单数 lends；过去式 lent；过去分词 lent；-ing lending。",
+      "examples": [
+        {
+          "sentence": "Please lend me a book.",
+          "translation": "请借给我一本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 82,
+      "id": 100170,
+      "coreSource": true
+    },
+    {
+      "word": "cost",
+      "meaning": "花费；价钱为",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "costs",
+        "past": "cost",
+        "pastParticiple": "cost",
+        "ing": "costing"
+      },
+      "usage": "cost 表示价钱时常以物品作主语，如 something costs money；不要把付款者与物品的主语位置机械互换。 变化：第三人称单数 costs；过去式 cost；过去分词 cost；-ing costing。",
+      "examples": [
+        {
+          "sentence": "Books cost money.",
+          "translation": "书要花钱买。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 83,
+      "id": 100171,
+      "coreSource": true
+    },
+    {
+      "word": "hold",
+      "meaning": "拿着；举行",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "holds",
+        "past": "held",
+        "pastParticiple": "held",
+        "ing": "holding"
+      },
+      "usage": "hold 可表示拿着、握住，也可用于举行活动；例句中 your hand 是宾语。 变化：第三人称单数 holds；过去式 held；过去分词 held；-ing holding。",
+      "examples": [
+        {
+          "sentence": "I hold your hand.",
+          "translation": "我握住你的手。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 84,
+      "id": 100172,
+      "coreSource": true
+    },
+    {
+      "word": "swim",
+      "meaning": "游泳",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "swims",
+        "past": "swam",
+        "pastParticiple": "swum",
+        "ing": "swimming"
+      },
+      "usage": "swim 表示游泳；情态动词 can 后用原形，不加 s。 变化：第三人称单数 swims；过去式 swam；过去分词 swum；-ing swimming。",
+      "examples": [
+        {
+          "sentence": "I can swim.",
+          "translation": "我会游泳。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 85,
+      "id": 100173,
+      "coreSource": true
+    },
+    {
+      "word": "fly",
+      "meaning": "飞",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "flies",
+        "past": "flew",
+        "pastParticiple": "flown",
+        "ing": "flying"
+      },
+      "usage": "fly 在本句中不需要宾语；句子只有主语 Birds 和动词 fly 也完整。 变化：第三人称单数 flies；过去式 flew；过去分词 flown；-ing flying。",
+      "examples": [
+        {
+          "sentence": "Birds fly.",
+          "translation": "鸟会飞。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "tableNumber": 86,
+      "id": 100174,
+      "coreSource": true
+    },
+    {
+      "word": "travel",
+      "meaning": "旅行",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "travels",
+        "past": "traveled/travelled",
+        "pastParticiple": "traveled/travelled",
+        "ing": "traveling/travelling"
+      },
+      "usage": "travel 表示旅行；手册保留 traveled/travelled 及 traveling/travelling 的拼写变体。 变化：第三人称单数 travels；过去式 traveled/travelled；过去分词 traveled/travelled；-ing traveling/travelling。",
+      "examples": [
+        {
+          "sentence": "I travel by train.",
+          "translation": "我乘火车旅行。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 87,
+      "id": 100175,
+      "coreSource": true
+    },
+    {
+      "word": "visit",
+      "meaning": "拜访；参观",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "visits",
+        "past": "visited",
+        "pastParticiple": "visited",
+        "ing": "visiting"
+      },
+      "usage": "visit 作动词时可直接接人或地点，通常不需在对象前加 to。 变化：第三人称单数 visits；过去式 visited；过去分词 visited；-ing visiting。",
+      "examples": [
+        {
+          "sentence": "I visit my friend.",
+          "translation": "我拜访朋友。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 88,
+      "id": 100176,
+      "coreSource": true
+    },
+    {
+      "word": "drive",
+      "meaning": "驾驶",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "drives",
+        "past": "drove",
+        "pastParticiple": "driven",
+        "ing": "driving"
+      },
+      "usage": "drive 后可接驾驶的车辆；也可不明说驾驶的对象。 变化：第三人称单数 drives；过去式 drove；过去分词 driven；-ing driving。",
+      "examples": [
+        {
+          "sentence": "I drive a car.",
+          "translation": "我开车。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 89,
+      "id": 100177,
+      "coreSource": true
+    },
+    {
+      "word": "ride",
+      "meaning": "骑；乘坐",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "rides",
+        "past": "rode",
+        "pastParticiple": "ridden",
+        "ing": "riding"
+      },
+      "usage": "ride 可直接接自行车等交通工具；ride a bike 是常见搭配。 变化：第三人称单数 rides；过去式 rode；过去分词 ridden；-ing riding。",
+      "examples": [
+        {
+          "sentence": "I ride a bike.",
+          "translation": "我骑自行车。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 90,
+      "id": 100178,
+      "coreSource": true
+    },
+    {
+      "word": "arrive",
+      "meaning": "到达",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "arrives",
+        "past": "arrived",
+        "pastParticiple": "arrived",
+        "ing": "arriving"
+      },
+      "usage": "arrive 通常不直接接地点；较具体地点常用 arrive at，较大地区常用 arrive in。 变化：第三人称单数 arrives；过去式 arrived；过去分词 arrived；-ing arriving。",
+      "examples": [
+        {
+          "sentence": "I arrive at school.",
+          "translation": "我到学校了。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 91,
+      "id": 100179,
+      "coreSource": true
+    },
+    {
+      "word": "pick",
+      "meaning": "拾起；挑选",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "picks",
+        "past": "picked",
+        "pastParticiple": "picked",
+        "ing": "picking"
+      },
+      "usage": "pick 可表示挑选；表达拾起时常用 pick up。 变化：第三人称单数 picks；过去式 picked；过去分词 picked；-ing picking。",
+      "examples": [
+        {
+          "sentence": "I pick a book.",
+          "translation": "我挑选一本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 92,
+      "id": 100180,
+      "coreSource": true
+    },
+    {
+      "word": "drop",
+      "meaning": "掉下；放下",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "drops",
+        "past": "dropped",
+        "pastParticiple": "dropped",
+        "ing": "dropping"
+      },
+      "usage": "drop 可表示让某物掉下，也可表示自己落下；例句中 the glass 是宾语。 变化：第三人称单数 drops；过去式 dropped；过去分词 dropped；-ing dropping。",
+      "examples": [
+        {
+          "sentence": "Do not drop the glass.",
+          "translation": "不要把玻璃杯掉到地上。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 93,
+      "id": 100181,
+      "coreSource": true
+    },
+    {
+      "word": "push",
+      "meaning": "推",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "pushes",
+        "past": "pushed",
+        "pastParticiple": "pushed",
+        "ing": "pushing"
+      },
+      "usage": "push 后可直接接被推动的东西。 变化：第三人称单数 pushes；过去式 pushed；过去分词 pushed；-ing pushing。",
+      "examples": [
+        {
+          "sentence": "I push the door.",
+          "translation": "我推门。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 94,
+      "id": 100182,
+      "coreSource": true
+    },
+    {
+      "word": "throw",
+      "meaning": "扔",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "throws",
+        "past": "threw",
+        "pastParticiple": "thrown",
+        "ing": "throwing"
+      },
+      "usage": "throw 后可直接接扔出的东西；threw 和 thrown 分别是过去式、过去分词。 变化：第三人称单数 throws；过去式 threw；过去分词 thrown；-ing throwing。",
+      "examples": [
+        {
+          "sentence": "I throw the ball.",
+          "translation": "我扔球。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 95,
+      "id": 100183,
+      "coreSource": true
+    },
+    {
+      "word": "fix",
+      "meaning": "修理；固定",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "fixes",
+        "past": "fixed",
+        "pastParticiple": "fixed",
+        "ing": "fixing"
+      },
+      "usage": "fix 可表示修理或固定；例句中 the chair 是宾语。 变化：第三人称单数 fixes；过去式 fixed；过去分词 fixed；-ing fixing。",
+      "examples": [
+        {
+          "sentence": "I fix the chair.",
+          "translation": "我修理椅子。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 96,
+      "id": 100184,
+      "coreSource": true
+    },
+    {
+      "word": "plan",
+      "meaning": "计划",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "plans",
+        "past": "planned",
+        "pastParticiple": "planned",
+        "ing": "planning"
+      },
+      "usage": "plan to + 动词原形表示计划做某事；plan 的过去式和 ing 形式双写 n。 变化：第三人称单数 plans；过去式 planned；过去分词 planned；-ing planning。",
+      "examples": [
+        {
+          "sentence": "I plan to study.",
+          "translation": "我计划学习。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 97,
+      "id": 100185,
+      "coreSource": true
+    },
+    {
+      "word": "enjoy",
+      "meaning": "享受；喜欢",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "enjoys",
+        "past": "enjoyed",
+        "pastParticiple": "enjoyed",
+        "ing": "enjoying"
+      },
+      "usage": "enjoy 后接动词时通常用 ing 形式，如 enjoy reading，而不是 enjoy to read。 变化：第三人称单数 enjoys；过去式 enjoyed；过去分词 enjoyed；-ing enjoying。",
+      "examples": [
+        {
+          "sentence": "I enjoy reading.",
+          "translation": "我喜欢阅读。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 98,
+      "id": 100186,
+      "coreSource": true
+    },
+    {
+      "word": "prefer",
+      "meaning": "更喜欢",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "prefers",
+        "past": "preferred",
+        "pastParticiple": "preferred",
+        "ing": "preferring"
+      },
+      "usage": "prefer 表示更喜欢；比较两个对象时常用 prefer A to B。 变化：第三人称单数 prefers；过去式 preferred；过去分词 preferred；-ing preferring。",
+      "examples": [
+        {
+          "sentence": "I prefer tea.",
+          "translation": "我更喜欢茶。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 99,
+      "id": 100187,
+      "coreSource": true
+    },
+    {
+      "word": "worry",
+      "meaning": "担心",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "worries",
+        "past": "worried",
+        "pastParticiple": "worried",
+        "ing": "worrying"
+      },
+      "usage": "worry about 后接担心的对象；worry 以辅音字母加 y 结尾，三单变 worries。 变化：第三人称单数 worries；过去式 worried；过去分词 worried；-ing worrying。",
+      "examples": [
+        {
+          "sentence": "I worry about him.",
+          "translation": "我担心他。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 100,
+      "id": 100188,
+      "coreSource": true
+    },
+    {
+      "word": "check",
+      "meaning": "检查",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "checks",
+        "past": "checked",
+        "pastParticiple": "checked",
+        "ing": "checking"
+      },
+      "usage": "check 可直接接检查的内容；例句中 my work 是宾语。 变化：第三人称单数 checks；过去式 checked；过去分词 checked；-ing checking。",
+      "examples": [
+        {
+          "sentence": "I check my work.",
+          "translation": "我检查自己的作业。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 101,
+      "id": 100189,
+      "coreSource": true
+    },
+    {
+      "word": "share",
+      "meaning": "分享",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "shares",
+        "past": "shared",
+        "pastParticiple": "shared",
+        "ing": "sharing"
+      },
+      "usage": "share something with someone 表示与某人分享某物。 变化：第三人称单数 shares；过去式 shared；过去分词 shared；-ing sharing。",
+      "examples": [
+        {
+          "sentence": "I share my book with you.",
+          "translation": "我和你分享我的书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 102,
+      "id": 100190,
+      "coreSource": true
+    },
+    {
+      "word": "invite",
+      "meaning": "邀请",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "invites",
+        "past": "invited",
+        "pastParticiple": "invited",
+        "ing": "inviting"
+      },
+      "usage": "invite 可直接接被邀请的人；invite someone to do something 表示邀请某人做某事。 变化：第三人称单数 invites；过去式 invited；过去分词 invited；-ing inviting。",
+      "examples": [
+        {
+          "sentence": "I invite her home.",
+          "translation": "我邀请她到家里来。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 103,
+      "id": 100191,
+      "coreSource": true
+    },
+    {
+      "word": "join",
+      "meaning": "加入",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "joins",
+        "past": "joined",
+        "pastParticiple": "joined",
+        "ing": "joining"
+      },
+      "usage": "join 可直接接加入的团体；join in 则常引出活动。 变化：第三人称单数 joins；过去式 joined；过去分词 joined；-ing joining。",
+      "examples": [
+        {
+          "sentence": "I join the class.",
+          "translation": "我加入这个班级。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 104,
+      "id": 100192,
+      "coreSource": true
+    },
+    {
+      "word": "save",
+      "meaning": "保存；节省；拯救",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "saves",
+        "past": "saved",
+        "pastParticiple": "saved",
+        "ing": "saving"
+      },
+      "usage": "save 可表示保存、节省或拯救，具体意思要结合宾语和语境。 变化：第三人称单数 saves；过去式 saved；过去分词 saved；-ing saving。",
+      "examples": [
+        {
+          "sentence": "I save my work.",
+          "translation": "我保存自己的工作成果。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 105,
+      "id": 100193,
+      "coreSource": true
+    },
+    {
+      "word": "finish",
+      "meaning": "完成",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "finishes",
+        "past": "finished",
+        "pastParticiple": "finished",
+        "ing": "finishing"
+      },
+      "usage": "finish 后可接事情；接动词时常用 ing 形式，如 finish reading。 变化：第三人称单数 finishes；过去式 finished；过去分词 finished；-ing finishing。",
+      "examples": [
+        {
+          "sentence": "I finish my homework.",
+          "translation": "我完成家庭作业。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 106,
+      "id": 100194,
+      "coreSource": true
+    },
+    {
+      "word": "practice",
+      "meaning": "练习",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "practices",
+        "past": "practiced/practised",
+        "pastParticiple": "practiced/practised",
+        "ing": "practicing/practising"
+      },
+      "usage": "practice 后可接练习的内容；手册并列英美拼写，英式动词原形常写 practise，对应 practised/practising。 变化：第三人称单数 practices；过去式 practiced/practised；过去分词 practiced/practised；-ing practicing/practising。",
+      "examples": [
+        {
+          "sentence": "I practice English.",
+          "translation": "我练习英语。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 107,
+      "id": 100195,
+      "coreSource": true
+    },
+    {
+      "word": "improve",
+      "meaning": "改善；提高",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "improves",
+        "past": "improved",
+        "pastParticiple": "improved",
+        "ing": "improving"
+      },
+      "usage": "improve 可表示提高某种能力，也可表示事物改善。 变化：第三人称单数 improves；过去式 improved；过去分词 improved；-ing improving。",
+      "examples": [
+        {
+          "sentence": "I improve my English.",
+          "translation": "我提高英语水平。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 108,
+      "id": 100196,
+      "coreSource": true
+    },
+    {
+      "word": "choose",
+      "meaning": "选择",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "chooses",
+        "past": "chose",
+        "pastParticiple": "chosen",
+        "ing": "choosing"
+      },
+      "usage": "choose 可直接接选择的对象；chose 和 chosen 分别是过去式、过去分词。 变化：第三人称单数 chooses；过去式 chose；过去分词 chosen；-ing choosing。",
+      "examples": [
+        {
+          "sentence": "I choose this book.",
+          "translation": "我选择这本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 109,
+      "id": 100197,
+      "coreSource": true
+    },
+    {
+      "word": "catch",
+      "meaning": "接住；赶上",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "catches",
+        "past": "caught",
+        "pastParticiple": "caught",
+        "ing": "catching"
+      },
+      "usage": "catch 可表示接住或赶上；can 后用原形 catch。 变化：第三人称单数 catches；过去式 caught；过去分词 caught；-ing catching。",
+      "examples": [
+        {
+          "sentence": "I can catch the ball.",
+          "translation": "我能接住这个球。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 110,
+      "id": 100198,
+      "coreSource": true
+    },
+    {
+      "word": "break",
+      "meaning": "打破；损坏",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "breaks",
+        "past": "broke",
+        "pastParticiple": "broken",
+        "ing": "breaking"
+      },
+      "usage": "break 可表示打破或损坏；do not 后用原形。 变化：第三人称单数 breaks；过去式 broke；过去分词 broken；-ing breaking。",
+      "examples": [
+        {
+          "sentence": "Do not break the glass.",
+          "translation": "不要打碎玻璃杯。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 111,
+      "id": 100199,
+      "coreSource": true
+    },
+    {
+      "word": "fall",
+      "meaning": "落下；跌倒",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "falls",
+        "past": "fell",
+        "pastParticiple": "fallen",
+        "ing": "falling"
+      },
+      "usage": "fall 表示落下或跌倒，本例不接宾语；fell 和 fallen 分别是过去式、过去分词。 变化：第三人称单数 falls；过去式 fell；过去分词 fallen；-ing falling。",
+      "examples": [
+        {
+          "sentence": "Leaves fall in autumn.",
+          "translation": "树叶在秋天落下。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 112,
+      "id": 100200,
+      "coreSource": true
+    },
+    {
+      "word": "sell",
+      "meaning": "卖",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "sells",
+        "past": "sold",
+        "pastParticiple": "sold",
+        "ing": "selling"
+      },
+      "usage": "sell 可直接接出售的东西；sold 既是过去式也是过去分词。 变化：第三人称单数 sells；过去式 sold；过去分词 sold；-ing selling。",
+      "examples": [
+        {
+          "sentence": "I sell books.",
+          "translation": "我卖书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 113,
+      "id": 100201,
+      "coreSource": true
+    },
+    {
+      "word": "build",
+      "meaning": "建造",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "builds",
+        "past": "built",
+        "pastParticiple": "built",
+        "ing": "building"
+      },
+      "usage": "build 后可接建造的东西；built 既是过去式也是过去分词。 变化：第三人称单数 builds；过去式 built；过去分词 built；-ing building。",
+      "examples": [
+        {
+          "sentence": "They build a house.",
+          "translation": "他们建造一所房子。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 114,
+      "id": 100202,
+      "coreSource": true
+    },
+    {
+      "word": "return",
+      "meaning": "返回；归还",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "returns",
+        "past": "returned",
+        "pastParticiple": "returned",
+        "ing": "returning"
+      },
+      "usage": "return 可直接接归还的东西，也可表示返回某处；返回某地常用 return to。 变化：第三人称单数 returns；过去式 returned；过去分词 returned；-ing returning。",
+      "examples": [
+        {
+          "sentence": "I return the book.",
+          "translation": "我归还这本书。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 115,
+      "id": 100203,
+      "coreSource": true
+    },
+    {
+      "word": "explain",
+      "meaning": "解释",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "explains",
+        "past": "explained",
+        "pastParticiple": "explained",
+        "ing": "explaining"
+      },
+      "usage": "explain 可直接接解释的内容；向某人解释常用 explain something to someone。 变化：第三人称单数 explains；过去式 explained；过去分词 explained；-ing explaining。",
+      "examples": [
+        {
+          "sentence": "Please explain this word.",
+          "translation": "请解释这个词。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 116,
+      "id": 100204,
+      "coreSource": true
+    },
+    {
+      "word": "decide",
+      "meaning": "决定",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "decides",
+        "past": "decided",
+        "pastParticiple": "decided",
+        "ing": "deciding"
+      },
+      "usage": "decide to + 动词原形表示决定做某事。 变化：第三人称单数 decides；过去式 decided；过去分词 decided；-ing deciding。",
+      "examples": [
+        {
+          "sentence": "I decide to study.",
+          "translation": "我决定学习。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 117,
+      "id": 100205,
+      "coreSource": true
+    },
+    {
+      "word": "receive",
+      "meaning": "收到",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "receives",
+        "past": "received",
+        "pastParticiple": "received",
+        "ing": "receiving"
+      },
+      "usage": "receive 强调收到，不必然表示主动接受或赞同。 变化：第三人称单数 receives；过去式 received；过去分词 received；-ing receiving。",
+      "examples": [
+        {
+          "sentence": "I receive a letter.",
+          "translation": "我收到一封信。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 118,
+      "id": 100206,
+      "coreSource": true
+    },
+    {
+      "word": "agree",
+      "meaning": "同意",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "120个常用动词",
+      "verbForms": {
+        "thirdPerson": "agrees",
+        "past": "agreed",
+        "pastParticiple": "agreed",
+        "ing": "agreeing"
+      },
+      "usage": "agree with someone 表示赞同某人的看法；也可用 agree to a plan 等搭配。 变化：第三人称单数 agrees；过去式 agreed；过去分词 agreed；-ing agreeing。",
+      "examples": [
+        {
+          "sentence": "I agree with you.",
+          "translation": "我同意你的看法。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 03 120个常用动词 · 常用扩展45词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "tableNumber": 119,
+      "id": 100207,
+      "coreSource": true
+    },
+    {
+      "word": "seem",
+      "meaning": "似乎；好像",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "seems",
+        "past": "seemed",
+        "pastParticiple": "seemed",
+        "ing": "seeming"
+      },
+      "usage": "seem 作系动词时连接主语与表语，表达判断或印象；例句中 tired 是表语。 变化：第三人称单数 seems；过去式 seemed；过去分词 seemed；-ing seeming。",
+      "examples": [
+        {
+          "sentence": "You seem tired.",
+          "translation": "你似乎累了。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "formsOrigin": "added",
+      "id": 100208,
+      "coreSource": true
+    },
+    {
+      "word": "sound",
+      "meaning": "听起来",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "sounds",
+        "past": "sounded",
+        "pastParticiple": "sounded",
+        "ing": "sounding"
+      },
+      "usage": "sound 作系动词时常接形容词，说明听起来怎样；本例 happy 描述主语。 变化：第三人称单数 sounds；过去式 sounded；过去分词 sounded；-ing sounding。",
+      "examples": [
+        {
+          "sentence": "You sound happy.",
+          "translation": "你听起来很开心。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100209,
+      "coreSource": true
+    },
+    {
+      "word": "smell",
+      "meaning": "闻起来；闻",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "smells",
+        "past": "smelled/smelt",
+        "pastParticiple": "smelled/smelt",
+        "ing": "smelling"
+      },
+      "usage": "smell 作系动词时可接形容词说明气味；也有表示主动闻某物的实义动词用法。变化形式为补充整理。 变化：第三人称单数 smells；过去式 smelled/smelt；过去分词 smelled/smelt；-ing smelling。",
+      "examples": [
+        {
+          "sentence": "The flowers smell sweet.",
+          "translation": "这些花闻起来很香。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "formsOrigin": "added",
+      "id": 100210,
+      "coreSource": true
+    },
+    {
+      "word": "taste",
+      "meaning": "尝起来；品尝",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "tastes",
+        "past": "tasted",
+        "pastParticiple": "tasted",
+        "ing": "tasting"
+      },
+      "usage": "taste 作系动词时常接形容词说明味道；也可作实义动词表示品尝某物。 变化：第三人称单数 tastes；过去式 tasted；过去分词 tasted；-ing tasting。",
+      "examples": [
+        {
+          "sentence": "The apples taste good.",
+          "translation": "这些苹果尝起来很好吃。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100211,
+      "coreSource": true
+    },
+    {
+      "word": "remain",
+      "meaning": "仍然保持",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "remains",
+        "past": "remained",
+        "pastParticiple": "remained",
+        "ing": "remaining"
+      },
+      "usage": "remain 作系动词时说明仍处于某种状态；calm 是表语。 变化：第三人称单数 remains；过去式 remained；过去分词 remained；-ing remaining。",
+      "examples": [
+        {
+          "sentence": "Please remain calm.",
+          "translation": "请保持冷静。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "formsOrigin": "added",
+      "id": 100212,
+      "coreSource": true
+    },
+    {
+      "word": "appear",
+      "meaning": "显得；似乎；出现",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "appears",
+        "past": "appeared",
+        "pastParticiple": "appeared",
+        "ing": "appearing"
+      },
+      "usage": "appear 作系动词时可说明看起来怎样；也可作不及物动词表示出现。 变化：第三人称单数 appears；过去式 appeared；过去分词 appeared；-ing appearing。",
+      "examples": [
+        {
+          "sentence": "You appear calm.",
+          "translation": "你显得很平静。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100213,
+      "coreSource": true
+    },
+    {
+      "word": "prove",
+      "meaning": "证明；结果是",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "系动词补充",
+      "verbForms": {
+        "thirdPerson": "proves",
+        "past": "proved",
+        "pastParticiple": "proved/proven",
+        "ing": "proving"
+      },
+      "usage": "prove 在本句中连接主语与形容词 useful，表示结果证明是有用的；也可作实义动词表示证明。变化形式为补充整理。 变化：第三人称单数 proves；过去式 proved；过去分词 proved/proven；-ing proving。",
+      "examples": [
+        {
+          "sentence": "These books prove useful.",
+          "translation": "这些书证明很有用。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用系动词清单",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100214,
+      "coreSource": true
+    },
+    {
+      "word": "rest",
+      "meaning": "休息",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "正文动词补充",
+      "verbForms": {
+        "thirdPerson": "rests",
+        "past": "rested",
+        "pastParticiple": "rested",
+        "ing": "resting"
+      },
+      "usage": "rest 在本例中不需要宾语；情态动词 should 后用原形 rest。 变化：第三人称单数 rests；过去式 rested；过去分词 rested；-ing resting。",
+      "examples": [
+        {
+          "sentence": "You should rest.",
+          "translation": "你应该休息。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "formsOrigin": "added",
+      "id": 100215,
+      "coreSource": true
+    },
+    {
+      "word": "rain",
+      "meaning": "下雨",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "正文动词补充",
+      "verbForms": {
+        "thirdPerson": "rains",
+        "past": "rained",
+        "pastParticiple": "rained",
+        "ing": "raining"
+      },
+      "usage": "rain 作天气动词时常以 it 作形式主语；might 后用原形 rain，if 从句中也可见 rains。 变化：第三人称单数 rains；过去式 rained；过去分词 rained；-ing raining。",
+      "examples": [
+        {
+          "sentence": "It might rain.",
+          "translation": "可能会下雨。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词；PART 09 条件句示范",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "formsOrigin": "added",
+      "id": 100216,
+      "coreSource": true
+    },
+    {
+      "word": "can",
+      "meaning": "能；会",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "表示能力，也可表示许可或可能；本例 can 后用原形 swim。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "I can swim.",
+          "translation": "我会游泳。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100217,
+      "coreSource": true
+    },
+    {
+      "word": "could",
+      "meaning": "能；可以；可能",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "可表达较委婉的请求，也可谈过去的能力；例句中 help 用原形。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "Could you help me?",
+          "translation": "你能帮我吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100218,
+      "coreSource": true
+    },
+    {
+      "word": "will",
+      "meaning": "将；会",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "will 后接动词原形，常用于表达将来。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "I will go tomorrow.",
+          "translation": "我明天会去。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100219,
+      "coreSource": true
+    },
+    {
+      "word": "would",
+      "meaning": "会；愿意；较委婉的语气",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "would like 是礼貌表达想要的常见搭配，would 后用原形 like。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "I would like some water.",
+          "translation": "我想要一些水。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100220,
+      "coreSource": true
+    },
+    {
+      "word": "should",
+      "meaning": "应该",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "表示建议等意义；后接原形 rest，不因主语变化而加 s。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "You should rest.",
+          "translation": "你应该休息。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100221,
+      "coreSource": true
+    },
+    {
+      "word": "must",
+      "meaning": "必须；一定",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "可表达义务或有把握的推断；本例为要求，must 后用原形 be。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "You must be careful.",
+          "translation": "你必须小心。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100222,
+      "coreSource": true
+    },
+    {
+      "word": "may",
+      "meaning": "可以；可能",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "可表达许可或可能；本例用于征求许可，后面 come 用原形。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "May I come in?",
+          "translation": "我可以进来吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100223,
+      "coreSource": true
+    },
+    {
+      "word": "might",
+      "meaning": "可能",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "表示可能；后接原形 rain。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "It might rain.",
+          "translation": "可能会下雨。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100224,
+      "coreSource": true
+    },
+    {
+      "word": "shall",
+      "meaning": "用于建议或正式表达",
+      "pos": "modal.",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "Shall we ...? 可用来提出建议；后接动词原形 go。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "Shall we go?",
+          "translation": "我们走吧，好吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100225,
+      "coreSource": true
+    },
+    {
+      "word": "ought to",
+      "meaning": "应该",
+      "pos": "半情态搭配",
+      "category": "动词",
+      "priority": "扩展",
+      "verbGroup": "情态动词与半情态搭配",
+      "verbForms": {
+        "thirdPerson": "—",
+        "past": "—",
+        "pastParticiple": "—",
+        "ing": "—"
+      },
+      "usage": "半情态搭配 ought to 后接动词原形；to 不能像 can 的结构那样省略。此完整短句为补充例句。 此类词不按普通动词规律加 -s、-ed 或 -ing；could/would 等具体含义需结合语境，不能机械当作所有语境下的过去式。",
+      "examples": [
+        {
+          "sentence": "You ought to rest.",
+          "translation": "你应该休息。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "id": 100226,
+      "coreSource": true
+    },
+    {
+      "word": "does",
+      "meaning": "do 的第三人称单数形式；本课用于构成疑问或否定",
+      "pos": "aux.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "be与助动词的常见形式",
+      "verbLemma": "do",
+      "formLabel": "第三人称单数助动词",
+      "verbForms": {
+        "thirdPerson": "does",
+        "past": "did",
+        "pastParticiple": "done",
+        "ing": "doing"
+      },
+      "usage": "does 是助动词，已体现第三人称单数；后面的主要动词用原形 like，不再加 s。",
+      "examples": [
+        {
+          "sentence": "Does he like tea?",
+          "translation": "他喜欢茶吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用助动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100227,
+      "coreSource": true
+    },
+    {
+      "word": "did",
+      "meaning": "do 的过去式；本课用于过去时疑问或否定",
+      "pos": "aux.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "be与助动词的常见形式",
+      "verbLemma": "do",
+      "formLabel": "过去式助动词",
+      "verbForms": {
+        "thirdPerson": "does",
+        "past": "did",
+        "pastParticiple": "done",
+        "ing": "doing"
+      },
+      "usage": "did 帮助构成一般过去时疑问句；后面的主要动词用原形 go，而不是 went。",
+      "examples": [
+        {
+          "sentence": "Did you go there?",
+          "translation": "你去过那里吗？",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用助动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100228,
+      "coreSource": true
+    },
+    {
+      "word": "has",
+      "meaning": "have 的第三人称单数形式；本课用于完成时",
+      "pos": "aux.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "be与助动词的常见形式",
+      "verbLemma": "have",
+      "formLabel": "第三人称单数助动词",
+      "verbForms": {
+        "thirdPerson": "has",
+        "past": "had",
+        "pastParticiple": "had",
+        "ing": "having"
+      },
+      "usage": "has + 过去分词构成现在完成时；本句中 arrived 是 arrive 的过去分词，has 是助动词。",
+      "examples": [
+        {
+          "sentence": "She has arrived.",
+          "translation": "她已经到了。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用助动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100229,
+      "coreSource": true
+    },
+    {
+      "word": "had",
+      "meaning": "have 的过去式；本课用于过去完成时",
+      "pos": "aux.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "be与助动词的常见形式",
+      "verbLemma": "have",
+      "formLabel": "过去式助动词",
+      "verbForms": {
+        "thirdPerson": "has",
+        "past": "had",
+        "pastParticiple": "had",
+        "ing": "having"
+      },
+      "usage": "had + 过去分词可构成过去完成时；本句把完成时间放在另一个过去动作 came 之前。",
+      "examples": [
+        {
+          "sentence": "I had finished before he came.",
+          "translation": "他来之前，我已经完成了。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用助动词",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100230,
+      "coreSource": true
+    },
+    {
+      "word": "been",
+      "meaning": "be 的过去分词",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "be与助动词的常见形式",
+      "verbLemma": "be",
+      "formLabel": "过去分词",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "usage": "been 是 be 的过去分词；本句 have been 表示一段已发生或延续至现在的状态，不能把 been 单独当作普通现在时谓语。",
+      "examples": [
+        {
+          "sentence": "I have been busy.",
+          "translation": "我一直很忙。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 Be动词的基本形式",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100231,
+      "coreSource": true
+    },
+    {
+      "word": "being",
+      "meaning": "be 的 -ing 形式",
+      "pos": "v.",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "be与助动词的常见形式",
+      "verbLemma": "be",
+      "formLabel": "-ing形式",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      },
+      "usage": "being 是 be 的 -ing 形式；本句 is being careful 强调此时表现得小心，不是随意给所有状态表达加 being。",
+      "examples": [
+        {
+          "sentence": "He is being careful.",
+          "translation": "他现在做事很小心。",
+          "exampleOrigin": "manual"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 Be动词的基本形式",
+      "sourceKind": "manual",
+      "exampleOrigin": "manual",
+      "id": 100232,
+      "coreSource": true
+    },
+    {
+      "word": "have to",
+      "meaning": "不得不；必须",
+      "pos": "动词搭配",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "带to的动词搭配",
+      "verbForms": {
+        "thirdPerson": "has to",
+        "past": "had to",
+        "pastParticiple": "had to",
+        "ing": "having to"
+      },
+      "usage": "have to 可表达必要或义务；一般现在时 he/she 等主语用 has to，过去时用 had to。注意 do not have to 常表示“不必”，不同于 must not 的“不许”。",
+      "examples": [
+        {
+          "sentence": "I have to study.",
+          "translation": "我必须学习。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词 · 带to的相关表达",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100233,
+      "coreSource": true
+    },
+    {
+      "word": "need to",
+      "meaning": "需要做……",
+      "pos": "动词搭配",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "带to的动词搭配",
+      "verbForms": {
+        "thirdPerson": "needs to",
+        "past": "needed to",
+        "pastParticiple": "needed to",
+        "ing": "needing to"
+      },
+      "usage": "need to + 动词原形表示需要做某事；need 在这里是实义动词，会随主语或时态变化。",
+      "examples": [
+        {
+          "sentence": "I need to rest.",
+          "translation": "我需要休息。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词 · 带to的相关表达",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100234,
+      "coreSource": true
+    },
+    {
+      "word": "want to",
+      "meaning": "想要做……",
+      "pos": "动词搭配",
+      "category": "动词",
+      "priority": "必背",
+      "verbGroup": "带to的动词搭配",
+      "verbForms": {
+        "thirdPerson": "wants to",
+        "past": "wanted to",
+        "pastParticiple": "wanted to",
+        "ing": "wanting to"
+      },
+      "usage": "want to + 动词原形表示想做某事；want 在这里是实义动词。不要把 to 省去，也不要在 to 后机械加 s。",
+      "examples": [
+        {
+          "sentence": "I want to read.",
+          "translation": "我想阅读。",
+          "exampleOrigin": "added"
+        }
+      ],
+      "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+      "sourceSection": "PART 02 常用情态动词 · 带to的相关表达",
+      "sourceKind": "manual",
+      "exampleOrigin": "added",
+      "formsOrigin": "added",
+      "id": 100235,
+      "coreSource": true
     }
   ],
-  "importedOn": "2026-10-29"
+  "importedOn": "2026-10-29",
+  "previousSourceTitles": [
+    "英语零基础语序与句子成分学习手册"
+  ],
+  "speechBaseline": [
+    "I",
+    "I read books.",
+    "he",
+    "He reads a book.",
+    "she",
+    "She reads books every day.",
+    "it",
+    "It is quiet.",
+    "you",
+    "Do you read books?",
+    "we",
+    "We listen to music.",
+    "they",
+    "They like music.",
+    "her",
+    "I like her.",
+    "be",
+    "She is happy.",
+    "am",
+    "I am a student.",
+    "is",
+    "are",
+    "They are happy.",
+    "was",
+    "I was tired yesterday.",
+    "were",
+    "They were happy yesterday.",
+    "do",
+    "read",
+    "I read books quietly in the library last Sunday.",
+    "reads",
+    "She reads books.",
+    "reading",
+    "I am reading a book.",
+    "walk",
+    "I walk home.",
+    "walks",
+    "She walks home slowly.",
+    "walked",
+    "They walked home yesterday.",
+    "play",
+    "They play in the park.",
+    "plays",
+    "She plays tennis every Sunday.",
+    "played",
+    "She played tennis last Sunday.",
+    "eat",
+    "I eat rice.",
+    "ate",
+    "I ate rice yesterday.",
+    "go",
+    "I go to school.",
+    "went",
+    "I went home yesterday.",
+    "sleep",
+    "I sleep at home.",
+    "sleeps",
+    "The baby sleeps.",
+    "like",
+    "know",
+    "I know her.",
+    "listen",
+    "opens",
+    "She opens the door quietly.",
+    "writes",
+    "She writes with care.",
+    "put",
+    "He put the book on the table.",
+    "study",
+    "We study here.",
+    "a",
+    "the",
+    "my",
+    "This is my book.",
+    "quiet",
+    "The library is quiet.",
+    "quietly",
+    "slow",
+    "He is slow.",
+    "slowly",
+    "He walks slowly.",
+    "careful",
+    "She is careful.",
+    "carefully",
+    "She reads carefully.",
+    "good",
+    "The book is good.",
+    "well",
+    "She reads well.",
+    "fast",
+    "He walks fast.",
+    "with care",
+    "often",
+    "I often read books at home.",
+    "usually",
+    "I usually read books at home.",
+    "always",
+    "She is always happy.",
+    "never",
+    "I never read in the park.",
+    "in",
+    "I read books in the library.",
+    "at",
+    "I read books at home yesterday.",
+    "on",
+    "to",
+    "listen to",
+    "in the library",
+    "in the park",
+    "at home",
+    "here",
+    "there",
+    "We study there.",
+    "home",
+    "go home",
+    "I go home.",
+    "go to school",
+    "on the table",
+    "in here",
+    "We study in here.",
+    "yesterday",
+    "last Sunday",
+    "every day",
+    "every Sunday",
+    "at seven",
+    "I read at seven.",
+    "on Sunday",
+    "I read on Sunday.",
+    "on Monday morning",
+    "I read on Monday morning.",
+    "in October",
+    "I read the book in October.",
+    "in 2025",
+    "I read the book in 2025.",
+    "in the morning",
+    "I read in the morning.",
+    "book",
+    "books",
+    "a book",
+    "the book",
+    "library",
+    "park",
+    "door",
+    "music",
+    "happy",
+    "student",
+    "tired",
+    "predicate",
+    "baby",
+    "the baby",
+    "the door",
+    "a student",
+    "rice",
+    "tennis",
+    "school",
+    "table"
+  ],
+  "coreSourceTerms": [
+    {
+      "word": "be",
+      "category": "动词"
+    },
+    {
+      "word": "have",
+      "category": "动词"
+    },
+    {
+      "word": "do",
+      "category": "动词"
+    },
+    {
+      "word": "say",
+      "category": "动词"
+    },
+    {
+      "word": "go",
+      "category": "动词"
+    },
+    {
+      "word": "get",
+      "category": "动词"
+    },
+    {
+      "word": "make",
+      "category": "动词"
+    },
+    {
+      "word": "know",
+      "category": "动词"
+    },
+    {
+      "word": "think",
+      "category": "动词"
+    },
+    {
+      "word": "take",
+      "category": "动词"
+    },
+    {
+      "word": "see",
+      "category": "动词"
+    },
+    {
+      "word": "come",
+      "category": "动词"
+    },
+    {
+      "word": "want",
+      "category": "动词"
+    },
+    {
+      "word": "look",
+      "category": "动词"
+    },
+    {
+      "word": "use",
+      "category": "动词"
+    },
+    {
+      "word": "find",
+      "category": "动词"
+    },
+    {
+      "word": "give",
+      "category": "动词"
+    },
+    {
+      "word": "tell",
+      "category": "动词"
+    },
+    {
+      "word": "work",
+      "category": "动词"
+    },
+    {
+      "word": "call",
+      "category": "动词"
+    },
+    {
+      "word": "try",
+      "category": "动词"
+    },
+    {
+      "word": "ask",
+      "category": "动词"
+    },
+    {
+      "word": "need",
+      "category": "动词"
+    },
+    {
+      "word": "feel",
+      "category": "动词"
+    },
+    {
+      "word": "become",
+      "category": "动词"
+    },
+    {
+      "word": "leave",
+      "category": "动词"
+    },
+    {
+      "word": "put",
+      "category": "动词"
+    },
+    {
+      "word": "mean",
+      "category": "动词"
+    },
+    {
+      "word": "keep",
+      "category": "动词"
+    },
+    {
+      "word": "let",
+      "category": "动词"
+    },
+    {
+      "word": "begin",
+      "category": "动词"
+    },
+    {
+      "word": "help",
+      "category": "动词"
+    },
+    {
+      "word": "talk",
+      "category": "动词"
+    },
+    {
+      "word": "turn",
+      "category": "动词"
+    },
+    {
+      "word": "start",
+      "category": "动词"
+    },
+    {
+      "word": "show",
+      "category": "动词"
+    },
+    {
+      "word": "hear",
+      "category": "动词"
+    },
+    {
+      "word": "play",
+      "category": "动词"
+    },
+    {
+      "word": "run",
+      "category": "动词"
+    },
+    {
+      "word": "move",
+      "category": "动词"
+    },
+    {
+      "word": "live",
+      "category": "动词"
+    },
+    {
+      "word": "bring",
+      "category": "动词"
+    },
+    {
+      "word": "happen",
+      "category": "动词"
+    },
+    {
+      "word": "write",
+      "category": "动词"
+    },
+    {
+      "word": "sit",
+      "category": "动词"
+    },
+    {
+      "word": "stand",
+      "category": "动词"
+    },
+    {
+      "word": "lose",
+      "category": "动词"
+    },
+    {
+      "word": "pay",
+      "category": "动词"
+    },
+    {
+      "word": "meet",
+      "category": "动词"
+    },
+    {
+      "word": "set",
+      "category": "动词"
+    },
+    {
+      "word": "learn",
+      "category": "动词"
+    },
+    {
+      "word": "change",
+      "category": "动词"
+    },
+    {
+      "word": "understand",
+      "category": "动词"
+    },
+    {
+      "word": "watch",
+      "category": "动词"
+    },
+    {
+      "word": "stop",
+      "category": "动词"
+    },
+    {
+      "word": "speak",
+      "category": "动词"
+    },
+    {
+      "word": "read",
+      "category": "动词"
+    },
+    {
+      "word": "add",
+      "category": "动词"
+    },
+    {
+      "word": "spend",
+      "category": "动词"
+    },
+    {
+      "word": "grow",
+      "category": "动词"
+    },
+    {
+      "word": "open",
+      "category": "动词"
+    },
+    {
+      "word": "walk",
+      "category": "动词"
+    },
+    {
+      "word": "remember",
+      "category": "动词"
+    },
+    {
+      "word": "love",
+      "category": "动词"
+    },
+    {
+      "word": "study",
+      "category": "动词"
+    },
+    {
+      "word": "teach",
+      "category": "动词"
+    },
+    {
+      "word": "answer",
+      "category": "动词"
+    },
+    {
+      "word": "eat",
+      "category": "动词"
+    },
+    {
+      "word": "drink",
+      "category": "动词"
+    },
+    {
+      "word": "sleep",
+      "category": "动词"
+    },
+    {
+      "word": "wake",
+      "category": "动词"
+    },
+    {
+      "word": "buy",
+      "category": "动词"
+    },
+    {
+      "word": "wait",
+      "category": "动词"
+    },
+    {
+      "word": "send",
+      "category": "动词"
+    },
+    {
+      "word": "stay",
+      "category": "动词"
+    },
+    {
+      "word": "wash",
+      "category": "动词"
+    },
+    {
+      "word": "clean",
+      "category": "动词"
+    },
+    {
+      "word": "cook",
+      "category": "动词"
+    },
+    {
+      "word": "wear",
+      "category": "动词"
+    },
+    {
+      "word": "forget",
+      "category": "动词"
+    },
+    {
+      "word": "borrow",
+      "category": "动词"
+    },
+    {
+      "word": "lend",
+      "category": "动词"
+    },
+    {
+      "word": "cost",
+      "category": "动词"
+    },
+    {
+      "word": "hold",
+      "category": "动词"
+    },
+    {
+      "word": "swim",
+      "category": "动词"
+    },
+    {
+      "word": "fly",
+      "category": "动词"
+    },
+    {
+      "word": "travel",
+      "category": "动词"
+    },
+    {
+      "word": "visit",
+      "category": "动词"
+    },
+    {
+      "word": "drive",
+      "category": "动词"
+    },
+    {
+      "word": "ride",
+      "category": "动词"
+    },
+    {
+      "word": "arrive",
+      "category": "动词"
+    },
+    {
+      "word": "pick",
+      "category": "动词"
+    },
+    {
+      "word": "drop",
+      "category": "动词"
+    },
+    {
+      "word": "push",
+      "category": "动词"
+    },
+    {
+      "word": "throw",
+      "category": "动词"
+    },
+    {
+      "word": "fix",
+      "category": "动词"
+    },
+    {
+      "word": "plan",
+      "category": "动词"
+    },
+    {
+      "word": "enjoy",
+      "category": "动词"
+    },
+    {
+      "word": "prefer",
+      "category": "动词"
+    },
+    {
+      "word": "worry",
+      "category": "动词"
+    },
+    {
+      "word": "check",
+      "category": "动词"
+    },
+    {
+      "word": "share",
+      "category": "动词"
+    },
+    {
+      "word": "invite",
+      "category": "动词"
+    },
+    {
+      "word": "join",
+      "category": "动词"
+    },
+    {
+      "word": "save",
+      "category": "动词"
+    },
+    {
+      "word": "finish",
+      "category": "动词"
+    },
+    {
+      "word": "practice",
+      "category": "动词"
+    },
+    {
+      "word": "improve",
+      "category": "动词"
+    },
+    {
+      "word": "choose",
+      "category": "动词"
+    },
+    {
+      "word": "catch",
+      "category": "动词"
+    },
+    {
+      "word": "break",
+      "category": "动词"
+    },
+    {
+      "word": "fall",
+      "category": "动词"
+    },
+    {
+      "word": "sell",
+      "category": "动词"
+    },
+    {
+      "word": "build",
+      "category": "动词"
+    },
+    {
+      "word": "return",
+      "category": "动词"
+    },
+    {
+      "word": "explain",
+      "category": "动词"
+    },
+    {
+      "word": "decide",
+      "category": "动词"
+    },
+    {
+      "word": "receive",
+      "category": "动词"
+    },
+    {
+      "word": "agree",
+      "category": "动词"
+    },
+    {
+      "word": "listen",
+      "category": "动词"
+    },
+    {
+      "word": "seem",
+      "category": "动词"
+    },
+    {
+      "word": "sound",
+      "category": "动词"
+    },
+    {
+      "word": "smell",
+      "category": "动词"
+    },
+    {
+      "word": "taste",
+      "category": "动词"
+    },
+    {
+      "word": "remain",
+      "category": "动词"
+    },
+    {
+      "word": "appear",
+      "category": "动词"
+    },
+    {
+      "word": "prove",
+      "category": "动词"
+    },
+    {
+      "word": "like",
+      "category": "动词"
+    },
+    {
+      "word": "rest",
+      "category": "动词"
+    },
+    {
+      "word": "rain",
+      "category": "动词"
+    },
+    {
+      "word": "can",
+      "category": "动词"
+    },
+    {
+      "word": "could",
+      "category": "动词"
+    },
+    {
+      "word": "will",
+      "category": "动词"
+    },
+    {
+      "word": "would",
+      "category": "动词"
+    },
+    {
+      "word": "should",
+      "category": "动词"
+    },
+    {
+      "word": "must",
+      "category": "动词"
+    },
+    {
+      "word": "may",
+      "category": "动词"
+    },
+    {
+      "word": "might",
+      "category": "动词"
+    },
+    {
+      "word": "shall",
+      "category": "动词"
+    },
+    {
+      "word": "ought to",
+      "category": "动词"
+    },
+    {
+      "word": "does",
+      "category": "动词"
+    },
+    {
+      "word": "did",
+      "category": "动词"
+    },
+    {
+      "word": "has",
+      "category": "动词"
+    },
+    {
+      "word": "had",
+      "category": "动词"
+    },
+    {
+      "word": "been",
+      "category": "动词"
+    },
+    {
+      "word": "being",
+      "category": "动词"
+    },
+    {
+      "word": "have to",
+      "category": "动词"
+    },
+    {
+      "word": "need to",
+      "category": "动词"
+    },
+    {
+      "word": "want to",
+      "category": "动词"
+    }
+  ]
 }

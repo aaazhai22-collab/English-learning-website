@@ -24,7 +24,9 @@ export function buildPublicSpeechEntries(catalog) {
   }
   // Grammar entries come after every existing entry, including beginner
   // sentences, so already-open tabs retain their original speech IDs.
+  for (const text of catalog.grammarSpeechBaseline || []) add(text);
   for (const word of grammarWords) addWord(word);
+  for (const word of grammarWords) for (const form of Object.values(word.verbForms || {})) add(form);
   return [...texts];
 }
 

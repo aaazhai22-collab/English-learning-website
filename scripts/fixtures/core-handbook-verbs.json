@@ -1,0 +1,1326 @@
+{
+  "sourceTitle": "英语零基础核心清单与逐句结构分析练习",
+  "description": "由用户文档第03章动词表逐行独立摘录，用于核对词库覆盖与四种变化形式。",
+  "verbs": [
+    {
+      "number": 1,
+      "word": "be",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "am/is/are",
+        "past": "was/were",
+        "pastParticiple": "been",
+        "ing": "being"
+      }
+    },
+    {
+      "number": 2,
+      "word": "have",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "has",
+        "past": "had",
+        "pastParticiple": "had",
+        "ing": "having"
+      }
+    },
+    {
+      "number": 3,
+      "word": "do",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "does",
+        "past": "did",
+        "pastParticiple": "done",
+        "ing": "doing"
+      }
+    },
+    {
+      "number": 4,
+      "word": "say",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "says",
+        "past": "said",
+        "pastParticiple": "said",
+        "ing": "saying"
+      }
+    },
+    {
+      "number": 5,
+      "word": "go",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "goes",
+        "past": "went",
+        "pastParticiple": "gone",
+        "ing": "going"
+      }
+    },
+    {
+      "number": 6,
+      "word": "get",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "gets",
+        "past": "got",
+        "pastParticiple": "got/gotten",
+        "ing": "getting"
+      }
+    },
+    {
+      "number": 7,
+      "word": "make",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "makes",
+        "past": "made",
+        "pastParticiple": "made",
+        "ing": "making"
+      }
+    },
+    {
+      "number": 8,
+      "word": "know",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "knows",
+        "past": "knew",
+        "pastParticiple": "known",
+        "ing": "knowing"
+      }
+    },
+    {
+      "number": 9,
+      "word": "think",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "thinks",
+        "past": "thought",
+        "pastParticiple": "thought",
+        "ing": "thinking"
+      }
+    },
+    {
+      "number": 10,
+      "word": "take",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "takes",
+        "past": "took",
+        "pastParticiple": "taken",
+        "ing": "taking"
+      }
+    },
+    {
+      "number": 11,
+      "word": "see",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "sees",
+        "past": "saw",
+        "pastParticiple": "seen",
+        "ing": "seeing"
+      }
+    },
+    {
+      "number": 12,
+      "word": "come",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "comes",
+        "past": "came",
+        "pastParticiple": "come",
+        "ing": "coming"
+      }
+    },
+    {
+      "number": 13,
+      "word": "want",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "wants",
+        "past": "wanted",
+        "pastParticiple": "wanted",
+        "ing": "wanting"
+      }
+    },
+    {
+      "number": 14,
+      "word": "look",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "looks",
+        "past": "looked",
+        "pastParticiple": "looked",
+        "ing": "looking"
+      }
+    },
+    {
+      "number": 15,
+      "word": "use",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "uses",
+        "past": "used",
+        "pastParticiple": "used",
+        "ing": "using"
+      }
+    },
+    {
+      "number": 16,
+      "word": "find",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "finds",
+        "past": "found",
+        "pastParticiple": "found",
+        "ing": "finding"
+      }
+    },
+    {
+      "number": 17,
+      "word": "give",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "gives",
+        "past": "gave",
+        "pastParticiple": "given",
+        "ing": "giving"
+      }
+    },
+    {
+      "number": 18,
+      "word": "tell",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "tells",
+        "past": "told",
+        "pastParticiple": "told",
+        "ing": "telling"
+      }
+    },
+    {
+      "number": 19,
+      "word": "work",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "works",
+        "past": "worked",
+        "pastParticiple": "worked",
+        "ing": "working"
+      }
+    },
+    {
+      "number": 20,
+      "word": "call",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "calls",
+        "past": "called",
+        "pastParticiple": "called",
+        "ing": "calling"
+      }
+    },
+    {
+      "number": 21,
+      "word": "try",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "tries",
+        "past": "tried",
+        "pastParticiple": "tried",
+        "ing": "trying"
+      }
+    },
+    {
+      "number": 22,
+      "word": "ask",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "asks",
+        "past": "asked",
+        "pastParticiple": "asked",
+        "ing": "asking"
+      }
+    },
+    {
+      "number": 23,
+      "word": "need",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "needs",
+        "past": "needed",
+        "pastParticiple": "needed",
+        "ing": "needing"
+      }
+    },
+    {
+      "number": 24,
+      "word": "feel",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "feels",
+        "past": "felt",
+        "pastParticiple": "felt",
+        "ing": "feeling"
+      }
+    },
+    {
+      "number": 25,
+      "word": "become",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "becomes",
+        "past": "became",
+        "pastParticiple": "become",
+        "ing": "becoming"
+      }
+    },
+    {
+      "number": 26,
+      "word": "leave",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "leaves",
+        "past": "left",
+        "pastParticiple": "left",
+        "ing": "leaving"
+      }
+    },
+    {
+      "number": 27,
+      "word": "put",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "puts",
+        "past": "put",
+        "pastParticiple": "put",
+        "ing": "putting"
+      }
+    },
+    {
+      "number": 28,
+      "word": "mean",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "means",
+        "past": "meant",
+        "pastParticiple": "meant",
+        "ing": "meaning"
+      }
+    },
+    {
+      "number": 29,
+      "word": "keep",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "keeps",
+        "past": "kept",
+        "pastParticiple": "kept",
+        "ing": "keeping"
+      }
+    },
+    {
+      "number": 30,
+      "word": "let",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "lets",
+        "past": "let",
+        "pastParticiple": "let",
+        "ing": "letting"
+      }
+    },
+    {
+      "number": 31,
+      "word": "begin",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "begins",
+        "past": "began",
+        "pastParticiple": "begun",
+        "ing": "beginning"
+      }
+    },
+    {
+      "number": 32,
+      "word": "help",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "helps",
+        "past": "helped",
+        "pastParticiple": "helped",
+        "ing": "helping"
+      }
+    },
+    {
+      "number": 33,
+      "word": "talk",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "talks",
+        "past": "talked",
+        "pastParticiple": "talked",
+        "ing": "talking"
+      }
+    },
+    {
+      "number": 34,
+      "word": "turn",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "turns",
+        "past": "turned",
+        "pastParticiple": "turned",
+        "ing": "turning"
+      }
+    },
+    {
+      "number": 35,
+      "word": "start",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "starts",
+        "past": "started",
+        "pastParticiple": "started",
+        "ing": "starting"
+      }
+    },
+    {
+      "number": 36,
+      "word": "show",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "shows",
+        "past": "showed",
+        "pastParticiple": "shown/showed",
+        "ing": "showing"
+      }
+    },
+    {
+      "number": 37,
+      "word": "hear",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "hears",
+        "past": "heard",
+        "pastParticiple": "heard",
+        "ing": "hearing"
+      }
+    },
+    {
+      "number": 38,
+      "word": "play",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "plays",
+        "past": "played",
+        "pastParticiple": "played",
+        "ing": "playing"
+      }
+    },
+    {
+      "number": 39,
+      "word": "run",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "runs",
+        "past": "ran",
+        "pastParticiple": "run",
+        "ing": "running"
+      }
+    },
+    {
+      "number": 40,
+      "word": "move",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "moves",
+        "past": "moved",
+        "pastParticiple": "moved",
+        "ing": "moving"
+      }
+    },
+    {
+      "number": 41,
+      "word": "live",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "lives",
+        "past": "lived",
+        "pastParticiple": "lived",
+        "ing": "living"
+      }
+    },
+    {
+      "number": 42,
+      "word": "bring",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "brings",
+        "past": "brought",
+        "pastParticiple": "brought",
+        "ing": "bringing"
+      }
+    },
+    {
+      "number": 43,
+      "word": "happen",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "happens",
+        "past": "happened",
+        "pastParticiple": "happened",
+        "ing": "happening"
+      }
+    },
+    {
+      "number": 44,
+      "word": "write",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "writes",
+        "past": "wrote",
+        "pastParticiple": "written",
+        "ing": "writing"
+      }
+    },
+    {
+      "number": 45,
+      "word": "sit",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "sits",
+        "past": "sat",
+        "pastParticiple": "sat",
+        "ing": "sitting"
+      }
+    },
+    {
+      "number": 46,
+      "word": "stand",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "stands",
+        "past": "stood",
+        "pastParticiple": "stood",
+        "ing": "standing"
+      }
+    },
+    {
+      "number": 47,
+      "word": "lose",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "loses",
+        "past": "lost",
+        "pastParticiple": "lost",
+        "ing": "losing"
+      }
+    },
+    {
+      "number": 48,
+      "word": "pay",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "pays",
+        "past": "paid",
+        "pastParticiple": "paid",
+        "ing": "paying"
+      }
+    },
+    {
+      "number": 49,
+      "word": "meet",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "meets",
+        "past": "met",
+        "pastParticiple": "met",
+        "ing": "meeting"
+      }
+    },
+    {
+      "number": 50,
+      "word": "set",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "sets",
+        "past": "set",
+        "pastParticiple": "set",
+        "ing": "setting"
+      }
+    },
+    {
+      "number": 51,
+      "word": "learn",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "learns",
+        "past": "learned/learnt",
+        "pastParticiple": "learned/learnt",
+        "ing": "learning"
+      }
+    },
+    {
+      "number": 52,
+      "word": "change",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "changes",
+        "past": "changed",
+        "pastParticiple": "changed",
+        "ing": "changing"
+      }
+    },
+    {
+      "number": 53,
+      "word": "understand",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "understands",
+        "past": "understood",
+        "pastParticiple": "understood",
+        "ing": "understanding"
+      }
+    },
+    {
+      "number": 54,
+      "word": "watch",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "watches",
+        "past": "watched",
+        "pastParticiple": "watched",
+        "ing": "watching"
+      }
+    },
+    {
+      "number": 55,
+      "word": "stop",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "stops",
+        "past": "stopped",
+        "pastParticiple": "stopped",
+        "ing": "stopping"
+      }
+    },
+    {
+      "number": 56,
+      "word": "speak",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "speaks",
+        "past": "spoke",
+        "pastParticiple": "spoken",
+        "ing": "speaking"
+      }
+    },
+    {
+      "number": 57,
+      "word": "read",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "reads",
+        "past": "read",
+        "pastParticiple": "read",
+        "ing": "reading"
+      }
+    },
+    {
+      "number": 58,
+      "word": "add",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "adds",
+        "past": "added",
+        "pastParticiple": "added",
+        "ing": "adding"
+      }
+    },
+    {
+      "number": 59,
+      "word": "spend",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "spends",
+        "past": "spent",
+        "pastParticiple": "spent",
+        "ing": "spending"
+      }
+    },
+    {
+      "number": 60,
+      "word": "grow",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "grows",
+        "past": "grew",
+        "pastParticiple": "grown",
+        "ing": "growing"
+      }
+    },
+    {
+      "number": 61,
+      "word": "open",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "opens",
+        "past": "opened",
+        "pastParticiple": "opened",
+        "ing": "opening"
+      }
+    },
+    {
+      "number": 62,
+      "word": "walk",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "walks",
+        "past": "walked",
+        "pastParticiple": "walked",
+        "ing": "walking"
+      }
+    },
+    {
+      "number": 63,
+      "word": "remember",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "remembers",
+        "past": "remembered",
+        "pastParticiple": "remembered",
+        "ing": "remembering"
+      }
+    },
+    {
+      "number": 64,
+      "word": "love",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "loves",
+        "past": "loved",
+        "pastParticiple": "loved",
+        "ing": "loving"
+      }
+    },
+    {
+      "number": 65,
+      "word": "study",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "studies",
+        "past": "studied",
+        "pastParticiple": "studied",
+        "ing": "studying"
+      }
+    },
+    {
+      "number": 66,
+      "word": "teach",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "teaches",
+        "past": "taught",
+        "pastParticiple": "taught",
+        "ing": "teaching"
+      }
+    },
+    {
+      "number": 67,
+      "word": "answer",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "answers",
+        "past": "answered",
+        "pastParticiple": "answered",
+        "ing": "answering"
+      }
+    },
+    {
+      "number": 68,
+      "word": "eat",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "eats",
+        "past": "ate",
+        "pastParticiple": "eaten",
+        "ing": "eating"
+      }
+    },
+    {
+      "number": 69,
+      "word": "drink",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "drinks",
+        "past": "drank",
+        "pastParticiple": "drunk",
+        "ing": "drinking"
+      }
+    },
+    {
+      "number": 70,
+      "word": "sleep",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "sleeps",
+        "past": "slept",
+        "pastParticiple": "slept",
+        "ing": "sleeping"
+      }
+    },
+    {
+      "number": 71,
+      "word": "wake",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "wakes",
+        "past": "woke",
+        "pastParticiple": "woken",
+        "ing": "waking"
+      }
+    },
+    {
+      "number": 72,
+      "word": "buy",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "buys",
+        "past": "bought",
+        "pastParticiple": "bought",
+        "ing": "buying"
+      }
+    },
+    {
+      "number": 73,
+      "word": "wait",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "waits",
+        "past": "waited",
+        "pastParticiple": "waited",
+        "ing": "waiting"
+      }
+    },
+    {
+      "number": 74,
+      "word": "send",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "sends",
+        "past": "sent",
+        "pastParticiple": "sent",
+        "ing": "sending"
+      }
+    },
+    {
+      "number": 75,
+      "word": "stay",
+      "priority": "必背",
+      "verbForms": {
+        "thirdPerson": "stays",
+        "past": "stayed",
+        "pastParticiple": "stayed",
+        "ing": "staying"
+      }
+    },
+    {
+      "number": 76,
+      "word": "wash",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "washes",
+        "past": "washed",
+        "pastParticiple": "washed",
+        "ing": "washing"
+      }
+    },
+    {
+      "number": 77,
+      "word": "clean",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "cleans",
+        "past": "cleaned",
+        "pastParticiple": "cleaned",
+        "ing": "cleaning"
+      }
+    },
+    {
+      "number": 78,
+      "word": "cook",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "cooks",
+        "past": "cooked",
+        "pastParticiple": "cooked",
+        "ing": "cooking"
+      }
+    },
+    {
+      "number": 79,
+      "word": "wear",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "wears",
+        "past": "wore",
+        "pastParticiple": "worn",
+        "ing": "wearing"
+      }
+    },
+    {
+      "number": 80,
+      "word": "forget",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "forgets",
+        "past": "forgot",
+        "pastParticiple": "forgotten",
+        "ing": "forgetting"
+      }
+    },
+    {
+      "number": 81,
+      "word": "borrow",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "borrows",
+        "past": "borrowed",
+        "pastParticiple": "borrowed",
+        "ing": "borrowing"
+      }
+    },
+    {
+      "number": 82,
+      "word": "lend",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "lends",
+        "past": "lent",
+        "pastParticiple": "lent",
+        "ing": "lending"
+      }
+    },
+    {
+      "number": 83,
+      "word": "cost",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "costs",
+        "past": "cost",
+        "pastParticiple": "cost",
+        "ing": "costing"
+      }
+    },
+    {
+      "number": 84,
+      "word": "hold",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "holds",
+        "past": "held",
+        "pastParticiple": "held",
+        "ing": "holding"
+      }
+    },
+    {
+      "number": 85,
+      "word": "swim",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "swims",
+        "past": "swam",
+        "pastParticiple": "swum",
+        "ing": "swimming"
+      }
+    },
+    {
+      "number": 86,
+      "word": "fly",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "flies",
+        "past": "flew",
+        "pastParticiple": "flown",
+        "ing": "flying"
+      }
+    },
+    {
+      "number": 87,
+      "word": "travel",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "travels",
+        "past": "traveled/travelled",
+        "pastParticiple": "traveled/travelled",
+        "ing": "traveling/travelling"
+      }
+    },
+    {
+      "number": 88,
+      "word": "visit",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "visits",
+        "past": "visited",
+        "pastParticiple": "visited",
+        "ing": "visiting"
+      }
+    },
+    {
+      "number": 89,
+      "word": "drive",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "drives",
+        "past": "drove",
+        "pastParticiple": "driven",
+        "ing": "driving"
+      }
+    },
+    {
+      "number": 90,
+      "word": "ride",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "rides",
+        "past": "rode",
+        "pastParticiple": "ridden",
+        "ing": "riding"
+      }
+    },
+    {
+      "number": 91,
+      "word": "arrive",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "arrives",
+        "past": "arrived",
+        "pastParticiple": "arrived",
+        "ing": "arriving"
+      }
+    },
+    {
+      "number": 92,
+      "word": "pick",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "picks",
+        "past": "picked",
+        "pastParticiple": "picked",
+        "ing": "picking"
+      }
+    },
+    {
+      "number": 93,
+      "word": "drop",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "drops",
+        "past": "dropped",
+        "pastParticiple": "dropped",
+        "ing": "dropping"
+      }
+    },
+    {
+      "number": 94,
+      "word": "push",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "pushes",
+        "past": "pushed",
+        "pastParticiple": "pushed",
+        "ing": "pushing"
+      }
+    },
+    {
+      "number": 95,
+      "word": "throw",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "throws",
+        "past": "threw",
+        "pastParticiple": "thrown",
+        "ing": "throwing"
+      }
+    },
+    {
+      "number": 96,
+      "word": "fix",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "fixes",
+        "past": "fixed",
+        "pastParticiple": "fixed",
+        "ing": "fixing"
+      }
+    },
+    {
+      "number": 97,
+      "word": "plan",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "plans",
+        "past": "planned",
+        "pastParticiple": "planned",
+        "ing": "planning"
+      }
+    },
+    {
+      "number": 98,
+      "word": "enjoy",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "enjoys",
+        "past": "enjoyed",
+        "pastParticiple": "enjoyed",
+        "ing": "enjoying"
+      }
+    },
+    {
+      "number": 99,
+      "word": "prefer",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "prefers",
+        "past": "preferred",
+        "pastParticiple": "preferred",
+        "ing": "preferring"
+      }
+    },
+    {
+      "number": 100,
+      "word": "worry",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "worries",
+        "past": "worried",
+        "pastParticiple": "worried",
+        "ing": "worrying"
+      }
+    },
+    {
+      "number": 101,
+      "word": "check",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "checks",
+        "past": "checked",
+        "pastParticiple": "checked",
+        "ing": "checking"
+      }
+    },
+    {
+      "number": 102,
+      "word": "share",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "shares",
+        "past": "shared",
+        "pastParticiple": "shared",
+        "ing": "sharing"
+      }
+    },
+    {
+      "number": 103,
+      "word": "invite",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "invites",
+        "past": "invited",
+        "pastParticiple": "invited",
+        "ing": "inviting"
+      }
+    },
+    {
+      "number": 104,
+      "word": "join",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "joins",
+        "past": "joined",
+        "pastParticiple": "joined",
+        "ing": "joining"
+      }
+    },
+    {
+      "number": 105,
+      "word": "save",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "saves",
+        "past": "saved",
+        "pastParticiple": "saved",
+        "ing": "saving"
+      }
+    },
+    {
+      "number": 106,
+      "word": "finish",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "finishes",
+        "past": "finished",
+        "pastParticiple": "finished",
+        "ing": "finishing"
+      }
+    },
+    {
+      "number": 107,
+      "word": "practice",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "practices",
+        "past": "practiced/practised",
+        "pastParticiple": "practiced/practised",
+        "ing": "practicing/practising"
+      }
+    },
+    {
+      "number": 108,
+      "word": "improve",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "improves",
+        "past": "improved",
+        "pastParticiple": "improved",
+        "ing": "improving"
+      }
+    },
+    {
+      "number": 109,
+      "word": "choose",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "chooses",
+        "past": "chose",
+        "pastParticiple": "chosen",
+        "ing": "choosing"
+      }
+    },
+    {
+      "number": 110,
+      "word": "catch",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "catches",
+        "past": "caught",
+        "pastParticiple": "caught",
+        "ing": "catching"
+      }
+    },
+    {
+      "number": 111,
+      "word": "break",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "breaks",
+        "past": "broke",
+        "pastParticiple": "broken",
+        "ing": "breaking"
+      }
+    },
+    {
+      "number": 112,
+      "word": "fall",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "falls",
+        "past": "fell",
+        "pastParticiple": "fallen",
+        "ing": "falling"
+      }
+    },
+    {
+      "number": 113,
+      "word": "sell",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "sells",
+        "past": "sold",
+        "pastParticiple": "sold",
+        "ing": "selling"
+      }
+    },
+    {
+      "number": 114,
+      "word": "build",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "builds",
+        "past": "built",
+        "pastParticiple": "built",
+        "ing": "building"
+      }
+    },
+    {
+      "number": 115,
+      "word": "return",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "returns",
+        "past": "returned",
+        "pastParticiple": "returned",
+        "ing": "returning"
+      }
+    },
+    {
+      "number": 116,
+      "word": "explain",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "explains",
+        "past": "explained",
+        "pastParticiple": "explained",
+        "ing": "explaining"
+      }
+    },
+    {
+      "number": 117,
+      "word": "decide",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "decides",
+        "past": "decided",
+        "pastParticiple": "decided",
+        "ing": "deciding"
+      }
+    },
+    {
+      "number": 118,
+      "word": "receive",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "receives",
+        "past": "received",
+        "pastParticiple": "received",
+        "ing": "receiving"
+      }
+    },
+    {
+      "number": 119,
+      "word": "agree",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "agrees",
+        "past": "agreed",
+        "pastParticiple": "agreed",
+        "ing": "agreeing"
+      }
+    },
+    {
+      "number": 120,
+      "word": "listen",
+      "priority": "扩展",
+      "verbForms": {
+        "thirdPerson": "listens",
+        "past": "listened",
+        "pastParticiple": "listened",
+        "ing": "listening"
+      }
+    }
+  ]
+}
