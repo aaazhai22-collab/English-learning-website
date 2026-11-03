@@ -253,10 +253,12 @@ export function createSpeechController({ onStateChange, onError, allowReadingOnl
           audio.onerror = () => onlineFailure();
           const playChunk = () => {
             if (!isCurrentAudio()) return false;
-            // The server independently resolves this public ID; no text is submitted.
-            audio.src = readingOnline
-              ? `/api/reading/tts?text=${encodeURIComponent(chunks[chunkIndex])}&lang=${encodeURIComponent(selectedLang)}`
-              : `/api/tts?entry=${entryId}&lang=${encodeURIComponent(selectedLang)}&chunk=${chunkIndex}`;
+            // Pages uses direct audio for this chunk; hosted mode resolves public IDs on the server.
+            audio.src = browser.__READING_LAB_PAGES__
+              ? `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${encodeURIComponent(selectedLang)}&q=${encodeURIComponent(chunks[chunkIndex])}`
+              : readingOnline
+                ? `/api/reading/tts?text=${encodeURIComponent(chunks[chunkIndex])}&lang=${encodeURIComponent(selectedLang)}`
+                : `/api/tts?entry=${entryId}&lang=${encodeURIComponent(selectedLang)}&chunk=${chunkIndex}`;
             audio.playbackRate = selectedRate;
             clearTimeout(audioLoadTimer);
             audioLoadTimer = setTimeout(() => onlineFailure('online-timeout'), 15000);

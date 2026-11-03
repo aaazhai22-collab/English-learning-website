@@ -1,4 +1,18 @@
-# 词间日和 · 点读版
+# 阅读工坊 · 词间日和
+
+GitHub 仓库：<https://github.com/aaazhai22-collab/English-learning-website>
+
+GitHub Pages：<https://aaazhai22-collab.github.io/English-learning-website/>
+
+此仓库提供 GitHub Pages 静态发布：阅读工坊为首页，`vocabulary.html` 为完整词间日和，包含 168 条动词相关卡片。推送到 `main` 后，GitHub Actions 自动检查、构建和发布。发布说明与平台限制见 [GITHUB-PAGES.md](./GITHUB-PAGES.md)。
+
+```sh
+npm run check
+npm run build:pages
+```
+
+构建结果位于 `_site/`；不提交生成文件、个人进度、密钥、临时材料或旧站托管配置。旧站和新站是不同地址，需要在旧站导出完整备份，再到新站的“设置与数据备份”导入。
+
 
 现已融合「阅读工坊」作为网站首页：文章导入、零基础双语精读、点击查词、单词/短语/语法分类收藏、难题复习和间隔调度。原词间日和完整保留在 `/index.html`，原有浏览器词汇进度继续可用。新增功能、模型配置、联网范围与测试说明见 [READING-LAB.md](./READING-LAB.md)。
 
@@ -47,7 +61,7 @@ npm run dev
 npm run check
 ```
 
-`npm run build` 将页面、图片与词库打包为 `dist/server/index.js`，可部署为 Cloudflare Worker；不需要数据库或额外密钥。`worker/index.js` 与本地服务器共享语音接口，拒绝任意文本和外部 URL。单独把 `public/` 部署为静态站点时，系统语音仍可用，在线备用需要同源 `/api/tts` 接口。
+原 Worker 部署工具 `npm run build:worker`（需自行提供 `.openai/hosting.json`）将页面、图片与词库打包为 `dist/server/index.js`，可部署为 Cloudflare Worker；不需要数据库或额外密钥。`worker/index.js` 与本地服务器共享语音接口，拒绝任意文本和外部 URL。单独把 `public/` 部署为静态站点时，系统语音仍可用，在线备用需要同源 `/api/tts` 接口。
 
 本地 Node.js 24 会读取 Windows 现有系统代理以访问在线发音；其他环境可设置 `HTTPS_PROXY`。网络不可用时，安装系统英语语音包后仍可通过浏览器语音点读。
 

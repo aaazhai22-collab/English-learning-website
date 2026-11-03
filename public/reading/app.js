@@ -194,7 +194,10 @@ async function api(path,body,{signal}={}){
  const cancelled=()=>controller.abort(signal.reason||new DOMException('已取消','AbortError'));
  if(signal?.aborted)cancelled();else signal?.addEventListener('abort',cancelled,{once:true});
  try{
-  const response=await fetch(`/api/reading/${path}`,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,signal:controller.signal,cache:'no-store'});
+  const options={method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,signal:controller.signal,cache:'no-store'};
+  const response=window.__READING_LAB_PAGES__
+   ? await (await import('../pages/client-api.js')).requestReadingAPI(path,options)
+   : await fetch(`/api/reading/${path}`,options);
   let data;try{data=await response.json();}catch{if(controller.signal.aborted)throw controller.signal.reason;throw new Error('服务暂时不可用，请稍后重试。');}
   if(!response.ok)throw new Error(data.error||'请求没有完成，请稍后重试');return data;
  }catch(error){

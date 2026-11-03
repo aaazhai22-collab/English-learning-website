@@ -1,5 +1,6 @@
 node_modules/
 dist/
+_site/
 .qa/
 qa/
 .env
@@ -7,3 +8,20 @@ qa/
 !.env.example
 *.tar.gz
 *.log
+.openai/
+.codex/
+.agents/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.pem
+*.key
+credentials.json
+secrets.json
